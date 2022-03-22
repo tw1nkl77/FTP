@@ -1,27 +1,20 @@
-export default class BullsAndCows {
+import List from "./LIST";
+
+export default class BullsAndCows extends List {
     constructor() {
-        this.container = null;
-        this.inputChoice = null;
+        super();
         this.computerChoice = [];
         this.playerChoice = null;
         this.selectedNumbers = [];
         this.attempts = 10;
-        this.history = [];
         this.play = true;
-        this._init();
-    }
-
-    _init() {
-        this.container = document.querySelector('#result-attempt');
-        this.inputChoice = document.querySelector('#inputChoice');
     }
 
     getPlayerChoice() {
-        this._init();
-
         this.selectedNumbers.push({
             playerNumber: this.inputChoice.value,
         });
+
 
         return [...this.selectedNumbers[this.selectedNumbers.length - 1].playerNumber];
     }
@@ -33,7 +26,7 @@ export default class BullsAndCows {
     getComputerChoice() {
         const res = [];
 
-        while (res < 4) {
+        while (res.length < 4) {
             let randomNumber = this.getRandom();
 
             if (!res.includes(randomNumber)) {
@@ -41,6 +34,7 @@ export default class BullsAndCows {
             };
         };
 
+        this.computerChoice = res;
         return res;
     }
 
@@ -56,7 +50,7 @@ export default class BullsAndCows {
             };
         };
 
-        this.history.push({
+        this.items.push({
             choice: inputValue,
             bulls: bulls,
             cows: cows,
@@ -91,22 +85,8 @@ export default class BullsAndCows {
         this.container.innerHTML = '';
         this.playerChoice = [];
         this.computerChoice = [];
-        this.history = [];
+        this.items = [];
         this.attempts = 10;
         this.play = true;
     }
-
-    _render() {
-        let templateAll = '';
-        this.history.forEach(item => templateAll += this.getTemplate(item));
-        this.container.innerHTML = templateAll;
-    }
-
-    getTemplate(item) {
-        return `
-        <div class="result-attempt">
-            <p>Выбранная вами комбинация: <b>${item.choice}</b>. Быки: <b>${item.bulls}</b>, коровы: <b>${item.cows}</b>. Осталось: <b>${item.left} попыток!</b></p>
-        </div>
-        `;
-    }
-};
+}

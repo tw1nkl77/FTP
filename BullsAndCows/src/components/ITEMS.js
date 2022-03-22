@@ -4,18 +4,11 @@ function findItem(item, type) {
     return types[type].getTemplate(item);
 };
 
-export default class Item {
-    constructor(item, type = 'templatesBulls') {
-        this.item = item;
-        this.template = '';  
-    }
 
-    _init() {
-        this._render();    
-    }
+export default function getItem(item, type = 'templatesBulls') {
+    const itemTemplate = item;
+    const typeTemplate = type;
+    const template = findItem(itemTemplate, typeTemplate);
 
-    _render() {
-        this.template = findItem(item, this.type);
-    }
+    return template;
 };
-

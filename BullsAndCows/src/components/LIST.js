@@ -1,11 +1,11 @@
-import Item from "./ITEMS";
-import ITEMS from "./ITEMS";
+import getItem from "./ITEMS";
 
-export default class List extends Item {
+export default class List {
     constructor() {
         this.inputChoice = null;
         this.container = null;
         this.items = [];
+        this._init();
     }
 
     _init() {
@@ -22,8 +22,9 @@ export default class List extends Item {
         let accum = '';
 
         this.items.forEach(item => {
-            const newChoice = new Item(item)
-            accum += newChoice.template;
+            const newChoice = getItem(item)
+            accum += newChoice;
+            console.log(accum)
         })
 
         this.container.innerHTML = accum;
