@@ -2,7 +2,6 @@ import List from "./LIST";
 
 export default class BullsAndCows extends List {
     constructor() {
-        this.inputChoice = null;
         this.computerChoice = [];
         this.playerChoice = null;
         this.selectedNumbers = [];
@@ -11,8 +10,6 @@ export default class BullsAndCows extends List {
     }
 
     getPlayerChoice() {
-        this._init();
-
         this.selectedNumbers.push({
             playerNumber: this.inputChoice.value,
         });
@@ -35,6 +32,8 @@ export default class BullsAndCows extends List {
             };
         };
 
+        this.computerChoice = res;
+            
         return res;
     }
 

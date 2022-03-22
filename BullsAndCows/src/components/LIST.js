@@ -1,8 +1,9 @@
+import Item from "./ITEMS";
 import ITEMS from "./ITEMS";
-const choices = ITEMS;
 
 export default class List extends Item {
     constructor() {
+        this.inputChoice = null;
         this.container = null;
         this.items = [];
     }
@@ -21,7 +22,8 @@ export default class List extends Item {
         let accum = '';
 
         this.items.forEach(item => {
-            accum += choices.template;
+            const newChoice = new Item(item)
+            accum += newChoice.template;
         })
 
         this.container.innerHTML = accum;
