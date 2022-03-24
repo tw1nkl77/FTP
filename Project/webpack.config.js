@@ -61,8 +61,7 @@ module.exports = {
         })
     ],
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader
@@ -74,6 +73,10 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.pug$/,
+                loader: 'pug-plain-loader'
             }
         ]
     }

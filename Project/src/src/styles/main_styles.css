@@ -1098,10 +1098,18 @@ section {
     z-index: 2;
 }
 
+.product_grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    height: auto !important;
+    position: relative !important;
+    justify-content: space-between;
+}
+
 .product {
-    width: calc((100% - 90px) / 4);
+    /* width: calc((100% - 90px) / 4); */
+    width: 300px;
     transition: 0.3s;
-    position: absolute;
 }
 
 .product_image {
@@ -1594,7 +1602,8 @@ section {
     text-align: center;
 }
 
-.product:hover {
+
+/* .product:hover {
     transform: scale(1.03);
 }
 
@@ -1602,7 +1611,7 @@ section {
     display: block;
     position: absolute;
     transition: 0.3s;
-}
+} */
 
 .btn-add {
     position: relative;

@@ -1,9 +1,8 @@
-[
-    {
+[{
         "imgUrl": "/product_1.jpg",
         "name": "Smart Phone",
         "price": 480,
-        "prevPrice": null, 
+        "prevPrice": null,
         "category": 1,
         "id": "p1"
     },
@@ -52,7 +51,7 @@
         "name": "Smart Phone",
         "price": 510,
         "prevPrice": null,
-        "category": null,
+        "category": 1,
         "id": "p7"
     },
     {
@@ -60,7 +59,7 @@
         "name": "Smart Phone",
         "price": 450,
         "prevPrice": null,
-        "category": null,
+        "category": 2,
         "id": "p8"
     },
     {
