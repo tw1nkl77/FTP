@@ -58,7 +58,7 @@
         "imgUrl": "/product_8.jpg",
         "name": "Smart Phone",
         "price": 450,
-        "prevPrice": null,
+        "prevPrice": 650,
         "category": 2,
         "id": "p8"
     },
