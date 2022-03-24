@@ -3,6 +3,7 @@ import Item from "./LIST_ITEM";
 export default class List {
     constructor(url, type = 'catalog') {
         this.url = url;
+        this.container = null;
         this.items = [];
         this.prices = [];
         this.type = type;
@@ -13,11 +14,9 @@ export default class List {
     async _init() {
         try {
             this.items = await this._fetchData();
-        }
-        catch {
+        } catch {
             this.error = err;
-        }
-        finally {
+        } finally {
             this._initContainers();
 
             if (this.items.length) {
@@ -29,35 +28,41 @@ export default class List {
     _render() {
         let accum = '';
 
-        if (this.type === 'cart') {
-            this.countPrice();
-            this.countAmount();
+        if (this.container) {
+            if (this.type === 'cart') {
+                this.countPrice();
+                this.countAmount();
 
-            if (!(this.items.length > 0)) {
-                accum = `<hr><p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>`;
+                // if (!(this.items.length > 0)) {
+                //     accum = `<hr><p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>`;
+                // };
             };
-        };
 
-        this.items.forEach(item => {
-            const newItem = new Item(item, this.type);
+            this.items.forEach(item => {
+                const newItem = new Item(item, this.type);
 
-            if (this.type === 'catalog') {
-                if (item.category) {
+                if (this.type === 'catalog') {
+                    if (item.category) {
+                        accum += newItem.template;
+                    };
+                } else {
                     accum += newItem.template;
                 };
-            } else {
-                accum += newItem.template;
-            };
-            
-            if (this.type === 'cart') {
-                this.prices.push({
-                    id: item.id,
-                    price: item.price
-                });
-            };
-        });
-        console.log(window.location)
-        this.container.innerHTML = accum;
+
+                // if (this.type === 'cart') {
+                //     this.prices.push({
+                //         id: item.id,
+                //         price: item.price
+                //     });
+                // };
+            });
+
+            console.log(this.container)
+
+            this.container.innerHTML = accum;
+        }
+
+
     }
 
     async _fetchData() {
@@ -67,4 +72,4 @@ export default class List {
 
         return response;
     }
-}; 
+};

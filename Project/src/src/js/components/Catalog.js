@@ -5,7 +5,6 @@ export default class Catalog extends List {
     constructor(cart) {
         super(url);
         this.cart = cart;
-        this.container = null;
     }
 
     _initContainers() {
@@ -20,8 +19,7 @@ export default class Catalog extends List {
                 name: name,
                 price: price,
                 imgUrl: imgurl,
-                id: id,
-                amount: 1
+                id: id
             });
         };
     }

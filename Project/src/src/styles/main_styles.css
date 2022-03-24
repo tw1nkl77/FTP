@@ -1474,9 +1474,10 @@ section {
     max-height: 500px;
 }
 
-.shopping_cart:hover .cart__content {
+
+/* .shopping_cart:hover .cart__content {
     display: flex;
-}
+} */
 
 .button_custom {
     display: flex;
@@ -1518,7 +1519,8 @@ section {
     font-size: 13px;
 }
 
-.quantity {
+
+/* .quantity {
     display: flex;
     background-color: rgba(255, 255, 255, 0.788);
     max-width: 70px;
@@ -1599,7 +1601,7 @@ section {
     color: #333;
     font-weight: 400;
     text-align: center;
-}
+} */
 
 .product:hover {
     transform: scale(1.03);

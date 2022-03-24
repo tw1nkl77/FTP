@@ -41,15 +41,8 @@ module.exports = {
             }
         }),
         new HtmlWebpackPlugin({
-            filename: 'categories.html',
-            template: './categories.html',
-            minify: {
-                collapseWhitespace: isProd
-            }
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'product.html',
-            template: './product.html',
+            filename: 'cart.html',
+            template: './cart.html',
             minify: {
                 collapseWhitespace: isProd
             }

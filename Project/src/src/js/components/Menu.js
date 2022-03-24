@@ -4,7 +4,6 @@ const url = 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/me
 export default class Menu extends List {
     constructor(type = 'menu') {
         super(url, type);
-        this.container = null;
     }
 
     _initContainers() {

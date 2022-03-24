@@ -3,59 +3,60 @@ const url = 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/ca
 
 export default class Cart extends List {
     constructor(type = 'cart') {
-        super(url, type)
-        this.action = null;
-        this.container = null;
+        super(url, type);
     }
 
     _initContainers() {
-        this.container = document.querySelector('#cart-items');
-        // this.container.addEventListener('click', this._handleEvents.bind(this));
-        this.action = document.querySelector('.action');
-        // this.action.addEventListener('click', this._action.bind(this));
+        this.container = document.querySelector('#cart');
+        if (!this.container) {
+            return
+        } else {
+            this.container.addEventListener('click', this._handleEvents.bind(this));
+        }
     }
 
-    // _handleEvents(evt) {
-    //     const action = evt.target.classList;
-    //     const find = this.items.find(cartItem => cartItem.id === evt.path[1].dataset.id);
-    //     const prices = this.prices.find(cartItem => cartItem.id === evt.path[1].dataset.id);
+    _handleEvents(evt) {
+        // const action = evt.target.classList;
+        // const find = this.items.find(cartItem => cartItem.id === evt.path[1].dataset.id);
+        // const prices = this.prices.find(cartItem => cartItem.id === evt.path[1].dataset.id);
 
-    //     if (action.contains('item-delete')) {
-    //         this.removeItem(find.id);
-    //     } else if (action.contains('right')) {
-    //         find.amount++;
-    //         find.price = (+find.price) + (+prices.price);
-    //     } else if (action.contains('left')) {
-    //         if (find.amount > 1) {
-    //             find.amount--;
-    //             find.price = (+find.price) - (+prices.price);
-    //         };
-    //     };
+        // if (action.contains('item-delete')) {
+        //     this.removeItem(find.id);
+        // } else if (action.contains('right')) {
+        //     find.amount++;
+        //     find.price = (+find.price) + (+prices.price);
+        // } else if (action.contains('left')) {
+        //     if (find.amount > 1) {
+        //         find.amount--;
+        //         find.price = (+find.price) - (+prices.price);
+        //     };
+        // };
 
-    //     this._render();
-    // }
+        // this._render();
 
-    // addItem(item) {
-    //     const { name, price, imgUrl, id, amount } = item;
-    //     const find = this.items.find(cartItem => cartItem.id === id);
+        console.log(evt.target)
+    }
 
-    //     if (!find) {
-    //         this.items.push({
-    //             name,
-    //             price,
-    //             id,
-    //             imgUrl: imgUrl,
-    //             amount: amount
-    //         });
+    addItem(item) {
+        const { name, price, imgUrl, id } = item;
+        const find = this.items.find(cartItem => cartItem.id === id);
 
-    //         this.prices.push({
-    //             id: id,
-    //             price: price
-    //         });
-    //     };
+        if (!find) {
+            this.items.push({
+                name,
+                price,
+                id,
+                imgUrl: imgUrl,
+            });
 
-    //     this._render();
-    // }
+            this.prices.push({
+                id: id,
+                price: price
+            });
+        };
+
+        this._render();
+    }
 
     // removeItem(id) {
     //     const find = this.items.find(item => item.id === id);
@@ -94,4 +95,4 @@ export default class Cart extends List {
 
         document.querySelectorAll('.cart-counter').forEach(item => item.innerHTML = `(${totalCount})`);
     }
-}; 
+};
