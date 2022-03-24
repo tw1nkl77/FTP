@@ -1,1 +1,98 @@
-[{ "imgUrl": "/product_1.jpg", "name": "Smart Phone", "price": 670, "category": 1, "id": "p1" }, { "imgUrl": "/product_2.jpg", "name": "Smart Phone", "price": 67, "category": null, "id": "p2" }, { "imgUrl": "/product_3.jpg", "name": "Smart Phone", "price": 70, "category": null, "id": "p3" }, { "imgUrl": "/product_4.jpg", "name": "Smart Phone", "price": 6700, "category": 1, "id": "p4" }, { "imgUrl": "/product_5.jpg", "name": "Smart Phone", "price": 10, "category": 2, "id": "p5" }, { "imgUrl": "/product_6.jpg", "name": "Smart Phone", "price": 220, "category": null, "id": "p6" }, { "imgUrl": "/product_7.jpg", "name": "Smart Phone", "price": 510, "category": null, "id": "p7" }, { "imgUrl": "/product_8.jpg", "name": "Smart Phone", "price": 60, "category": 3, "id": "p8" }]
+[
+    {
+        "imgUrl": "/product_1.jpg",
+        "name": "Smart Phone",
+        "price": 480,
+        "prevPrice": null, 
+        "category": 1,
+        "id": "p1"
+    },
+    {
+        "imgUrl": "/product_2.jpg",
+        "name": "Smart Phone",
+        "price": 510,
+        "prevPrice": 640,
+        "category": 2,
+        "id": "p2"
+    },
+    {
+        "imgUrl": "/product_3.jpg",
+        "name": "Smart Phone",
+        "price": 720,
+        "prevPrice": null,
+        "category": 3,
+        "id": "p3"
+    },
+    {
+        "imgUrl": "/product_4.jpg",
+        "name": "Smart Phone",
+        "price": 670,
+        "prevPrice": null,
+        "category": 1,
+        "id": "p4"
+    },
+    {
+        "imgUrl": "/product_5.jpg",
+        "name": "Smart Phone",
+        "price": 510,
+        "prevPrice": 620,
+        "category": 2,
+        "id": "p5"
+    },
+    {
+        "imgUrl": "/product_6.jpg",
+        "name": "Smart Phone",
+        "price": 320,
+        "prevPrice": null,
+        "category": 3,
+        "id": "p6"
+    },
+    {
+        "imgUrl": "/product_7.jpg",
+        "name": "Smart Phone",
+        "price": 510,
+        "prevPrice": null,
+        "category": null,
+        "id": "p7"
+    },
+    {
+        "imgUrl": "/product_8.jpg",
+        "name": "Smart Phone",
+        "price": 450,
+        "prevPrice": null,
+        "category": null,
+        "id": "p8"
+    },
+    {
+        "imgUrl": "/product_9.jpg",
+        "name": "Smart Phone",
+        "price": 390,
+        "prevPrice": null,
+        "category": null,
+        "id": "p9"
+    },
+    {
+        "imgUrl": "/product_10.jpg",
+        "name": "Smart Phone",
+        "price": 550,
+        "prevPrice": null,
+        "category": null,
+        "id": "p10"
+    },
+    {
+        "imgUrl": "/product_11.jpg",
+        "name": "Smart Phone",
+        "price": 680,
+        "prevPrice": null,
+        "category": null,
+        "id": "p11"
+    },
+    {
+        "imgUrl": "/product_12.jpg",
+        "name": "Smart Phone",
+        "price": 570,
+        "prevPrice": null,
+        "category": null,
+        "id": "p12"
+    }
+]
