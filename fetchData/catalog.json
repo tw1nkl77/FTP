@@ -4,7 +4,7 @@
         "price": 480,
         "prevPrice": null,
         "category": 1,
-        "id": "p1"
+        "id": 1
     },
     {
         "imgUrl": "/product_2.jpg",
@@ -12,7 +12,7 @@
         "price": 510,
         "prevPrice": 640,
         "category": 2,
-        "id": "p2"
+        "id": 2
     },
     {
         "imgUrl": "/product_3.jpg",
@@ -20,7 +20,7 @@
         "price": 720,
         "prevPrice": null,
         "category": 3,
-        "id": "p3"
+        "id": 3
     },
     {
         "imgUrl": "/product_4.jpg",
@@ -28,7 +28,7 @@
         "price": 670,
         "prevPrice": null,
         "category": 1,
-        "id": "p4"
+        "id": 4
     },
     {
         "imgUrl": "/product_5.jpg",
@@ -36,7 +36,7 @@
         "price": 510,
         "prevPrice": 620,
         "category": 2,
-        "id": "p5"
+        "id": 5
     },
     {
         "imgUrl": "/product_6.jpg",
@@ -44,7 +44,7 @@
         "price": 320,
         "prevPrice": null,
         "category": 3,
-        "id": "p6"
+        "id": 6
     },
     {
         "imgUrl": "/product_7.jpg",
@@ -52,7 +52,7 @@
         "price": 510,
         "prevPrice": null,
         "category": 1,
-        "id": "p7"
+        "id": 7
     },
     {
         "imgUrl": "/product_8.jpg",
@@ -60,7 +60,7 @@
         "price": 450,
         "prevPrice": 650,
         "category": 2,
-        "id": "p8"
+        "id": 8
     },
     {
         "imgUrl": "/product_9.jpg",
@@ -68,7 +68,7 @@
         "price": 390,
         "prevPrice": null,
         "category": null,
-        "id": "p9"
+        "id": 9
     },
     {
         "imgUrl": "/product_10.jpg",
@@ -76,7 +76,7 @@
         "price": 550,
         "prevPrice": null,
         "category": null,
-        "id": "p10"
+        "id": 10
     },
     {
         "imgUrl": "/product_11.jpg",
@@ -84,7 +84,7 @@
         "price": 680,
         "prevPrice": null,
         "category": null,
-        "id": "p11"
+        "id": 11
     },
     {
         "imgUrl": "/product_12.jpg",
@@ -92,6 +92,6 @@
         "price": 570,
         "prevPrice": null,
         "category": null,
-        "id": "p12"
+        "id": 12
     }
 ]
