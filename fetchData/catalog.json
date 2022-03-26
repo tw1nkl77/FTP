@@ -1,7 +1,7 @@
 [
     {
         "imgUrl": "/product_1.jpg",
-        "name": "Apple iPhone 13 Pro Max",
+        "name": "IPHONE 13 PRO MAX",
         "price": 480,
         "prevPrice": null,
         "category": 1,
@@ -9,7 +9,7 @@
     },
     {
         "imgUrl": "/product_2.jpg",
-        "name": "Apple columns",
+        "name": "COLUMNS",
         "price": 510,
         "prevPrice": 640,
         "category": 2,
@@ -17,7 +17,7 @@
     },
     {
         "imgUrl": "/product_3.jpg",
-        "name": "Apple harging wire",
+        "name": "HARGING WIRE",
         "price": 720,
         "prevPrice": null,
         "category": 3,
@@ -25,7 +25,7 @@
     },
     {
         "imgUrl": "/product_4.jpg",
-        "name": "Apple Macbook PRO",
+        "name": "MACBOOK PRO",
         "price": 670,
         "prevPrice": null,
         "category": 1,
@@ -33,7 +33,7 @@
     },
     {
         "imgUrl": "/product_5.jpg",
-        "name": "Apple headphones",
+        "name": "HEADPHONES",
         "price": 510,
         "prevPrice": 620,
         "category": 2,
@@ -41,7 +41,7 @@
     },
     {
         "imgUrl": "/product_6.jpg",
-        "name": "Set Macbook Pro and Apple iPhone",
+        "name": "SET MACBOOK AND IPHONE",
         "price": 320,
         "prevPrice": null,
         "category": 3,
@@ -49,7 +49,7 @@
     },
     {
         "imgUrl": "/product_7.jpg",
-        "name": "Apple iPhone XR",
+        "name": "IPHONE XR",
         "price": 510,
         "prevPrice": null,
         "category": 1,
@@ -57,7 +57,7 @@
     },
     {
         "imgUrl": "/product_8.jpg",
-        "name": "Apple keyboard",
+        "name": "KEYBOARD",
         "price": 450,
         "prevPrice": 650,
         "category": 2,
@@ -65,7 +65,7 @@
     },
     {
         "imgUrl": "/product_9.jpg",
-        "name": "Unknown shit",
+        "name": "UNKNOWN SHIT",
         "price": 390,
         "prevPrice": null,
         "category": null,
@@ -73,7 +73,7 @@
     },
     {
         "imgUrl": "/product_10.jpg",
-        "name": "Apple headphones PRO",
+        "name": "HEADPHONES PRO",
         "price": 550,
         "prevPrice": null,
         "category": null,
@@ -81,7 +81,7 @@
     },
     {
         "imgUrl": "/product_11.jpg",
-        "name": "PlayStation 5",
+        "name": "PLAYSTATION 5",
         "price": 680,
         "prevPrice": null,
         "category": null,
@@ -89,7 +89,7 @@
     },
     {
         "imgUrl": "/product_12.jpg",
-        "name": "Apple photo camera",
+        "name": "PHOTO CAMERA",
         "price": 570,
         "prevPrice": null,
         "category": null,
