@@ -1,7 +1,7 @@
 import Item from "./LIST_ITEM";
 
 export default class List {
-    constructor(url, type = 'catalog') {
+    constructor(url, type) {
         this.url = url;
         this.container = null;
         this.items = [];
@@ -26,16 +26,16 @@ export default class List {
     }
 
     _render() {
-        let accum = '';
-
         if (this.container) {
+            let accum = '';
+
             if (this.type === 'cart') {
                 this.countPrice();
                 this.countAmount();
 
-                // if (!(this.items.length > 0)) {
-                //     accum = `<hr><p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>`;
-                // };
+                if (!(this.items.length > 0)) {
+                    accum = `<hr><p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>`;
+                };
             };
 
             this.items.forEach(item => {
@@ -49,20 +49,16 @@ export default class List {
                     accum += newItem.template;
                 };
 
-                // if (this.type === 'cart') {
-                //     this.prices.push({
-                //         id: item.id,
-                //         price: item.price
-                //     });
-                // };
+                if (this.type === 'cart') {
+                    this.prices.push({
+                        id: item.id,
+                        price: item.price
+                    });
+                };
             });
 
-            console.log(this.container)
-
             this.container.innerHTML = accum;
-        }
-
-
+        };
     }
 
     async _fetchData() {

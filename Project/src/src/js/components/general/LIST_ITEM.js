@@ -1,7 +1,7 @@
 import types from "../const/types";
 
 export default class Item {
-    constructor(item, type) {
+    constructor(item, type = 'catalog') {
         this.template = null;
         this.item = item;
         this.type = type;

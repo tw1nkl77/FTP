@@ -41,8 +41,15 @@ module.exports = {
             }
         }),
         new HtmlWebpackPlugin({
-            filename: 'cart.html',
-            template: './cart.html',
+            filename: 'categories.html',
+            template: './categories.html',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'product.html',
+            template: './product.html',
             minify: {
                 collapseWhitespace: isProd
             }
@@ -54,7 +61,8 @@ module.exports = {
         })
     ],
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.css$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader
@@ -66,10 +74,6 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
-            },
-            {
-                test: /\.pug$/,
-                loader: 'pug-plain-loader'
             }
         ]
     }
