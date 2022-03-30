@@ -1,5 +1,5 @@
 import List from "./general/LIST";
-const url = 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/menu.json';
+const url = '/menu';
 
 export default class Menu extends List {
     constructor(type = 'menu') {

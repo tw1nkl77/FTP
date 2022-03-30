@@ -34,7 +34,7 @@ export default class Cart extends List {
         // const el = document.querySelector('.cart__content').style.display = 'block';
 
         // if (evt.target.parentNode.id === 'cart' || evt.target.parentNode.parentNoe.id === 'cart') {
-
+        0
         // }
 
         // if (el) {
@@ -58,9 +58,10 @@ export default class Cart extends List {
             };
 
             this._render();
-        }
-        catch (err) {
+        } catch (err) {
             console.warn(err);
+        } finally {
+            this._render();
         };
     }
 
@@ -82,8 +83,7 @@ export default class Cart extends List {
                     this.items.push(newItem);
                     this._render();
                 };
-            }
-            catch (err) {
+            } catch (err) {
                 console.warn(err);
             };
         };
@@ -103,26 +103,28 @@ export default class Cart extends List {
 
             if (!data.error) {
                 switch (operator) {
-                    case 'plus': {
-                        find.amount++;
-                        find.totalPrice += (+find.price);
-                        break;
-                    };
-                    case "minus": {
-                        if (find.amount > 1) {
-                            find.amount--;
-                            find.totalPrice = find.totalPrice - find.price;
+                    case 'plus':
+                        {
+                            find.amount++;
+                            find.totalPrice += (+find.price);
+                            break;
                         };
-                        break;
-                    };
-                    default: {
-                        let index = this.items.indexOf(find);
-                        this.items.splice(index, 1);
-                    };
+                    case "minus":
+                        {
+                            if (find.amount > 1) {
+                                find.amount--;
+                                find.totalPrice = find.totalPrice - find.price;
+                            };
+                            break;
+                        };
+                    default:
+                        {
+                            let index = this.items.indexOf(find);
+                            this.items.splice(index, 1);
+                        };
                 };
             };
-        }
-        catch (err) {
+        } catch (err) {
             console.warn(err);
         };
     }
@@ -135,7 +137,7 @@ export default class Cart extends List {
         }
     }
 
-    async countPrice() {
+    countPrice() {
         let totalPrice;
 
         totalPrice = this.items.reduce((acc, item) => {
@@ -156,4 +158,4 @@ export default class Cart extends List {
 
         document.querySelectorAll('.cart-counter').forEach(item => item.innerHTML = `(${totalCount})`);
     }
-}; 
+};

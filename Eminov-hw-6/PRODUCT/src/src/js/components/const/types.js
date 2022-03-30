@@ -278,5 +278,36 @@ export default {
                 <a href="categories.html">${category.text}</a>
             </div>` : '';
         },
+    },
+
+    shoppingCart: {
+        getTemplate(item) {
+            const { id, name, price, imgUrl, totalPrice, amount } = item;
+
+            return `<div class="d-flex flex-row align-items-center mb-5">
+            <div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
+                <div class="cart_item_image">
+                    <div><img src="${PRODUCTS_API + imgUrl}"></div>
+                </div>
+                <div class="cart_item_name_container">
+                    <div class="cart_item_name"><a href="#">${name}</a></div>
+                    <div class="cart_item_edit" data-id="${id}">Remove Product</div>
+                </div>
+            </div>
+            <div class="cart_item_price">$${price}</div>
+            <div class="cart_item_quantity">
+                <div class="product_quantity_container">
+                    <div class="product_quantity clearfix">
+                        <span>Qty</span>
+                        <input id="quantity_input" type="text" pattern="[0-9]*" value="${amount}">
+                        <div class="quantity_buttons" data-id="${id}">
+                            <div id="quantity_inc_button" class="quantity_inc quantity_control right"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+                            <div id="quantity_dec_button" class="quantity_dec quantity_control left"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart_item_total">$${totalPrice}</div></div>`
+        }
     }
 };

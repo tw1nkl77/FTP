@@ -62,6 +62,13 @@ module.exports = {
                 collapseWhitespace: isProd
             }
         }),
+        new HtmlWebpackPlugin({
+            filename: 'cart.html',
+            template: './cart.html',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: './src/styles/[name].css',
@@ -69,8 +76,7 @@ module.exports = {
         })
     ],
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader

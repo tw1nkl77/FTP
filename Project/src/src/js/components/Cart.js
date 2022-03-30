@@ -1,5 +1,5 @@
 import List from "./general/LIST";
-const url = 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/cart.json';
+const url = '/cart';
 
 export default class Cart extends List {
     constructor(type = 'cart') {
@@ -94,4 +94,4 @@ export default class Cart extends List {
 
         document.querySelectorAll('.cart-counter').forEach(item => item.innerHTML = `(${totalCount})`);
     }
-}; 
+};

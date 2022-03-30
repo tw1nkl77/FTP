@@ -5,17 +5,17 @@ server.listen(3000);
 server.use('/', express.json());
 
 const pathFiles = [{
-    name: '/catalog',
-    path: './src/db/catalog.json'
-},
-{
-    name: '/menu',
-    path: './src/db/menu.json'
-},
-{
-    name: '/cart',
-    path: './src/db/cart.json'
-}
+        name: '/catalog',
+        path: './src/db/catalog.json'
+    },
+    {
+        name: '/menu',
+        path: './src/db/menu.json'
+    },
+    {
+        name: '/cart',
+        path: './src/db/cart.json'
+    }
 ];
 
 async function readJSON(path) {
@@ -31,7 +31,7 @@ async function readJSON(path) {
 };
 
 pathFiles.forEach(item => {
-    server.get(item.name, async (req, res) => {
+    server.get(item.name, async(req, res) => {
         try {
             const data = await readJSON(item.path);
             res.json(data);
@@ -41,15 +41,15 @@ pathFiles.forEach(item => {
     });
 });
 
-server.post('/cart', async (req, res) => {
+server.post('/cart', async(req, res) => {
     const newItem = req.body;
     try {
-        const dataFromFile = await readJSON('./src/db/cart.json');
-        dataFromFile.items.push(newItem);
-        dataFromFile.totalPrice += (+newItem.price);
-        dataFromFile.totalCounts += newItem.amount;
+        const data = await readJSON('./src/db/cart.json');
+        data.items.push(newItem);
+        data.totalPrice += (+newItem.price);
+        data.totalCounts += newItem.amount;
 
-        await fs.writeFileSync('./src/db/cart.json', JSON.stringify(dataFromFile, null, ' '));
+        await fs.writeFileSync('./src/db/cart.json', JSON.stringify(data, null, ' '));
 
         res.json({ error: false });
     } catch (err) {
@@ -58,9 +58,10 @@ server.post('/cart', async (req, res) => {
     }
 });
 
-server.put('/cart', async (req, res) => {
+server.put('/cart', async(req, res) => {
     const putItem = req.body;
     const operator = putItem.operator;
+    console.log(putItem)
     try {
         const data = await readJSON('./src/db/cart.json');
         const find = await data.items.find(cartItem => cartItem.id === putItem.id);
@@ -70,27 +71,26 @@ server.put('/cart', async (req, res) => {
             data.totalCounts++;
             find.totalPrice += putItem.price;
             data.totalPrice += (+putItem.price);
-            
+
         } else {
             if (find.amount > 1) {
                 find.amount--;
                 data.totalCounts--;
                 find.totalPrice = find.totalPrice - putItem.price;
                 data.totalPrice = data.totalPrice - putItem.price;
-                
+
             };
         };
 
-        await fs.writeFileSync('./src/db/cart.json', JSON.stringify(dataFromFile, null, ' '));
+        await fs.writeFileSync('./src/db/cart.json', JSON.stringify(data, null, ' '));
         res.json({ error: false });
-    }
-    catch (err) {
+    } catch (err) {
         res.json({ error: true });
         console.warn(err);
     };
 })
 
-server.delete('/cart', async (req, res) => {
+server.delete('/cart', async(req, res) => {
     const deleteItem = req.body;
 
     try {
@@ -104,8 +104,7 @@ server.delete('/cart', async (req, res) => {
 
         await fs.writeFileSync('./src/db/cart.json', JSON.stringify(data, null, ' '));
         res.json({ error: false });
-    }
-    catch (err) {
+    } catch (err) {
         res.json({ error: true });
         console.warn(err);
     };

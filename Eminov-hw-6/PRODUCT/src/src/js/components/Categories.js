@@ -27,21 +27,24 @@ export default class Categories extends List {
 
     _getTypeOfSort(sort, products) {
         switch (sort) {
-            case 'name': {
-                products.sort((prev, next) => {
-                    if (prev.name < next.name) return -1;
-                    if (prev.name < next.name) return 1;
-                });
-                break;
-            };
-            case 'price': {
-                products.sort((prev, next) => prev.price - next.price);
-                break;
-            }
-            default: {
-                products.sort((prev, next) => prev.id - next.id);
-                break;
-            };
+            case 'name':
+                {
+                    products.sort((prev, next) => {
+                        if (prev.name < next.name) return -1;
+                        if (prev.name < next.name) return 1;
+                    });
+                    break;
+                };
+            case 'price':
+                {
+                    products.sort((prev, next) => prev.price - next.price);
+                    break;
+                }
+            default:
+                {
+                    products.sort((prev, next) => prev.id - next.id);
+                    break;
+                };
         };
 
         this._render();
