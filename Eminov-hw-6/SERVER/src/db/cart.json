@@ -1,14 +1,5 @@
 {
- "totalCounts": 6,
- "totalPrice": 3060,
- "items": [
-  {
-   "id": "2",
-   "imgUrl": "/product_2.jpg",
-   "name": "COLUMNS",
-   "price": 510,
-   "totalPrice": 3060,
-   "amount": 6
-  }
- ]
+ "totalCounts": 0,
+ "totalPrice": 0,
+ "items": []
 }

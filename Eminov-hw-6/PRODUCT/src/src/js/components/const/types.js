@@ -171,20 +171,25 @@ export default {
 
     cart: {
         getTemplate(item) {
-            const { imgUrl, name, totalPrice, amount, id } = item;
-
-            return `<hr>
-            <div class="cart__item">
-                <img class="cart__item__img" src="${PRODUCTS_API + imgUrl}">
-                <div class="cart__item__info">
-                    <span>Name: <b>${name}</b></span>
-                    <div class="price__block">
-                        <span>Cost: <b>$${totalPrice}</b></span>
-                        <div class="quantity" data-id="${id}"><span class="left">-</span><span class="amount">${amount}</span><span class="right">+</span></div>
+            const { imgUrl, name, totalPrice, amount, id, price } = item;
+            return item ? `
+            <div class="cart">
+                <div class="cart__item">
+                    <img class="cart__item__img" src="${PRODUCTS_API + imgUrl}">
+                    <div class="cart__item__info">
+                        <span>Name: <b>${name}</b></span>
+                        <div class="price__block">
+                            <span>Cost: <b>$${price}</b></span>
+                            <div class="qty-flex">
+                                <span>Qty:</span>
+                                <div class="quantity" data-id="${id}"><span class="left">-</span><span class="amount">${amount}</span><span class="right">+</span></div>
+                            </div>
+                            <span>Total: <b>$${totalPrice}</b></span>
+                        </div>
                     </div>
-                    <div data-id="${id}"><span class="item-delete">Remove this product</span></div>
                 </div>
-            </div>`;
+                <div data-id="${id}"><span class="item-delete">&#128465</span></div>
+            </div>` : `<p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>`;
         }
     },
 
@@ -289,9 +294,9 @@ export default {
                 <div class="cart_item_image">
                     <div><img src="${PRODUCTS_API + imgUrl}"></div>
                 </div>
-                <div class="cart_item_name_container">
+                <div class="cart_item_name_container" data-id="${id}">
                     <div class="cart_item_name"><a href="#">${name}</a></div>
-                    <div class="cart_item_edit" data-id="${id}">Remove Product</div>
+                    <div class="cart_item_edit item-delete">Remove Product</div>
                 </div>
             </div>
             <div class="cart_item_price">$${price}</div>

@@ -6,6 +6,7 @@ export default class Cart extends List {
         super(url, type)
         this.action = null;
         this.toggleCart = null;
+        this.open = false;
     }
 
     async _init() {
@@ -25,23 +26,26 @@ export default class Cart extends List {
 
     _initContainers() {
         this.container = document.querySelector('#cart-items');
-        this.container.addEventListener('click', this._handleEvents.bind(this));
-        this.action = document.querySelector('.action').addEventListener('click', this._action.bind(this));
-        this.toggleCart = document.querySelector('#cart').addEventListener('click', this._toggleEvents.bind(this));
+
+        if (this.container) {
+            this.container.addEventListener('click', this._handleEvents.bind(this));
+            this.action = document.querySelector('.action');
+            this.action.addEventListener('click', this._action.bind(this));
+            this.toggleCart = document.querySelector('#cart').addEventListener('click', this._toggleEvents.bind(this));
+        };
     }
 
     _toggleEvents(evt) {
-        // const el = document.querySelector('.cart__content').style.display = 'block';
+        this.open = !this.open;
+        const cart = document.querySelector('.cart__content');
 
-        // if (evt.target.parentNode.id === 'cart' || evt.target.parentNode.parentNoe.id === 'cart') {
-        0
-        // }
-
-        // if (el) {
-        //     document.querySelector('.cart__content').style.display = 'none';       
-        // } else {
-        //     document.querySelector('.cart__content').style.display = 'block';
-        // };
+        if (evt.target.parentNode.id === 'cart' || evt.target.parentNode.parentNode.id === 'cart') {
+            if (!this.open) {
+                cart.classList.add('d-block');
+            } else {
+                cart.classList.remove('d-block');
+            };
+        };
     }
 
     async _handleEvents(evt) {
@@ -50,7 +54,7 @@ export default class Cart extends List {
 
         try {
             if (action.contains('item-delete')) {
-                await this.changeItem(find.id, 'DELETE', 'delete');
+                await this.changeItem(find.id, 'DELETE', 'deleteItem');
             } else if (action.contains('right')) {
                 await this.changeItem(find.id, 'PUT', 'plus');
             } else if (action.contains('left')) {
@@ -60,8 +64,6 @@ export default class Cart extends List {
             this._render();
         } catch (err) {
             console.warn(err);
-        } finally {
-            this._render();
         };
     }
 
@@ -129,10 +131,19 @@ export default class Cart extends List {
         };
     }
 
-    _action(evt) {
-        const { id } = evt.target;
-        if (id === 'remove') {
-            this.items = [];
+    async _action(evt) {
+        if (evt.path[1].id === 'remove' || evt.target.id === 'remove') {
+            let data = null;
+
+            data = fetch(this.url, {
+                method: 'DELETE',
+                headers: { "Content-Type": "application/json" }
+            });
+
+            if (!data.error) {
+                this.items = [];
+            };
+
             this._render();
         }
     }

@@ -5,17 +5,17 @@ server.listen(3000);
 server.use('/', express.json());
 
 const pathFiles = [{
-        name: '/catalog',
-        path: './src/db/catalog.json'
-    },
-    {
-        name: '/menu',
-        path: './src/db/menu.json'
-    },
-    {
-        name: '/cart',
-        path: './src/db/cart.json'
-    }
+    name: '/catalog',
+    path: './src/db/catalog.json'
+},
+{
+    name: '/menu',
+    path: './src/db/menu.json'
+},
+{
+    name: '/cart',
+    path: './src/db/cart.json'
+}
 ];
 
 async function readJSON(path) {
@@ -31,7 +31,7 @@ async function readJSON(path) {
 };
 
 pathFiles.forEach(item => {
-    server.get(item.name, async(req, res) => {
+    server.get(item.name, async (req, res) => {
         try {
             const data = await readJSON(item.path);
             res.json(data);
@@ -41,7 +41,7 @@ pathFiles.forEach(item => {
     });
 });
 
-server.post('/cart', async(req, res) => {
+server.post('/cart', async (req, res) => {
     const newItem = req.body;
     try {
         const data = await readJSON('./src/db/cart.json');
@@ -58,10 +58,9 @@ server.post('/cart', async(req, res) => {
     }
 });
 
-server.put('/cart', async(req, res) => {
+server.put('/cart', async (req, res) => {
     const putItem = req.body;
     const operator = putItem.operator;
-    console.log(putItem)
     try {
         const data = await readJSON('./src/db/cart.json');
         const find = await data.items.find(cartItem => cartItem.id === putItem.id);
@@ -90,17 +89,25 @@ server.put('/cart', async(req, res) => {
     };
 })
 
-server.delete('/cart', async(req, res) => {
+server.delete('/cart', async (req, res) => {
     const deleteItem = req.body;
+    const operator = req.body.operator;
 
     try {
         const data = await readJSON('./src/db/cart.json');
-        const find = await data.items.find(cartItem => cartItem.id === deleteItem.id);
 
-        let index = data.items.indexOf(find);
-        data.items.splice(index, 1);
-        data.totalPrice = data.totalPrice - find.totalPrice;
-        data.totalCounts = data.totalCounts - find.amount;
+        if (operator === 'deleteItem') {
+            const find = await data.items.find(cartItem => cartItem.id === deleteItem.id);
+
+            let index = data.items.indexOf(find);
+            data.items.splice(index, 1);
+            data.totalPrice = data.totalPrice - find.totalPrice;
+            data.totalCounts = data.totalCounts - find.amount;
+        } else {
+            data.items = [];
+            data.totalPrice = 0;
+            data.totalCounts = 0;    
+        };
 
         await fs.writeFileSync('./src/db/cart.json', JSON.stringify(data, null, ' '));
         res.json({ error: false });

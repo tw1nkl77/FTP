@@ -33,26 +33,12 @@
                                 </nav>
                                 <div class="header_extra ml-auto">
                                     <div class="shopping_cart">
-                                        <button id="cart">
+                                        <button>
                                             <img src="https://raw.githack.com/SergioElCringe/JS_step_1/main/students/Eminov/Project/Eminov-hw-8/src/assets/img/backet.svg"
                                                 height="20px" width="20px">
                                             <div>Cart <span class="cart-counter">(0)</span> <span
                                                     class="cart-prices">$0</span></div>
-                                            </button>
-                                        <div class="cart__content">
-                                            <h2 class="head-bascket">Main products</h2>
-                                            <div id="cart-items">
-                                                <!-- HERE Cart.js -->
-                                            </div>
-                                            <hr>
-                                            <div class="action">
-                                                <div class="continue"><span><a
-                                                            href="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/cart.html"><b>Continue</b></a></span>
-                                                </div>
-                                                <div class="clear-all"><b><span id="remove">Remove all
-                                                            products</span></b></div>
-                                            </div>
-                                        </div>
+                                        </button>
                                     </div>
                                     <div class="search">
                                         <div class="search_icon">
@@ -199,8 +185,9 @@
                 </div>
                 <div class="row cart_items_row">
                     <div class="col">
-                        <div class="cart_item flex-column align-items-lg-center align-items-start justify-content-start" id="shoppingCart">
+                        <div class="cart_item carts-listen flex-column align-items-lg-center align-items-start justify-content-start" id="shop-cart-items">
                             <!-- HERE ShoppingCart.js -->
+                            <p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>
                         </div>
                     </div>
                 </div>
@@ -208,8 +195,8 @@
                     <div class="col">
                         <div class="cart_buttons d-flex flex-lg-row flex-column align-items-start justify-content-start">
                             <div class="button continue_shopping_button"><a href="#">Continue shopping</a></div>
-                            <div class="cart_buttons_right ml-lg-auto">
-                                <div class="button clear_cart_button"><a href="#">Clear cart</a></div>
+                            <div class="cart_buttons_right ml-lg-auto flex">
+                                <div class="button clear_cart_button action" id="remove"><button>Clear cart</button></div>
                                 <div class="button update_cart_button"><a href="#">Update cart</a></div>
                             </div>
                         </div>
@@ -222,7 +209,7 @@
                         <div class="delivery">
                             <div class="section_title">Shipping method</div>
                             <div class="section_subtitle">Select the one you want</div>
-                            <div class="delivery_options">
+                            <div class="delivery_options" id="shipping">
                                 <label class="delivery_option clearfix">Next day delivery
 								<input type="radio" name="radio">
 								<span class="checkmark"></span>
@@ -262,7 +249,7 @@
                                 <ul>
                                     <li class="d-flex flex-row align-items-center justify-content-start">
                                         <div class="cart_total_title">Subtotal</div>
-                                        <div class="cart_total_value ml-auto">$790.90</div>
+                                        <div class="cart_total_value ml-auto subtotal">$0</div>
                                     </li>
                                     <li class="d-flex flex-row align-items-center justify-content-start">
                                         <div class="cart_total_title">Shipping</div>
@@ -270,7 +257,7 @@
                                     </li>
                                     <li class="d-flex flex-row align-items-center justify-content-start">
                                         <div class="cart_total_title">Total</div>
-                                        <div class="cart_total_value ml-auto">$790.90</div>
+                                        <div class="cart_total_value ml-auto main-total">$0</div>
                                     </li>
                                 </ul>
                             </div>
