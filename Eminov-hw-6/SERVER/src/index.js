@@ -78,7 +78,6 @@ server.put('/cart', async(req, res) => {
                 data.totalCounts--;
                 find.totalPrice = find.totalPrice - putItem.price;
                 data.totalPrice = data.totalPrice - putItem.price;
-
             };
         };
 
@@ -88,7 +87,7 @@ server.put('/cart', async(req, res) => {
         res.json({ error: true });
         console.warn(err);
     };
-})
+});
 
 server.delete('/cart', async(req, res) => {
     const deleteItem = req.body;
@@ -111,6 +110,23 @@ server.delete('/cart', async(req, res) => {
         };
 
         await fs.writeFileSync('./src/db/cart.json', JSON.stringify(data, null, ' '));
+        res.json({ error: false });
+    } catch (err) {
+        res.json({ error: true });
+        console.warn(err);
+    };
+});
+
+server.post('/contact', async(req, res) => {
+    const form = req.body;
+    console.log(form)
+
+    try {
+        const data = await readJSON('./src/db/contact.json');
+        console.log(data)
+        data.push(form);
+
+        await fs.writeFileSync('./src/db/contact.json', JSON.stringify(data, null, ' '));
         res.json({ error: false });
     } catch (err) {
         res.json({ error: true });
