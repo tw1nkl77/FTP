@@ -1,5 +1,30 @@
 {
- "totalCounts": 0,
- "totalPrice": 0,
- "items": []
+ "totalCounts": 3,
+ "totalPrice": 1870,
+ "items": [
+  {
+   "id": "1",
+   "imgUrl": "/product_1.jpg",
+   "name": "IPHONE 13 PRO MAX",
+   "price": 480,
+   "totalPrice": 480,
+   "amount": 1
+  },
+  {
+   "id": "3",
+   "imgUrl": "/product_3.jpg",
+   "name": "HARGING WIRE",
+   "price": 720,
+   "totalPrice": 720,
+   "amount": 1
+  },
+  {
+   "id": "4",
+   "imgUrl": "/product_4.jpg",
+   "name": "MACBOOK PRO",
+   "price": 670,
+   "totalPrice": 670,
+   "amount": 1
+  }
+ ]
 }

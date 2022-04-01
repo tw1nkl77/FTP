@@ -51,7 +51,7 @@
         "name": "IPHONE XR",
         "price": 510,
         "prevPrice": null,
-        "category": null,
+        "category": 1,
         "id": 7
     },
     {
@@ -59,7 +59,7 @@
         "name": "KEYBOARD",
         "price": 450,
         "prevPrice": 650,
-        "category": null,
+        "category": 2,
         "id": 8
     },
     {

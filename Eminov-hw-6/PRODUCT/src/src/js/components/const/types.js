@@ -314,5 +314,16 @@ export default {
             </div>
             <div class="cart_item_total">$${totalPrice}</div></div>`
         }
+    },
+
+    checkout: {
+        getTemplate(item) {
+            const { name, totalPrice } = item;
+
+            return `<li class="d-flex flex-row align-items-center justify-content-start">
+                <div class="order_list_title">${name}</div>
+                <div class="order_list_value ml-auto"><b>$${totalPrice}</b></div>
+            </li>`
+        }
     }
 };
