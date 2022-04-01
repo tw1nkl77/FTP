@@ -41,14 +41,7 @@ export default class List {
 
             this.items.forEach(item => {
                 const newItem = new Item(item, this.type);
-
-                if (this.type === 'catalog') {
-                    if (item.category) {
-                        accum += newItem.template;
-                    };
-                } else {
-                    accum += newItem.template;
-                };
+                accum += newItem.template;
 
                 if (this.type === 'cart') {
                     this.prices.push({
