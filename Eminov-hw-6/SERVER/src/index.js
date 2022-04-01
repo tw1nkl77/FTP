@@ -5,17 +5,17 @@ server.listen(3000);
 server.use('/', express.json());
 
 const pathFiles = [{
-    name: '/catalog',
-    path: './src/db/catalog.json'
-},
-{
-    name: '/menu',
-    path: './src/db/menu.json'
-},
-{
-    name: '/cart',
-    path: './src/db/cart.json'
-}
+        name: '/catalog',
+        path: './src/db/catalog.json'
+    },
+    {
+        name: '/menu',
+        path: './src/db/menu.json'
+    },
+    {
+        name: '/cart',
+        path: './src/db/cart.json'
+    }
 ];
 
 async function readJSON(path) {
@@ -31,7 +31,7 @@ async function readJSON(path) {
 };
 
 pathFiles.forEach(item => {
-    server.get(item.name, async (req, res) => {
+    server.get(item.name, async(req, res) => {
         try {
             const data = await readJSON(item.path);
             res.json(data);
@@ -41,8 +41,9 @@ pathFiles.forEach(item => {
     });
 });
 
-server.post('/cart', async (req, res) => {
+server.post('/cart', async(req, res) => {
     const newItem = req.body;
+    console.log(newItem)
     try {
         const data = await readJSON('./src/db/cart.json');
         data.items.push(newItem);
@@ -58,7 +59,7 @@ server.post('/cart', async (req, res) => {
     }
 });
 
-server.put('/cart', async (req, res) => {
+server.put('/cart', async(req, res) => {
     const putItem = req.body;
     const operator = putItem.operator;
     try {
@@ -89,7 +90,7 @@ server.put('/cart', async (req, res) => {
     };
 })
 
-server.delete('/cart', async (req, res) => {
+server.delete('/cart', async(req, res) => {
     const deleteItem = req.body;
     const operator = req.body.operator;
 
@@ -106,7 +107,7 @@ server.delete('/cart', async (req, res) => {
         } else {
             data.items = [];
             data.totalPrice = 0;
-            data.totalCounts = 0;    
+            data.totalCounts = 0;
         };
 
         await fs.writeFileSync('./src/db/cart.json', JSON.stringify(data, null, ' '));

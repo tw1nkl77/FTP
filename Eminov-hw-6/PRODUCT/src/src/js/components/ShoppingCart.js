@@ -1,8 +1,8 @@
 import Cart from "./Cart";
 
 export default class ShoppingCart extends Cart {
-    constructor(type = 'shoppingCart') {
-        super(type);
+    constructor(api, type = 'shoppingCart') {
+        super(api, type);
         this.shipping = null;
     }
 

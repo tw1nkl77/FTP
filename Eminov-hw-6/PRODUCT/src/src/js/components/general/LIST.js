@@ -1,19 +1,20 @@
 import Item from "./LIST_ITEM";
 
 export default class List {
-    constructor(url, type = 'categories') {
+    constructor(url, api = '', type = 'categories') {
         this.url = url;
         this.container = null;
         this.items = [];
         this.prices = [];
         this.type = type;
+        this.request = api;
         this.error = '';
         this._init();
     }
 
     async _init() {
         try {
-            this.items = await this._fetchData();
+            this.items = await this.request.send(this.url, 'GET');
         } catch {
             this.error = err;
         } finally {

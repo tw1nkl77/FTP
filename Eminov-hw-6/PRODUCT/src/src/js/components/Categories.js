@@ -2,8 +2,8 @@ import List from './general/LIST';
 const url = '/api/catalog';
 
 export default class Categories extends List {
-    constructor(cart) {
-        super(url);
+    constructor(cart, api) {
+        super(url, api);
         this.totaAmount = null;
         this.sort = null;
         this.desprod = null;

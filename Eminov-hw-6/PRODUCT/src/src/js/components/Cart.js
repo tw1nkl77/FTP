@@ -2,8 +2,8 @@ import List from "./general/LIST";
 const url = '/api/cart';
 
 export default class Cart extends List {
-    constructor(type = 'cart') {
-        super(url, type)
+    constructor(api, type = 'cart') {
+        super(url, api, type)
         this.action = null;
         this.toggleCart = null;
         this.open = false;
@@ -11,7 +11,7 @@ export default class Cart extends List {
 
     async _init() {
         try {
-            const data = await this._fetchData();
+            const data = await this.request.send(this.url, 'GET');
             this.items = data.items;
         } catch {
             this.error = err;
@@ -54,11 +54,11 @@ export default class Cart extends List {
 
         try {
             if (action.contains('item-delete')) {
-                await this.changeItem(find.id, 'DELETE', 'deleteItem');
+                await this.deleteItem(find.id);
             } else if (action.contains('right')) {
-                await this.changeItem(find.id, 'PUT', 'plus');
+                await this.putItem(find.id, 'plus');
             } else if (action.contains('left')) {
-                await this.changeItem(find.id, 'PUT', 'minus');
+                await this.putItem(find.id, 'minus');
             };
 
             this._render();
@@ -72,14 +72,9 @@ export default class Cart extends List {
         const find = this.items.find(cartItem => cartItem.id === id);
 
         if (!find) {
-            let data = null;
             const newItem = { id, imgUrl, name, price, totalPrice, amount: 1 };
             try {
-                data = await fetch(this.url, {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(newItem)
-                });
+                const data = await this.request.send(this.url, 'POST', newItem);;
 
                 if (!data.error) {
                     this.items.push(newItem);
@@ -91,40 +86,39 @@ export default class Cart extends List {
         };
     }
 
-    async changeItem(id, fetchMethod, operator) {
+    async putItem(id, operator) {
         const find = this.items.find(cartItem => cartItem.id === id);
-        const putItem = { id: id, amount: find.amount, price: find.price, operator };
-        let data = null;
+        const changeableItem = { id: id, amount: find.amount, price: find.price, operator };
 
         try {
-            data = await fetch(this.url, {
-                method: fetchMethod,
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(putItem)
-            });
+            const data = await this.request.send(this.url, 'PUT', changeableItem);
 
             if (!data.error) {
-                switch (operator) {
-                    case 'plus':
-                        {
-                            find.amount++;
-                            find.totalPrice += (+find.price);
-                            break;
-                        };
-                    case "minus":
-                        {
-                            if (find.amount > 1) {
-                                find.amount--;
-                                find.totalPrice = find.totalPrice - find.price;
-                            };
-                            break;
-                        };
-                    default:
-                        {
-                            let index = this.items.indexOf(find);
-                            this.items.splice(index, 1);
-                        };
+                if (operator === 'plus') {
+                    find.amount++;
+                    find.totalPrice += (+find.price);
+                } else {
+                    if (find.amount > 1) {
+                        find.amount--;
+                        find.totalPrice = find.totalPrice - find.price;
+                    };
                 };
+            };
+        } catch (err) {
+            console.warn(err);
+        };
+    }
+
+    async deleteItem(id) {
+        const find = this.items.find(cartItem => cartItem.id === id);
+        const changeableItem = { id: id, amount: find.amount, price: find.price, operator: 'deleteItem' };
+
+        try {
+            const data = await this.request.send(this.url, 'DELETE', changeableItem);
+
+            if (!data.error) {
+                let index = this.items.indexOf(find);
+                this.items.splice(index, 1);
             };
         } catch (err) {
             console.warn(err);
@@ -133,18 +127,17 @@ export default class Cart extends List {
 
     async _action(evt) {
         if (evt.path[1].id === 'remove' || evt.target.id === 'remove') {
-            let data = null;
+            try {
+                const data = this.request.send(this.url, 'DELETE');
 
-            data = fetch(this.url, {
-                method: 'DELETE',
-                headers: { "Content-Type": "application/json" }
-            });
+                if (!data.error) {
+                    this.items = [];
+                };
 
-            if (!data.error) {
-                this.items = [];
+                this._render();
+            } catch (err) {
+                console.warn(err);
             };
-
-            this._render();
         }
     }
 
