@@ -68,14 +68,13 @@ export default class Cart extends List {
     }
 
     async addItem(item) {
-        const { id, imgUrl, name, price, totalPrice } = item;
+        const { id, imgUrl, name, price, totalPrice, amount } = item;
         const find = this.items.find(cartItem => cartItem.id === id);
 
         if (!find) {
-            const newItem = { id, imgUrl, name, price, totalPrice, amount: 1 };
+            const newItem = { id, imgUrl, name, price, totalPrice, amount };
             try {
-                const data = await this.request.send(this.url, 'POST', newItem);;
-
+                const data = await this.request.send(this.url, 'POST', newItem);
                 if (!data.error) {
                     this.items.push(newItem);
                     this._render();

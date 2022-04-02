@@ -1,35 +1,19 @@
 {
- "totalCounts": 4,
- "totalPrice": 2380,
+ "totalCounts": 7,
+ "totalPrice": -10760,
  "items": [
   {
-   "id": "1",
-   "imgUrl": "/product_1.jpg",
-   "name": "IPHONE 13 PRO MAX",
-   "price": 480,
-   "totalPrice": 480,
+   "id": "8",
+   "imgUrl": "/product_8.jpg",
+   "name": "KEYBOARD",
+   "price": 450,
+   "totalPrice": 450,
    "amount": 1
   },
   {
-   "id": "3",
-   "imgUrl": "/product_3.jpg",
-   "name": "HARGING WIRE",
-   "price": 720,
-   "totalPrice": 720,
-   "amount": 1
-  },
-  {
-   "id": "4",
-   "imgUrl": "/product_4.jpg",
-   "name": "MACBOOK PRO",
-   "price": 670,
-   "totalPrice": 670,
-   "amount": 1
-  },
-  {
-   "id": "5",
-   "imgUrl": "/product_5.jpg",
-   "name": "HEADPHONES",
+   "id": "2",
+   "imgUrl": "/product_2.jpg",
+   "name": "COLUMNS",
    "price": 510,
    "totalPrice": 510,
    "amount": 1

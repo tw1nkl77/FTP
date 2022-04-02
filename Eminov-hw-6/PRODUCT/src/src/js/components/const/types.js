@@ -7,16 +7,14 @@ export default {
         getTemplate(item) {
             const { imgUrl, name, price, prevPrice, category, id } = item;
 
-            return `<div class="product">
+            return `<div class="product"
+                data-imgurl="${imgUrl}"
+                data-name="${name}"
+                data-price="${price}"
+                data-id="${id}">
                 <div class="product_image">
                     <img src="${PRODUCTS_API + imgUrl}" alt="">
-                    <div 
-                        class="btn-add"
-                        data-imgurl="${imgUrl}"
-                        data-name="${name}"
-                        data-price="${price}"
-                        data-id="${id}"
-                    >Add this product</div>
+                    <div class="btn-add">Add this product</div>
                 </div>
                 ${this.getCategory(category)}
                 <div class="product_content">
@@ -196,7 +194,7 @@ export default {
 
     description: {
         getTemplate(item) {
-            const { name, price, category, images } = item;
+            const { name, price, category, images, id } = item;
 
             return `
             <div class="col-lg-6
@@ -230,16 +228,19 @@ export default {
                             consequat nisi ut mauris efficitur lacinia.
                         </p>
                     </div>
-                    <div class="product_quantity_container">
+                    <div class="product_quantity_container" data-imgurl="${images[0]}"
+                        data-name="${name}"
+                        data-price="${price}"
+                        data-id="${id}">
                         <div class="product_quantity clearfix">
                             <span>Qty</span>
                             <input id="quantity_input" type="text" pattern="[0-9]*" value="1">
-                            <div class="quantity_buttons">
-                                <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-                                <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                            <div class="quantity_buttons" data-id=${id}>
+                                <div id="quantity_inc_button" class="quantity_inc quantity_control right"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+                                <div id="quantity_dec_button" class="quantity_dec quantity_control left"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
                             </div>
                         </div>
-                        <div class="button cart_button"><a href="#">Add to cart</a></div>
+                        <div class="button cart_button button-add"><div><button class="button-add" >Add to cart</button></div></div>
                     </div>
                     <div class="details_share">
                         <span>Share:</span>

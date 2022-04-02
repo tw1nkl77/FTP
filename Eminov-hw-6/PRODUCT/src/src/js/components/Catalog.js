@@ -2,8 +2,8 @@ import Categories from "./Categories";
 import Item from "./general/LIST_ITEM";
 
 export default class Catalog extends Categories {
-    constructor(cart, api, type = 'catalog') {
-        super(cart, api, type);
+    constructor(cart, api) {
+        super(cart, api);
     }
 
     _initContainers() {
@@ -19,7 +19,7 @@ export default class Catalog extends Categories {
             let accum = '';
 
             this.items.forEach(item => {
-                const newItem = new Item(item, this.type);
+                const newItem = new Item(item, this.type = 'catalog');
 
                 if (item.category) {
                     accum += newItem.template;
