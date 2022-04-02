@@ -1,6 +1,6 @@
 {
- "totalCounts": 3,
- "totalPrice": 1870,
+ "totalCounts": 4,
+ "totalPrice": 2380,
  "items": [
   {
    "id": "1",
@@ -24,6 +24,14 @@
    "name": "MACBOOK PRO",
    "price": 670,
    "totalPrice": 670,
+   "amount": 1
+  },
+  {
+   "id": "5",
+   "imgUrl": "/product_5.jpg",
+   "name": "HEADPHONES",
+   "price": 510,
+   "totalPrice": 510,
    "amount": 1
   }
  ]

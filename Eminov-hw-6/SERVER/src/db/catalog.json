@@ -4,6 +4,7 @@
         "price": 480,
         "prevPrice": null,
         "category": 1,
+        "additionalImg": ["/product_1.jpg", "/product_1.jpg", "/product_1.jpg", "/product_1.jpg", "/product_1.jpg"],
         "id": 1
     },
     {
@@ -12,6 +13,7 @@
         "price": 510,
         "prevPrice": 640,
         "category": 2,
+        "additionalImg": ["/product_2.jpg", "/product_2.jpg", "/product_2.jpg", "/product_2.jpg", "/product_2.jpg"],
         "id": 2
     },
     {
@@ -20,6 +22,7 @@
         "price": 720,
         "prevPrice": null,
         "category": 3,
+        "additionalImg": ["/product_3.jpg", "/product_3.jpg", "/product_3.jpg", "/product_3.jpg", "/product_3.jpg"],
         "id": 3
     },
     {
@@ -27,6 +30,7 @@
         "name": "MACBOOK PRO",
         "price": 670,
         "prevPrice": null,
+        "additionalImg": ["/product_4.jpg", "/product_4.jpg", "/product_4.jpg", "/product_4.jpg", "/product_4.jpg"],
         "category": 1,
         "id": 4
     },
@@ -36,6 +40,7 @@
         "price": 510,
         "prevPrice": 620,
         "category": 2,
+        "additionalImg": ["/product_5.jpg", "/product_5.jpg", "/product_5.jpg", "/product_5.jpg", "/product_5.jpg"],
         "id": 5
     },
     {
@@ -44,6 +49,7 @@
         "price": 320,
         "prevPrice": null,
         "category": 3,
+        "additionalImg": ["/product_6.jpg", "/product_6.jpg", "/product_6.jpg", "/product_6.jpg", "/product_6.jpg"],
         "id": 6
     },
     {
@@ -52,6 +58,7 @@
         "price": 510,
         "prevPrice": null,
         "category": 1,
+        "additionalImg": ["/product_7.jpg", "/product_7.jpg", "/product_7.jpg", "/product_7.jpg", "/product_7.jpg"],
         "id": 7
     },
     {
@@ -60,6 +67,7 @@
         "price": 450,
         "prevPrice": 650,
         "category": 2,
+        "additionalImg": ["/product_8.jpg", "/product_8.jpg", "/product_8.jpg", "/product_8.jpg", "/product_8.jpg"],
         "id": 8
     },
     {
@@ -68,6 +76,7 @@
         "price": 390,
         "prevPrice": null,
         "category": null,
+        "additionalImg": ["/product_9.jpg", "/product_9.jpg", "/product_9.jpg", "/product_9.jpg", "/product_9.jpg"],
         "id": 9
     },
     {
@@ -76,6 +85,7 @@
         "price": 550,
         "prevPrice": null,
         "category": null,
+        "additionalImg": ["/product_10.jpg", "/product_10.jpg", "/product_10.jpg", "/product_10.jpg", "/product_10.jpg"],
         "id": 10
     },
     {
@@ -84,6 +94,7 @@
         "price": 680,
         "prevPrice": null,
         "category": null,
+        "additionalImg": ["/product_11.jpg", "/product_11.jpg", "/product_11.jpg", "/product_11.jpg", "/product_11.jpg"],
         "id": 11
     },
     {
@@ -92,6 +103,7 @@
         "price": 570,
         "prevPrice": null,
         "category": null,
+        "additionalImg": ["/product_12.jpg", "/product_12.jpg", "/product_12.jpg", "/product_12.jpg", "/product_12.jpg"],
         "id": 12
     }
 ]

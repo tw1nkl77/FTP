@@ -69,20 +69,20 @@ module.exports = {
                 collapseWhitespace: isProd
             }
         }),
-        new HtmlWebpackPlugin({
-            filename: 'checkout.html',
-            template: './checkout.html',
-            minify: {
-                collapseWhitespace: isProd
-            }
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'contact.html',
-            template: './contact.html',
-            minify: {
-                collapseWhitespace: isProd
-            }
-        }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'checkout.html',
+        //     template: './checkout.html',
+        //     minify: {
+        //         collapseWhitespace: isProd
+        //     }
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'contact.html',
+        //     template: './contact.html',
+        //     minify: {
+        //         collapseWhitespace: isProd
+        //     }
+        // }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: './src/styles/[name].css',
