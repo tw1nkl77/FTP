@@ -195,7 +195,7 @@ export default {
 
     description: {
         getTemplate(item) {
-            const { name, price, imgUrl, category, amount } = item;
+            const { name, price, imgUrl, category, additionalImg } = item;
 
             return `
             <div class="col-lg-6
@@ -203,6 +203,12 @@ export default {
                     <div class="details_image_large">
                         <img src="${PRODUCTS_API + imgUrl}">
                         ${this.getCategory(category)}
+                    </div>
+                    <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
+                        <div class="details_image_thumbnail active" data-image="images/details_1.jpg"><img src="images/details_1.jpg"></div>
+                        <div class="details_image_thumbnail" data-image="images/details_2.jpg"><img src="images/details_2.jpg"></div>
+                        <div class="details_image_thumbnail" data-image="images/details_3.jpg"><img src="images/details_3.jpg"></div>
+                        <div class="details_image_thumbnail" data-image="images/details_4.jpg"><img src="images/details_4.jpg"></div>
                     </div>
                 </div>
             </div>
