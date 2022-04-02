@@ -15,6 +15,10 @@ const pathFiles = [{
     {
         name: '/cart',
         path: './src/db/cart.json'
+    },
+    {
+        name: '/description',
+        path: './src/db/descriptionCatalog.json'
     }
 ];
 
@@ -34,6 +38,7 @@ pathFiles.forEach(item => {
     server.get(item.name, async(req, res) => {
         try {
             const data = await readJSON(item.path);
+            console.log(data)
             res.json(data);
         } catch (err) {
             console.log(`Error: + ${err}`);

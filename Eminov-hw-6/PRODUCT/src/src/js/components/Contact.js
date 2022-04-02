@@ -6,14 +6,16 @@ export default class Contact {
         this.inputSurname = null;
         this.inputSubject = null;
         this.inputMessage = null;
-        this.sendButton = null;
+        this.submit = null;
         this.request = api;
         this._init()
     }
 
     _init() {
-        this.sendButton = document.querySelector('.contact_button');
-        this.sendButton.addEventListener('click', this._handleEvents.bind(this));
+        this.submit = document.querySelector('.contact_button');
+        if (this.submit) {
+            this.submit.addEventListener('click', this._handleEvents.bind(this));
+        };
     }
 
     async _handleEvents(evt) {

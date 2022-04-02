@@ -11,7 +11,7 @@ export default function(api) {
     const cart = new Cart(api);
     const catalog = new Catalog(cart, api);
     const menu = new Menu(api);
-    const description = new Description(cart);
+    const description = new Description(cart, api);
     const categories = new Categories(cart, api);
     const shoppingCart = new ShoppingCart(api);
     const checkout = new Checkout(api);

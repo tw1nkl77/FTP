@@ -1,5 +1,6 @@
 export const PRODUCTS_API = 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products';
 export const menuApi = 'https://raw.githack.com/SergioElCringe/JS_step_1/main/BASE__PROJECT';
+export const additionalApi = 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/img';
 
 export default {
     catalog: {
@@ -195,20 +196,20 @@ export default {
 
     description: {
         getTemplate(item) {
-            const { name, price, imgUrl, category, additionalImg } = item;
+            const { name, price, category, images } = item;
 
             return `
             <div class="col-lg-6
                 <div class="details_image">
                     <div class="details_image_large">
-                        <img src="${PRODUCTS_API + imgUrl}">
+                        <img src="${PRODUCTS_API + images[0]}">
                         ${this.getCategory(category)}
                     </div>
                     <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
-                        <div class="details_image_thumbnail active" data-image="images/details_1.jpg"><img src="images/details_1.jpg"></div>
-                        <div class="details_image_thumbnail" data-image="images/details_2.jpg"><img src="images/details_2.jpg"></div>
-                        <div class="details_image_thumbnail" data-image="images/details_3.jpg"><img src="images/details_3.jpg"></div>
-                        <div class="details_image_thumbnail" data-image="images/details_4.jpg"><img src="images/details_4.jpg"></div>
+                        <div class="details_image_thumbnail active" data-image="${images[0]}"><img src="${additionalApi + images[0]}"></div>
+                        <div class="details_image_thumbnail" data-image="${images[1]}"><img src="${additionalApi + images[1]}"></div>
+                        <div class="details_image_thumbnail" data-image="${images[2]}"><img src="${additionalApi + images[2]}"></div>
+                        <div class="details_image_thumbnail" data-image="${images[3]}"><img src="${additionalApi + images[3]}"></div>
                     </div>
                 </div>
             </div>

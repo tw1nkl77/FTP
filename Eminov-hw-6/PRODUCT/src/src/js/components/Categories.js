@@ -68,12 +68,8 @@ export default class Categories extends List {
         };
 
         if (evt.path[1].classList.contains('product_title')) {
-            const { name, price, imgurl } = evt.path[3].dataset;
-            const product = {
-                name: name,
-                price: price,
-                imgUrl: imgurl
-            };
+            const { id, price, name } = evt.path[3].dataset;
+            const product = { id, price, name };
 
             localStorage.setItem("product", JSON.stringify(product));
         };
