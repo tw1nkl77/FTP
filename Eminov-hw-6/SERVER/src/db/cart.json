@@ -1,14 +1,14 @@
 {
- "totalCounts": 7,
- "totalPrice": -10760,
+ "totalCounts": 3,
+ "totalPrice": 1530,
  "items": [
   {
-   "id": "8",
-   "imgUrl": "/product_8.jpg",
-   "name": "KEYBOARD",
-   "price": 450,
-   "totalPrice": 450,
-   "amount": 1
+   "id": "7",
+   "imgUrl": "/product_7.jpg",
+   "name": "IPHONE XR",
+   "price": 510,
+   "totalPrice": 1020,
+   "amount": 2
   },
   {
    "id": "2",

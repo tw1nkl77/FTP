@@ -4,7 +4,6 @@ import Menu from "./components/Menu";
 import Categories from "./components/Categories";
 import Description from "./components/DesProduct";
 import ShoppingCart from "./components/ShoppingCart";
-import Checkout from "./components/Chekout";
 import Contact from "./components/Contact";
 
 export default function(api) {
@@ -14,6 +13,5 @@ export default function(api) {
     const description = new Description(cart, api);
     const categories = new Categories(cart, api);
     const shoppingCart = new ShoppingCart(api);
-    const checkout = new Checkout(api);
     const contact = new Contact(api);
 };
