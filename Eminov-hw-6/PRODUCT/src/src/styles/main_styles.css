@@ -219,6 +219,10 @@ section {
     overflow: hidden;
 }
 
+.contact_button {
+    font-weight: 600;
+}
+
 .prlx_parent {
     overflow: hidden;
 }

@@ -1,22 +1,12 @@
 {
- "totalCounts": 3,
- "totalPrice": 1530,
+ "totalCounts": null,
+ "totalPrice": null,
  "items": [
   {
-   "id": "7",
-   "imgUrl": "/product_7.jpg",
-   "name": "IPHONE XR",
-   "price": 510,
-   "totalPrice": 1020,
-   "amount": 2
-  },
-  {
-   "id": "2",
-   "imgUrl": "/product_2.jpg",
-   "name": "COLUMNS",
-   "price": 510,
-   "totalPrice": 510,
-   "amount": 1
+   "name": "",
+   "surname": "",
+   "subject": "",
+   "message": ""
   }
  ]
 }
