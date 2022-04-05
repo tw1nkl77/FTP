@@ -1,12 +1,5 @@
 {
- "totalCounts": null,
- "totalPrice": null,
- "items": [
-  {
-   "name": "",
-   "surname": "",
-   "subject": "",
-   "message": ""
-  }
- ]
+ "totalCounts": 0,
+ "totalPrice": 0,
+ "items": []
 }
