@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "api": "nodemon src"
+        "api": "nodemon src",
+        "fileDB": "node ./scripts/fileDB"
     },
     "nodemon": {
         "ignore": [

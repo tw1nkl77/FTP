@@ -1,34 +1,28 @@
-import Item from "./general/LIST_ITEM";
 import Categories from "./Categories";
 const url = '/api/description';
+const carouselUrl = 'https://raw.githack.com/SergioElCringe/JS_step_1/main/BASE__PROJECT/images';
 
 export default class Description extends Categories {
     constructor(cart, api, type = 'description') {
         super(cart, api, type);
-        this.amount = 1;
+        this.localProduct = null;
+        this.qty = 1;
     }
 
     async _init() {
         this._initContainers();
 
         if (this.container) {
-            const localProduct = JSON.parse(localStorage.product);
+            const { name, id, price, amount, imgUrl, totalPrice } = JSON.parse(localStorage.product);
 
             try {
                 const data = await this.request.send(url, 'GET');
-                
+
                 if (!data.error) {
-                    const find = data.find(item => item.id == localProduct.id);
+                    const find = data.find(item => item.id == id);
 
                     if (find) {
-                        this.items.push({
-                            imgUrl: localProduct.imgUrl,
-                            id: localProduct.id,
-                            name: localProduct.name,
-                            price: localProduct.price,
-                            amount: localProduct.amount,
-                            images: find.images
-                        });
+                        this.items.push({ imgUrl, id, name, price, totalPrice, amount, images: find.images });
                     };
                 };
             } catch (err) {
@@ -49,40 +43,41 @@ export default class Description extends Categories {
         };
     }
 
-    _handleEvents(evt) {
-        const { name, price, imgurl, id } = evt.path[3].dataset;
-
-        if (evt.target.classList.contains('right')) {
-            this.amount += 1;
-            document.querySelector('#quantity_input').value = this.amount;
-        } else if (evt.target.classList.contains('left')) {
-            if (this.amount > 1) {
-                document.querySelector('#quantity_input').value = --this.amount;
+    _methodsAction(action, product, carouselImg) {
+        switch (action) {
+            case 'btn-add': {
+                this.cart.addItem(product);
+                break;
             };
-        };
-
-        const product = {
-            name: name,
-            price: Number(price),
-            imgUrl: imgurl,
-            id: id,
-            totalPrice: Number(price * this.amount),
-            amount: this.amount
-        };
-
-        if (evt.target.classList.contains('button-add')) {
-            this.cart.addItem(product);
-        };
-
-        if (evt.path[1].dataset.image) {
-            const { image } = evt.path[1].dataset;
-            this._carousel(image)
+            case 'quantity_inc_button': {
+                document.querySelector('#quantity_input').value = ++this.qty;
+                product.totalPrice += product.price;
+                product.amount = this.qty;
+                break;
+            };
+            case 'quantity_dec_button': {
+                if (this.qty > 1) {
+                    document.querySelector('#quantity_input').value = --this.qty;
+                    product.totalPrice = product.totalPrice - product.price;
+                    product.amount = this.qty;
+                };
+                break;
+            };
+            case 'carousel-image': {
+                this._carousel(carouselImg);
+            };
         };
     }
 
-    _carousel(img) {
-        const carousel = document.querySelector('.details_image_large');
-        const url = 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/img';
-        carousel.innerHTML = `<img src="${url + img}">`
+    _handleEvents(evt) {
+        const action = evt.target.id;
+        const product = this.items[0];
+        const { img } = evt.target.dataset;
+
+        this._methodsAction(action, product, img);
+    }
+
+    _carousel(carouselImg) {
+        document.querySelector('.details_image_large').innerHTML = `<img src="${carouselUrl + carouselImg}">`;
     }
 }

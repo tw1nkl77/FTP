@@ -1,28 +1,22 @@
-const fs = require('fs');
 const express = require('express');
 const server = express();
+const cart = require('./components/cart');
+const contact = require('./components/contact');
+const readJSON = require('../plugins/readJSON');
+const writeJSON = require('../plugins/writeJSON');
+
 server.listen(3000);
 server.use('/', express.json());
-require('./db/cart.json')
 
 const catalogURL = './src/db/catalog.json';
 const cartURL = './src/db/cart.json';
 const menuURL = './src/db/menu.json';
-const descriptionURL = './src/db/descriptionCatalog.json'
+const descriptionURL = './src/db/descriptionCatalog.json';
+const contactURL = './src/db/contact.json';
+const shippingMethods = "./src/db/shippingMethods.json";
 
-async function readJSON(path) {
-    const options = { encoding: 'utf-8' };
-    let data = null;
-
-    try {
-        data = await fs.readFileSync(path, options);
-        return JSON.parse(data);
-    } catch (err) {
-        console.log(err);
-    };
-};
-
-server.get('/catalog', async (req, res) => {
+//GET REQUEST
+server.get('/catalog', async(req, res) => {
     try {
         const data = await readJSON(catalogURL);
         res.json(data);
@@ -31,7 +25,7 @@ server.get('/catalog', async (req, res) => {
     };
 });
 
-server.get('/description', async (req, res) => {
+server.get('/description', async(req, res) => {
     try {
         const data = await readJSON(descriptionURL);
         res.json(data);
@@ -40,7 +34,7 @@ server.get('/description', async (req, res) => {
     };
 });
 
-server.get('/cart', async (req, res) => {
+server.get('/cart', async(req, res) => {
     try {
         const data = await readJSON(cartURL);
         res.json(data);
@@ -49,7 +43,7 @@ server.get('/cart', async (req, res) => {
     };
 });
 
-server.get('/menu', async (req, res) => {
+server.get('/menu', async(req, res) => {
     try {
         const data = await readJSON(menuURL);
         res.json(data);
@@ -58,17 +52,24 @@ server.get('/menu', async (req, res) => {
     };
 });
 
-server.post('/cart', async (req, res) => {
+server.get('/shipping', async(req, res) => {
+    try {
+        const data = await readJSON(shippingMethods);
+        console.log(data)
+        res.json(data);
+    } catch (err) {
+        console.log(`Error: + ${err}`);
+    };
+});
+
+//POST REQUEST
+server.post('/cart', async(req, res) => {
     const newItem = req.body;
 
     try {
         const data = await readJSON(cartURL);
-
-        data.items.push(newItem);
-        data.totalPrice += (+newItem.price);
-        data.totalCounts += newItem.amount;
-
-        await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+        cart.addItem(data, newItem);
+        await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
         res.json({ error: true });
@@ -76,27 +77,29 @@ server.post('/cart', async (req, res) => {
     }
 });
 
-server.put('/cart/:id', async (req, res) => {
+server.post('/contact', async(req, res) => {
+    const form = req.body;
+
+    try {
+        const data = await readJSON(contactURL);
+        contact.addItem(data, form);
+        await writeJSON(contactURL, data);
+        res.json({ error: false });
+    } catch (err) {
+        res.json({ error: true });
+        console.warn(err);
+    };
+});
+
+//PUT REQUEST
+server.put('/cart/:id', async(req, res) => {
     const putItem = req.params;
     const { value, price } = req.body;
 
     try {
         const data = await readJSON(cartURL);
-        const find = await data.items.find(item => item.id === putItem.id);
-
-        if (value == -1 && find.amount == 1) {
-            const index = data.items.indexOf(find);
-            data.items.splice(index, 1);
-            data.totalCounts += value;
-            data.totalPrice += price;
-        } else {
-            find.amount += value;
-            find.totalPrice += price;
-            data.totalCounts += value;
-            data.totalPrice += price;
-        }
-
-        await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+        cart.changeItem(data, { value, price, id: putItem.id });
+        await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
         res.json({ error: true });
@@ -104,31 +107,18 @@ server.put('/cart/:id', async (req, res) => {
     };
 })
 
-server.delete('/cart/:id', async (req, res) => {
+//DELETE REQUEST
+server.delete('/cart/:id', async(req, res) => {
     const putItem = req.params;
     const { removeAll } = req.body;
 
     try {
         const data = await readJSON(cartURL);
-
-        if (!removeAll) {
-            const find = await data.items.find(item => item.id === putItem.id);
-
-            const index = data.items.indexOf(find);
-            data.items.splice(index, 1);
-
-            data.totalPrice = data.totalPrice - find.totalPrice;
-            data.totalCounts = data.totalCounts - find.amount;
-        } else {
-            data.items = [];
-            data.totalPrice = 0;
-            data.totalCounts = 0;
-        };
-
-        await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+        cart.deleteItem(data, { id: putItem.id }, removeAll);
+        await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
         res.json({ error: true });
         console.warn(err);
     };
-})
+});

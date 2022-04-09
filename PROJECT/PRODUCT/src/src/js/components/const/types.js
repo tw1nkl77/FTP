@@ -208,7 +208,7 @@ export default {
                         <img src="${PRODUCTS_API + imgUrl}">
                         ${this.getCategory(category)}
                     </div>
-                    <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
+                    <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between" id="carousel">
                         ${this.getCarousel(images, imgUrl)}   
                     </div>
                 </div>
@@ -239,7 +239,7 @@ export default {
                                 <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
                             </div>
                         </div>
-                        <div class="button cart_button"><a href="#">Add to cart</a></div>
+                        <div class="button cart_button"><button id="btn-add">Add to cart</button></div>
                     </div>
                     <div class="details_share">
                         <span>Share:</span>
@@ -291,11 +291,11 @@ export default {
             </div>` : '';
         },
 
-        getCarousel(val, img) {
-            let acc = ''; 
+        getCarousel(val) {
+            let acc = '';
 
             val.forEach(item => {
-                acc += `<div class="details_image_thumbnail"><img src="${carouselApi + item}"></div>`;
+                acc += `<div class="details_image_thumbnail"><img src="${carouselApi + item}" id="carousel-image" data-img="${item}"></div>`;
             });
 
             return acc;
@@ -341,6 +341,22 @@ export default {
                 <div class="order_list_title">${name}</div>
                 <div class="order_list_value ml-auto"><b>$${totalPrice}</b></div>
             </li>`
+        }
+    },
+
+    shipping: {
+        getTemplate(item) {
+            const { method, price, id } = item;
+
+            return `<label class="delivery_option clearfix" data-id="${id}">${method}
+                ${this.checkInput(id)}
+                <span class="checkmark"></span>
+                <span class="delivery_price">$${price}</span>
+            </label>`;
+        },
+
+        checkInput(id) {
+            return id == 1 ? `<input type="radio" checked="checked" name="radio">` : `<input type="radio" name="radio">`;
         }
     }
 };

@@ -1,21 +1,21 @@
 {
  "totalCounts": 2,
- "totalPrice": 1230,
+ "totalPrice": 1240,
  "items": [
   {
-   "id": "2",
-   "imgUrl": "/product_2.jpg",
-   "name": "COLUMNS",
-   "price": 510,
-   "totalPrice": 510,
+   "id": 4,
+   "imgUrl": "/product_4.jpg",
+   "name": "MACBOOK PRO",
+   "price": 670,
+   "totalPrice": 670,
    "amount": 1
   },
   {
-   "id": "3",
-   "imgUrl": "/product_3.jpg",
-   "name": "HARGING WIRE",
-   "price": 720,
-   "totalPrice": 720,
+   "id": 12,
+   "imgUrl": "/product_12.jpg",
+   "name": "PHOTO CAMERA",
+   "price": 570,
+   "totalPrice": 570,
    "amount": 1
   }
  ]
