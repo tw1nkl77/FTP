@@ -1,5 +1,6 @@
 import List from "./general/LIST";
 const url = '/api/cart';
+const test = 'test';
 
 export default class Cart extends List {
     constructor(api, type = 'cart') {
