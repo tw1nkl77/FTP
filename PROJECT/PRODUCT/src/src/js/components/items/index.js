@@ -1,7 +1,7 @@
 import './style.css';
 
 export default {
-    props: ['item', 'api', 'type'],
+    props: ['item', 'api', 'type', 'actions'],
 
     data() {
         return {
@@ -23,12 +23,15 @@ export default {
         },
     },
 
+    mounted() {
+        console.log(this.actions)
+    },
     template: `
         <div>
             <div class="product" v-if="type === 'catalog' && item.category">
                 <div class="product_image">
                     <img :src="api.productApi + item.imgUrl">
-                    <div class="btn-add">Add this product</div>
+                    <div class="btn-add" @click="actions.addItem(item)">Add this product</div>
                 </div>
                 <div class="product_extra" :class="category.class" v-if="item.category">
                     <a href="categories.html">{{ category.text }}</a>
@@ -54,9 +57,9 @@ export default {
                         <div class="qty-flex">
                             <span>Qty:</span>
                             <div class="qty">
-                                <button id="item-minus" class="item-minus" @click="changeItem(item.id, -1, -item.price)">-</button>
+                                <button id="item-minus" class="item-minus" @click="actions.changeItem(item, -1, -item.price)">-</button>
                                 <span class="amount">{{ item.amount }}</span>
-                                <button id="item-plus" class="item-plus" @click="changeItem(item.id, 1, item.price)">+</button>
+                                <button id="item-plus" class="item-plus" @click="actions.changeItem(item, 1, item.price)">+</button>
                             </div>
                         </div>
                         <span>Total: <b>{{ item.totalPrice }}$</b></span>

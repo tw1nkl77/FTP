@@ -12,12 +12,48 @@ export default {
             api: {
                 productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
                 url: '/api/cart'
+            },
+            actions: {
+                changeItem: this.changeItem,
+                addItem: this.addItem
             }
         };
     },
     methods: {
-        changeItem(id, value, price) {
-            console.log(value, price)
+        async addItem(item) {
+            console.log(item)
+            // const { id, imgUrl, name, price, totalPrice, amount = 1 } = item;
+            // const find = this.items.find(item => item.id === id);
+    
+            // if (!find) {
+            //     const newItem = { id, imgUrl, name, price, totalPrice, amount };
+            //     try {
+            //         const data = await this.$api.send(this.url, 'POST', newItem);
+    
+            //         if (!data.error) {
+            //             this.items.push(newItem);
+            //         };
+            //     } catch (err) {
+            //         console.warn(err);
+            //     };
+            // };
+        },
+
+        async changeItem(item, value, price) {
+            try {
+                const data = await this.$api.send(this.api.url + `/${item.id}`, 'PUT', { value, price });
+    
+                if (!data.error) {
+                    if (value == -1 && find.amount == 1) {
+                        await this.deleteItem(item.id);
+                    } else {
+                        item.amount += value;
+                        item.totalPrice += price;
+                    };
+                };
+            } catch (err) {
+                console.warn(err);
+            };
         }
     },
     async created() {
@@ -43,12 +79,18 @@ export default {
                 v-for="item of items"
                 :key="item.id"
                 :item="item"
-                :api="api"/>
+                :api="api"
+                :actions="actions"/>
                 <hr>
                 <div class="action">
-                    <div class="continue"><span><a href="cart.html"><b>Continue</b></a></span>
+                    <div class="continue">
+                        <span>
+                            <a href="cart.html"><b>Continue</b></a>
+                        </span>
                     </div>
-                    <div class="clear-all"><b><span id="remove">Remove all products</span></b></div>
+                    <div class="clear-all">
+                        <span id="remove"><b>Remove all products</b></span>
+                    </div>
                 </div>
             </div>
         </div>    
