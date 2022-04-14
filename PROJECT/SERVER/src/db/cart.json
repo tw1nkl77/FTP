@@ -1,22 +1,14 @@
 {
- "totalCounts": 2,
- "totalPrice": 1240,
+ "totalCounts": 10,
+ "totalPrice": 4800,
  "items": [
   {
-   "id": 4,
-   "imgUrl": "/product_4.jpg",
-   "name": "MACBOOK PRO",
-   "price": 670,
-   "totalPrice": 670,
-   "amount": 1
-  },
-  {
-   "id": 12,
-   "imgUrl": "/product_12.jpg",
-   "name": "PHOTO CAMERA",
-   "price": 570,
-   "totalPrice": 570,
-   "amount": 1
+   "id": "1",
+   "imgUrl": "/product_1.jpg",
+   "name": "IPHONE 13 PRO MAX",
+   "price": 480,
+   "totalPrice": 4800,
+   "amount": 10
   }
  ]
 }

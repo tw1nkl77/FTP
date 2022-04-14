@@ -1,5 +1,5 @@
 function findItem(data, id) {
-    return data.items.find(item => item.id == id);
+    return data.items.find(item => item.id === id);
 };
 
 module.exports = {
