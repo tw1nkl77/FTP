@@ -10,6 +10,9 @@ export default {
             api: {
                 productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
                 url: '/api/catalog'
+            },
+            actions: {
+                type: 'catalog'
             }
         };
     },
@@ -28,7 +31,7 @@ export default {
             :key="item.key"
             :item="item"
             :api="api"
-            :type="'catalog'"/>
+            :actions="actions"/>
         </div>
     `
 }

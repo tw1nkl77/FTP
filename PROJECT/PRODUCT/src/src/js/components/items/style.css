@@ -8,6 +8,8 @@
 .product {
     width: 250px;
     transition: 0.3s;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .product_image {
@@ -127,12 +129,6 @@
 .sale .new-price {
     color: green;
 }
-
-
-
-
-
-
 
 .cart {
     display: flex;

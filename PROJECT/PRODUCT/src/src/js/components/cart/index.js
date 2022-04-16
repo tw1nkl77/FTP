@@ -4,6 +4,7 @@ import item from "../items"
 export default {
     name: 'cart',
     components: { item },
+
     data() {
         return {
             items: [],
@@ -14,38 +15,21 @@ export default {
                 url: '/api/cart'
             },
             actions: {
+                type: 'cart',
                 changeItem: this.changeItem,
-                addItem: this.addItem
+                deleteItem: this.deleteItem
             }
         };
     },
-    methods: {
-        async addItem(item) {
-            console.log(item)
-            // const { id, imgUrl, name, price, totalPrice, amount = 1 } = item;
-            // const find = this.items.find(item => item.id === id);
-    
-            // if (!find) {
-            //     const newItem = { id, imgUrl, name, price, totalPrice, amount };
-            //     try {
-            //         const data = await this.$api.send(this.url, 'POST', newItem);
-    
-            //         if (!data.error) {
-            //             this.items.push(newItem);
-            //         };
-            //     } catch (err) {
-            //         console.warn(err);
-            //     };
-            // };
-        },
 
+    methods: {
         async changeItem(item, value, price) {
             try {
                 const data = await this.$api.send(this.api.url + `/${item.id}`, 'PUT', { value, price });
     
                 if (!data.error) {
-                    if (value == -1 && find.amount == 1) {
-                        await this.deleteItem(item.id);
+                    if (value == -1 && item.amount == 1) {
+                        await this.deleteItem(false, item.id);
                     } else {
                         item.amount += value;
                         item.totalPrice += price;
@@ -54,8 +38,45 @@ export default {
             } catch (err) {
                 console.warn(err);
             };
+        },
+
+        async deleteItem(removeAllItems, id = '') {
+            try {
+                if (!removeAllItems) {
+                    const find = this.items.find(item => item.id == id);
+                    const data = await this.$api.send(this.api.url, 'DELETE', { removeAllItems, id: find.id })
+
+                    if (!data.error) {
+                        const index = this.items.indexOf(find);
+                        this.items.splice(index, 1)
+                    };
+                } else {
+                    const data = await this.$api.send(this.api.url, 'DELETE', { removeAllItems })
+
+                    if (!data.error) {
+                        this.items = [];
+                    };
+                }
+            } catch (err) {
+                console.warn(err);
+            };
+        },
+    },
+
+    computed: {
+        totalPrice() {
+            return this.items.reduce((acc, item) => {
+                return acc += item.totalPrice;
+            }, 0);
+        },
+
+        totalCount() {
+            return this.items.reduce((acc, item) => {
+                return acc += item.amount;
+            }, 0);
         }
     },
+
     async created() {
         try {
             const data = await this.$api.send(this.api.url, 'GET');
@@ -70,27 +91,32 @@ export default {
             <button @click="openCart = !openCart">
                 <img :src="cartIcon" height="20px" width="20px">
                 <div>Cart
-                    <span class="cart-counter">(0)</span>
-                    <span class="cart-prices">$0</span>
+                    <span class="cart-counter">({{ totalCount }})</span>
+                    <span class="cart-prices">{{ totalPrice }}$</span>
                 </div>
             </button>
             <div class="cart__content" v-show="openCart">
-                <item :type="'cart'"
-                v-for="item of items"
-                :key="item.id"
-                :item="item"
-                :api="api"
-                :actions="actions"/>
-                <hr>
-                <div class="action">
-                    <div class="continue">
-                        <span>
-                            <a href="cart.html"><b>Continue</b></a>
-                        </span>
-                    </div>
-                    <div class="clear-all">
-                        <span id="remove"><b>Remove all products</b></span>
-                    </div>
+                <div v-if="items.length > 0">
+                    <item 
+                    v-for="item of items"
+                    :key="item.id"
+                    :item="item"
+                    :api="api"
+                    :actions="actions"/>
+                    <hr>
+                    <div class="action">
+                        <div class="continue">
+                            <span>
+                                <a href="cart.html"><b>Continue</b></a>
+                            </span>
+                        </div>
+                        <div class="clear-all">
+                            <span id="remove" @click="deleteItem(true)"><b>Remove all products</b></span>
+                        </div>
+                    </div> 
+                </div>
+                <div v-else>
+                    <p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>
                 </div>
             </div>
         </div>    

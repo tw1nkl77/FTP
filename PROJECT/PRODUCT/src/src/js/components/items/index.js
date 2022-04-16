@@ -1,7 +1,7 @@
 import './style.css';
 
 export default {
-    props: ['item', 'api', 'type', 'actions'],
+    props: ['item', 'api', 'actions'],
 
     data() {
         return {
@@ -23,15 +23,12 @@ export default {
         },
     },
 
-    mounted() {
-        console.log(this.actions)
-    },
     template: `
         <div>
-            <div class="product" v-if="type === 'catalog' && item.category">
+            <div class="product" v-if="actions.type === 'catalog' && item.category">
                 <div class="product_image">
                     <img :src="api.productApi + item.imgUrl">
-                    <div class="btn-add" @click="actions.addItem(item)">Add this product</div>
+                    <div class="btn-add">Add this product</div>
                 </div>
                 <div class="product_extra" :class="category.class" v-if="item.category">
                     <a href="categories.html">{{ category.text }}</a>
@@ -47,29 +44,37 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="cart" v-else-if="type === 'cart'">
-            <div class="cart__item">
-                <img class="cart__item__img" :src="api.productApi + item.imgUrl">
-                <div class="cart__item__info">
-                    <span>Name: <b>{{ item.name }}</b></span>
-                    <div class="price__block">
-                        <span>Cost: <b>{{ item.price }}$</b></span>
-                        <div class="qty-flex">
-                            <span>Qty:</span>
-                            <div class="qty">
-                                <button id="item-minus" class="item-minus" @click="actions.changeItem(item, -1, -item.price)">-</button>
-                                <span class="amount">{{ item.amount }}</span>
-                                <button id="item-plus" class="item-plus" @click="actions.changeItem(item, 1, item.price)">+</button>
+            <div class="cart" v-else-if="actions.type === 'cart'">
+                <div class="cart__item">
+                    <img class="cart__item__img" :src="api.productApi + item.imgUrl">
+                    <div class="cart__item__info">
+                        <span>Name: <b>{{ item.name }}</b></span>
+                        <div class="price__block">
+                            <span>Cost: <b>{{ item.price }}$</b></span>
+                            <div class="qty-flex">
+                                <span>Qty:</span>
+                                <div class="qty">
+                                    <button class="item-minus" @click="actions.changeItem(item, -1, -item.price)">-</button>
+                                    <span class="amount">{{ item.amount }}</span>
+                                    <button class="item-plus" @click="actions.changeItem(item, 1, item.price)">+</button>
+                                </div>
                             </div>
+                            <span>Total: <b>{{ item.totalPrice }}$</b></span>
                         </div>
-                        <span>Total: <b>{{ item.totalPrice }}$</b></span>
                     </div>
                 </div>
+                <div>
+                    <span class="item-delete" @click="actions.deleteItem(false, item.id)">&#128465</span>
+                </div>
             </div>
-            <div>
-                <span id="item-delete" class="item-delete" @click="deleteItem(false, item.id)">&#128465</span>
-            </div>
-        </div>
+            <li v-else-if="actions.type === 'menunavigation'" :class="{ hassubs: item.subCategories }">
+                <a :href="item.url">{{ item.name }}</a>
+                <ul v-if="item.subCategories">
+                    <li v-for="item of item.subCategories">
+                        <a :href="item.url">{{ item.name }}</a>
+                    </li>       
+                </ul>
+            </li>
         </div>
     `
 };

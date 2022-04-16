@@ -3,7 +3,7 @@
     flex-wrap: wrap !important;
     height: auto !important;
     position: relative !important;
-    justify-content: space-between;
+    justify-content: center !important;
 }
 
 @media screen and (max-width: 546px) {
