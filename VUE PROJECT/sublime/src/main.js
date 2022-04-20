@@ -1,12 +1,26 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import RequestManager from './plugins/api/index';
+// import './assets/plugins/OwlCarousel2-2.2.1/owl.carousel';
+// import './assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css';
+// import './assets/plugins/OwlCarousel2-2.2.1/animate.css';
+import './styles/cart_responsive.css'
+import './styles/cart.css'
+import './styles/categories_responsive.css'
+import './styles/categories.css'
+import './styles/checkout_responsive.css'
+import './styles/checkout.css'
+import './styles/contact_responsive.css'
+import './styles/contact.css'
+import './styles/main_styles.css'
+import './styles/product_responsive.css'
+import './styles/product.css'
+import './styles/responsive.css'
+import './styles/f-a/css/font-awesome.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-Vue.config.productionTip = false
+window.$api = new RequestManager();
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+createApp(App).use(store).use(router).mount('#app');
