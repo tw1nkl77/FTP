@@ -25,17 +25,11 @@ export default {
     };
   },
 
-  methods: {
-    addItem(item) {
-      console.log(item)
-    }
-  },
-
   async created() {
     try {
-    //   this.items = await $api.send(this.api.url, "GET");
+      // this.items = await $api.send(this.api.url, "GET");
     this.items = await fetch('https://raw.githubusercontent.com/schultznoan/FTP/main/catalog.json').then(d => d.json());
-    console.log(this.items)
+    // console.log($api)
     } catch (err) {
       console.warn(err);
     }

@@ -19,7 +19,7 @@ import './styles/product_responsive.css'
 import './styles/product.css'
 import './styles/responsive.css'
 import './styles/f-a/css/font-awesome.min.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import './assets/plugins/bootstrap4/bootstrap.min.css'
 
 window.$api = new RequestManager();
 
