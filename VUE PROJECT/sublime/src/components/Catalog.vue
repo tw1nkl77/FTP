@@ -14,7 +14,7 @@
 import CatalogItem from './items/CatalogItem.vue';
 
 export default {
-  name: 'categories',
+  name: 'Catalog',
   components: { CatalogItem },
   props: {
     discountProducts: {
@@ -35,10 +35,7 @@ export default {
   methods: {
     async fetchCatalog() {
       try {
-        // this.items = await $api.send(this.api.url, "GET");
-        this.items = await fetch(
-          "https://raw.githubusercontent.com/schultznoan/FTP/main/catalog.json"
-        ).then((d) => d.json());
+        this.items = await $api.send(this.api.url, 'GET');
       } catch (err) {
         console.warn(err);
       }

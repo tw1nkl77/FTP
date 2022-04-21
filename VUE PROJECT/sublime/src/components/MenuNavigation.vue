@@ -29,8 +29,7 @@ export default {
   methods: {
     async fetchMenu() {
       try {
-        // this.items = await $api.send('https://raw.githubusercontent.com/schultznoan/FTP/main/menu.json', "GET");
-        this.items = await fetch('https://raw.githubusercontent.com/schultznoan/FTP/main/menu.json').then(d => d.json());
+        this.items = await $api.send(this.api.url, "GET");
       } catch (err) {
         console.warn(err);
       }

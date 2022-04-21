@@ -2,14 +2,14 @@
   <div class="product" v-if="hasCategory ? item.category : true">
     <div class="product_image">
       <img :src="imgUrl" />
-      <div class="btn-add" @click="$parent.$parent.$refs.cart.addItem(item)">Add this product</div>
+      <div class="btn-add" @click="$parent.$parent.addItem(item)">Add this product</div>
     </div>
     <div class="product_extra" :class="category.class" v-if="item.category">
       <a href="categories.html">{{ category.text }}</a>
     </div>
     <div class="product_content">
       <div class="product_title">
-        <a href="product.html" class="desprod">{{ item.name }}</a>
+        <router-link :to="`/product/${item.id}`">{{ item.name }}</router-link>
         <div class="product_price sale" v-if="item.category === 2">
           <span class="old-price"><s>{{ item.prevPrice }}$</s></span>
           <span class="new-price">{{ item.price }}$</span>
@@ -60,5 +60,9 @@ export default {
       return this.api.productApi + this.item.imgUrl;
     },
   },
+
+  created() {
+    console.log(this.$parent.$parent.$parent.$parent.$refs.cart)
+  }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="shopping_cart">
     <button @click="openCart = !openCart">
-      <img :src="cartIcon" height="20px" width="20px" />
+      <img src="../assets/img/basket.svg" />
       <div>
         Cart
         <span class="cart-counter">({{ totalCount }})</span>
@@ -20,7 +20,7 @@
         <div class="action">
           <div class="continue">
             <span>
-              <a href="cart.html"><b>Continue</b></a>
+              <router-link to="/Cart"><b>Continue</b></router-link>
             </span>
           </div>
           <div class="clear-all">
@@ -52,7 +52,6 @@ export default {
     return {
       items: [],
       openCart: false,
-      cartIcon: 'https://raw.githack.com/SergioElCringe/JS_step_1/main/students/Eminov/Project/Eminov-hw-8/src/assets/img/backet.svg',
       api: {
         productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
         url: '/api/cart',
@@ -75,7 +74,7 @@ export default {
           amount: 1,
         };
         try {
-          const data = await $api.send(this.api.url, "POST", newItem);
+          const data = await $api.send(this.api.url, 'POST', newItem);
           if (!data.error) {
             this.items.push(newItem);
           }
@@ -89,7 +88,7 @@ export default {
       const find = this.items.find((item) => item.id == id);
 
       try {
-        const data = await $api.send(this.api.url + `/${id}`, "PUT", {
+        const data = await $api.send(this.api.url + `/${id}`, 'PUT', {
           value,
           price,
         });
@@ -111,7 +110,7 @@ export default {
       try {
         if (!removeAllItems) {
           const find = this.items.find((item) => item.id == id);
-          const data = await $api.send(this.api.url, "DELETE", {
+          const data = await $api.send(this.api.url, 'DELETE', {
             removeAllItems,
             id: find.id,
           });
@@ -121,7 +120,7 @@ export default {
             this.items.splice(index, 1);
           }
         } else {
-          const data = await $api.send(this.api.url, "DELETE", {
+          const data = await $api.send(this.api.url, 'DELETE', {
             removeAllItems,
           });
 
@@ -136,10 +135,7 @@ export default {
 
     async fetchCart() {
       try {
-        //   const data = await $api.send(this.api.url, "GET");
-        const data = await fetch(
-          "https://raw.githubusercontent.com/schultznoan/FTP/main/cart.json"
-        ).then((d) => d.json());
+        const data = await $api.send(this.api.url, 'GET');
         this.items = data.items;
       } catch (err) {
         console.warn(err);

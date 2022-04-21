@@ -1504,6 +1504,12 @@ section {
     height: 130px;
 }
 
+button, 
+button:active, 
+button:focus {
+    outline: none !important;
+}
+
 .modal-error .cool span {
     font-size: 30px;
 }
@@ -1560,6 +1566,11 @@ section {
     -ms-transition: all 200ms ease;
     -o-transition: all 200ms ease;
     transition: all 200ms ease;
+}
+
+.shopping_cart button img {
+    width: 20px;
+    height: 20px;
 }
 
 .shopping_cart button div span {
@@ -1687,6 +1698,7 @@ section {
     display: flex;
     border-radius: 3px;
     margin-left: 10px;
+    align-items: center;
 }
 
 .qty button {
@@ -1803,6 +1815,7 @@ section {
 
 .btn-add {
     position: relative;
+    font-size: 15px;
     display: none;
     top: 201px;
     left: 0px;
@@ -1817,12 +1830,12 @@ section {
     color: #fff;
     text-align: center;
     font-weight: 900;
-    padding-top: 15px;
+    padding-top: 13px;
     transition: 0.3s;
 }
 
 .btn-add:hover {
-    font-size: 15px;
+    font-size: 16px;
     background-color: #333;
     transition: 0.3s;
 }

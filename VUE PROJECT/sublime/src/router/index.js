@@ -9,42 +9,43 @@ const routes = [
     component: MainPage
   },
   {
-    path: '/Categories',
+    path: '/categories',
     name: 'Categories',
     component: Categories
   },
   {
-    path: '/Category',
+    path: '/categories/:category',
     name: 'Category',
-    component: MainPage
+    component: Categories
   },
   {
-    path: '/Contact',
+    path: '/contact',
     name: 'Contact',
     component: MainPage
   },
   {
-    path: '/Check out',
-    name: 'СheckOut',
+    path: '/checkOut',
+    name: 'Сheck out',
     component: MainPage
   },
   {
-    path: '/Product',
+    path: '/product/:id',
     name: 'Product',
-    component: MainPage
+    component: MainPage,
+    params: true
   },
   {
-    path: '/Cart',
+    path: '/cart',
     name: 'Cart',
     component: MainPage
   },
   {
-    path: '/Accessories',
+    path: '/accessories',
     name: 'Accessories',
     component: MainPage
   },
   {
-    path: '/Offers',
+    path: '/offers',
     name: 'Offers',
     component: MainPage
   },

@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1,
+        "url": "/",
+        "name": "Home",
+        "subCategories": null
+    },
+    {
+        "id": 2,
+        "url": "/categories",
+        "name": "Categories",
+        "subCategories": [
+            {
+                "id": 1,
+                "url": "/categories",
+                "name": "New products"
+            },
+            {
+                "id": 2,
+                "url": "/categories",
+                "name": "Sale products"
+            },
+            {
+                "id": 3,
+                "url": "/categories",
+                "name": "Hot products"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "url": "/checkOut",
+        "name": "Check out",
+        "subCategories": null
+    },
+    {
+        "id": 4,
+        "url": "#",
+        "name": "Offers",
+        "subCategories": null
+    },
+    {
+        "id": 5,
+        "url": "/contact",
+        "name": "Contact",
+        "subCategories": null
+    }
+]

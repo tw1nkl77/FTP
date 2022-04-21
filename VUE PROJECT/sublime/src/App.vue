@@ -1,7 +1,7 @@
 <template>
   <div class="super_container">
     <Header />
-    <router-view/>
+    <router-view />
     <Footer />
   </div>
 </template>
