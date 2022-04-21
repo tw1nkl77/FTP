@@ -826,6 +826,7 @@ section
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	background: url('../assets/img/categories.jpg');
 }
 .home_content_container
 {

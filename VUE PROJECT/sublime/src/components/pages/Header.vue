@@ -10,16 +10,11 @@
                   <MenuNavigation />
               </nav>
               <div class="header_extra ml-auto">
-
-                <!-- CART -->
-
+                <Cart ref="cart" />
                 <div class="search">
-                  <div class="search_icon">
-                    <img src="https://raw.githack.com/SergioElCringe/JS_step_1/main/students/Eminov/Project/Eminov-hw-8/src/assets/img/glass.svg" />
+                  <div class="search_icon" @click="showSearchPanel = !showSearchPanel">
+                    <img src="../../assets/img/search.svg" />
                   </div>
-                </div>
-                <div class="hamburger">
-                  <i class="fa fa-bars" aria-hidden="true"></i>
                 </div>
               </div>
             </div>
@@ -28,61 +23,24 @@
       </div>
     </div>
 
-    <!-- Search Panel -->
-    <div class="search_panel trans_300">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div
-              class="
-                search_panel_content
-                d-flex
-                flex-row
-                align-items-center
-                justify-content-end
-              "
-            >
-              <form action="#">
-                <input
-                  type="text"
-                  class="search_input"
-                  placeholder="Search"
-                  required="required"
-                />
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Social -->
-    <div class="header_social">
-      <ul>
-        <li>
-          <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        </li>
-      </ul>
-    </div>
+    <SearchPanel v-show="showSearchPanel" />
+    <Social />
   </header>
 </template>
 
 <script>
 import MenuNavigation from '../MenuNavigation.vue';
+import Cart from '../Cart.vue';
+import SearchPanel from '../pages/UI/SearchPanel.vue';
+import Social from '../pages/UI/Social.vue';
+
 export default {
   name: 'Header',
-  components: { MenuNavigation }
+  components: { MenuNavigation, Cart, SearchPanel, Social },
+  data() {
+    return {
+      showSearchPanel: false
+    };
+  }
 };
 </script>
-
-<style>
-</style>

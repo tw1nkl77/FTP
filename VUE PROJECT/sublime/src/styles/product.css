@@ -1201,7 +1201,7 @@ section
 }
 .product
 {
-	width: calc((100% - 90px) / 4);
+	/* width: calc((100% - 90px) / 4); */
 	margin-bottom: 59px;
 }
 .product_image

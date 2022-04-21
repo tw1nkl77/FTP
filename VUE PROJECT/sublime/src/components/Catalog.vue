@@ -5,50 +5,48 @@
       :key="item.key"
       :item="item"
       :api="api"
+      :hasCategory="discountProducts ? discountProducts : false"
     />
   </div>
 </template>
 
 <script>
-import CatalogItem from "./items/CatalogItem.vue";
+import CatalogItem from './items/CatalogItem.vue';
+
 export default {
-  name: "categories",
+  name: 'categories',
   components: { CatalogItem },
+  props: {
+    discountProducts: {
+      type: Boolean
+    }
+  },
+
   data() {
     return {
       items: [],
       api: {
-        productApi:
-          "https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products",
-        url: "/api/catalog",
+        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
+        url: '/api/catalog',
       },
     };
   },
 
-  async created() {
-    try {
-      // this.items = await $api.send(this.api.url, "GET");
-    this.items = await fetch('https://raw.githubusercontent.com/schultznoan/FTP/main/catalog.json').then(d => d.json());
-    // console.log($api)
-    } catch (err) {
-      console.warn(err);
-    }
+  methods: {
+    async fetchCatalog() {
+      try {
+        // this.items = await $api.send(this.api.url, "GET");
+        this.items = await fetch(
+          "https://raw.githubusercontent.com/schultznoan/FTP/main/catalog.json"
+        ).then((d) => d.json());
+      } catch (err) {
+        console.warn(err);
+      }
+    },
+  },
+
+  created() {
+    this.fetchCatalog();
   },
 };
 </script>
-
-<style>
-  .product_grid {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    height: auto !important;
-    position: relative !important;
-    justify-content: center !important;
-  }
-
-  @media screen and (max-width: 546px) {
-    .product_grid {
-      justify-content: center;
-    }
-  }
-</style>

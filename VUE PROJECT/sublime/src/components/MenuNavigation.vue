@@ -10,9 +10,10 @@
 </template>
 
 <script>
-import MenuNavigationItem from "./items/MenuNavigationItems.vue";
+import MenuNavigationItem from './items/MenuNavigationItems.vue';
+
 export default {
-  name: "MenuNavigation",
+  name: 'MenuNavigation',
   components: { MenuNavigationItem },
 
   data() {
@@ -41,6 +42,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

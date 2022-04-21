@@ -1,9 +1,9 @@
 <template>
   <li :class="{ hassubs: item.subCategories }">
-    <a :href="item.url">{{ item.name }}</a>
+    <router-link :to="`/${item.name}`">{{ item.name }}</router-link>
     <ul v-if="item.subCategories">
       <li v-for="subItem of item.subCategories" :key="subItem.id">
-        <a :href="subItem.url">{{ subItem.name }}</a>
+        <router-link :to="`/${subItem.name}`">{{ subItem.name }}</router-link>
       </li>
     </ul>
   </li>
@@ -16,6 +16,6 @@ export default {
         item: {
             type: Object
         }
-    },
+    }
 };
 </script>
