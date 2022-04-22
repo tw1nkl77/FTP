@@ -22,7 +22,7 @@ import DiscountProducts from "./components/DiscountProducts.vue";
 import AmazingProducts from "./components/AmazingProducts.vue";
 
 export default {
-  name: "Main",
+  name: 'Main',
   components: {
     Catalog,
     Slider,

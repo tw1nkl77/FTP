@@ -11,16 +11,12 @@
               <li>
                 <span class="sorting_text">Sort by</span>
                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                <ul id="sort-items">
-                  <li class="product_sorting_btn">
-                    <span data-sort="default">Default</span>
-                  </li>
-                  <li class="product_sorting_btn">
-                    <span data-sort="price">Price</span>
-                  </li>
-                  <li class="product_sorting_btn">
-                    <span data-sort="name">Name</span>
-                  </li>
+                <ul>
+                  <ProductSortingItem 
+                    v-for="item of sortOptions"
+                    :key="item.value"
+                    :item="item"
+                  />
                 </ul>
               </li>
             </ul>
@@ -32,5 +28,19 @@
 </template>
 
 <script>
-export default {};
+import ProductSortingItem from './items/ProductSortingItem';
+
+export default {
+  name: 'ProductSorting',
+  components: { ProductSortingItem },
+  data() {
+    return {
+      sortOptions: [
+        { value: "default" },
+        { value: "price" },
+        { value: "name" }
+      ]
+    };
+  }
+};
 </script>

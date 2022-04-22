@@ -22,5 +22,5 @@ import Social from './UI/Social.vue';
 export default {
     name: 'Footer',
     components: { Social }    
-}
+};
 </script>

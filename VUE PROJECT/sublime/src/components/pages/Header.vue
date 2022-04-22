@@ -22,7 +22,6 @@
         </div>
       </div>
     </div>
-
     <SearchPanel v-show="showSearchPanel" />
     <Social />
   </header>

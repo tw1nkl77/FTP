@@ -1799,6 +1799,14 @@ button:focus {
     background: #e95a5a;
 }
 
+.bg-h {
+    height: 300px !important;
+}
+
+.bg-slider {
+    background: url('../assets/img/contact.jpg');
+}
+
 .product_hot {
     background: #1b1b1b;
 }
@@ -1811,6 +1819,11 @@ button:focus {
     display: block;
     position: absolute;
     transition: 0.3s;
+}
+
+.coupon_button {
+    width: 150px !important;
+    height: 50px !important;
 }
 
 .btn-add {
@@ -1832,6 +1845,10 @@ button:focus {
     font-weight: 900;
     padding-top: 13px;
     transition: 0.3s;
+}
+
+.cart_item_quantity {
+    margin-top: -50px !important;
 }
 
 .btn-add:hover {

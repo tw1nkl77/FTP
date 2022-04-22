@@ -10,14 +10,10 @@
               data-animation-in="fadeIn"
               data-animation-out="animate-out fadeOut"
             >
-              <div class="home_slider_title">A new Online Shop experience.</div>
-              <div class="home_slider_subtitle">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                a ultricies metus. Sed nec molestie eros. Sed viverra velit
-                venenatis fermentum luctus.
-              </div>
+              <div class="home_slider_title">{{ item.title }}</div>
+              <div class="home_slider_subtitle">{{ item.body }}</div>
               <div class="button button_light home_button">
-                <a href="#">Shop Now</a>
+                <router-link to="/categories">Shop Now</router-link>
               </div>
             </div>
           </div>
@@ -26,3 +22,14 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'SliderItem',
+  props: {
+    item: {
+      type: Object
+    }
+  }
+}
+</script>

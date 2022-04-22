@@ -9,8 +9,8 @@
             <Catalog :discountProducts="false" />
             <div class="product_pagination">
               <ul>
-                <li class="active"><a href="#">1.</a></li>
-                <li><a href="#">2.</a></li>
+                <li class="active mr-3"><a href="#">1.</a></li>
+                <li class="mr-3"><a href="#">2.</a></li>
                 <li><a href="#">3.</a></li>
               </ul>
             </div>
@@ -31,7 +31,7 @@ import IconBoxs from "../../components/pages/UI/IconBoxs.vue";
 import NewsLetter from "../../components/pages/UI/NewsLetter.vue";
 
 export default {
-  name: "Categories",
+  name: 'Categories',
   components: { CategorySlider, ProductSorting, Catalog, IconBoxs, NewsLetter },
 };
 </script>

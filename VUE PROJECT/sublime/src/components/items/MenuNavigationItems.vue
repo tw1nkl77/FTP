@@ -14,7 +14,7 @@ export default {
     name: 'MenuNavigationItem',
     props: {
       item: {
-          type: Object
+        type: Object
       }
     }
 };

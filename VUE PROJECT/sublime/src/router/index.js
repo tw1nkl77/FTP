@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainPage from '../views/Main/Main.vue'
 import Categories from '../views/Categories/Categories.vue';
+import Cart from '../views/Cart/Cart.vue';
+import Contact from '../views/Contact/Contact.vue';
 
 const routes = [
   {
@@ -14,40 +16,34 @@ const routes = [
     component: Categories
   },
   {
-    path: '/categories/:category',
-    name: 'Category',
-    component: Categories
-  },
-  {
     path: '/contact',
     name: 'Contact',
-    component: MainPage
+    component: Contact
   },
   {
     path: '/checkOut',
     name: 'Сheck out',
-    component: MainPage
+    component: {}
   },
   {
     path: '/product/:id',
     name: 'Product',
-    component: MainPage,
-    params: true
+    component: {}
   },
   {
     path: '/cart',
     name: 'Cart',
-    component: MainPage
+    component: Cart
   },
   {
     path: '/accessories',
     name: 'Accessories',
-    component: MainPage
+    component: {}
   },
   {
     path: '/offers',
     name: 'Offers',
-    component: MainPage
+    component: {}
   },
 ]
 

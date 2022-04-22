@@ -2,7 +2,7 @@
   <div class="product" v-if="hasCategory ? item.category : true">
     <div class="product_image">
       <img :src="imgUrl" />
-      <div class="btn-add" @click="$parent.$parent.addItem(item)">Add this product</div>
+      <div class="btn-add">Add this product</div>
     </div>
     <div class="product_extra" :class="category.class" v-if="item.category">
       <a href="categories.html">{{ category.text }}</a>
@@ -31,17 +31,17 @@ export default {
       type: Object,
     },
     hasCategory: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
 
   data() {
     return {
       categories: {
-        1: 'New',
-        2: 'Sale',
-        3: 'Hot',
-      },
+        1: "New",
+        2: "Sale",
+        3: "Hot",
+      }
     };
   },
 
@@ -59,10 +59,6 @@ export default {
     imgUrl() {
       return this.api.productApi + this.item.imgUrl;
     },
-  },
-
-  created() {
-    console.log(this.$parent.$parent.$parent.$parent.$refs.cart)
   }
 };
 </script>

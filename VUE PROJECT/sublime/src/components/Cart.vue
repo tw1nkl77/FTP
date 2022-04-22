@@ -45,7 +45,7 @@
 import cartItem from './items/CartItem.vue';
 
 export default {
-  name: 'cart',
+  name: 'Cart',
   components: { cartItem },
 
   data() {
