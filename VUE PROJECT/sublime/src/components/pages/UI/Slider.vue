@@ -30,15 +30,6 @@
 </template>
 
 <script>
-// import '../../../assets/plugins/greensock/TweenMax.min.js';
-// import '../../../assets/plugins/greensock/TimelineMax.min.js';
-// import '../../../assets/plugins/scrollmagic/ScrollMagic.min.js';
-// import '../../../assets/plugins/greensock/animation.gsap.min.js';
-// import '../../../assets/plugins/greensock/ScrollToPlugin.min.js';
-// import '../../../assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js';
-// import '../../../assets/plugins/Isotope/isotope.pkgd.min.js';
-// import '../../../assets/plugins/easing/easing.js';
-// import '../../../assets/plugins/parallax-js-master/parallax.min.js"';
 import SliderItem from './items/SliderItem.vue';
 
 export default {

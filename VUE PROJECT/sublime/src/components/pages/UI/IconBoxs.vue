@@ -22,17 +22,17 @@ export default {
     return {
       boxsOptions: [
         {
-          url: '../../../../assets/img/icon_1.svg',
+          url: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/1/src/assets/img/icon_1.svg',
           title: 'Free Shipping Worldwide',
           body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.'
         },
         {
-          url: '../../../../assets/img/icon_2.svg',
+          url: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/1/src/assets/img/icon_2.svg',
           title: 'Free Returns',
           body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.'
         },
         {
-          url: '../../../../assets/img/icon_3.svg',
+          url: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/1/src/assets/img/icon_3.svg',
           title: '24h Fast Support',
           body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.'
         }
