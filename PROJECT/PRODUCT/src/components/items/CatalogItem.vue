@@ -1,5 +1,5 @@
 <template>
-  <div class="product">
+  <div class="product demo">
     <div class="product_image">
       <img :src="imgUrl" />
       <div class="btn-add" @click="getNewItem({api: '/api/cart', item})">Add this product</div>

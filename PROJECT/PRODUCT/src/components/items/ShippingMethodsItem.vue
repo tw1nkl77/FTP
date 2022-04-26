@@ -1,5 +1,5 @@
 <template>
-  <label class="delivery_option clearfix" @click="getSelectMethod(item.method)">{{ item.method }}
+  <label class="delivery_option clearfix" @click="getSelectMethod(item)">{{ item.method }}
     <input type="radio" checked="checked" name="radio" v-if="item.id == 1" >
     <input type="radio" name="radio" v-else>
     <span class="checkmark"></span>
@@ -20,7 +20,7 @@ export default {
 
   methods: {
     ...mapActions({
-      getSelectMethod: 'ShippingMethods/getSelectMethod',
+      getSelectMethod: 'Cart/getSelectMethod',
     }),
   },
 };

@@ -14,7 +14,7 @@
                 <ul>
                   <ProductSortingItem 
                     v-for="item of sortOptions"
-                    :key="item.value"
+                    :key="item.val"
                     :item="item"
                   />
                 </ul>
@@ -37,10 +37,17 @@ export default {
   data() {
     return {
       sortOptions: [
-        { value: "default" },
-        { value: "price" },
-        { value: "name" },
-      ]
+        { 
+          name: "default",
+          val: 'id' },
+        { 
+          name: "price",
+          val: 'price' },
+        { 
+          name: "name",
+          val: 'name' 
+        },
+      ],
     };
   },
 };

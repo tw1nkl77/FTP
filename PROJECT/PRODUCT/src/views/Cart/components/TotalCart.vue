@@ -15,7 +15,7 @@
                 </li>
                 <li class="d-flex flex-row align-items-center justify-content-start">
                     <div class="cart_total_title">Total</div>
-                    <div class="cart_total_value ml-auto main-total">${{ totalPrice + shipping }}</div>
+                    <div class="cart_total_value ml-auto main-total">${{ cheque }}</div>
                 </li>
             </ul>
         </div>
@@ -45,7 +45,8 @@ export default {
   computed: {
     ...mapGetters({
       totalPrice: 'Cart/totalPrice',
-      shipping: 'ShippingMethods/shipping',
+      shipping: 'Cart/shipping',
+      cheque: 'Cart/cheque',
     }),
   },
 

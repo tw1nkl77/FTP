@@ -14,31 +14,31 @@
 
 <script>
 import ShippingMethodsItem from "./items/ShippingMethodsItem.vue";
-import { mapActions, mapState } from 'vuex';
 
 export default {
-  name: "ShippingMethods",
+  name: 'ShippingMethods',
   components: { ShippingMethodsItem },
   data() {
     return {
-      url: "/api/shipping",
+      url: '/api/shipping',
+      items: [
+        {
+          id: 1,
+          method: 'Personal pickup',
+          price: 0,
+        },
+        {
+          id: 2,
+          method: 'Standart delivery',
+          price: 1.99,
+        },
+        {
+          id: 3,
+          method: 'New day delivery',
+          price: 4.99,
+        },
+      ],
     };
-  },
-
-  methods: {
-    ...mapActions({
-      getMethods: 'ShippingMethods/getMethods',
-    }),
-  },
-
-  computed: {
-    ...mapState({
-      items: state => state.ShippingMethods.methods,
-    }),
-  },
-
-  async created() {
-    await this.getMethods(this.url);
   },
 };
 </script>

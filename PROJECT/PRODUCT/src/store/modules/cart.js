@@ -2,7 +2,7 @@ export default {
     namespaced: true,
     state: () => ({
         items: [],
-        cheque: 0,
+        selectedMethod: {},
     }),
 
     getters: {
@@ -16,6 +16,14 @@ export default {
             return state.items.reduce((acc, item) => {
                 return acc += item.totalPrice;
             }, 0);
+        },
+
+        shipping(state) {
+            return Object.keys(state.selectedMethod).length ? (+state.selectedMethod.price) : 0;
+        },
+
+        cheque(state, getters) {
+            return getters.totalPrice + getters.shipping;
         },
     },
 
@@ -33,6 +41,10 @@ export default {
             const findItem = state.items.find(item => item.id == id);
             findItem.amount += amount;
             findItem.totalPrice += price;
+        },
+
+        setSelectMethod(state, method) {
+            state.selectedMethod = method;
         },
     },
 
@@ -79,6 +91,10 @@ export default {
             } catch (err) {
                 console.warn(err);
             };
+        },
+
+        getSelectMethod({ commit }, method) {
+            commit('setSelectMethod', method);
         },
     },
 };
