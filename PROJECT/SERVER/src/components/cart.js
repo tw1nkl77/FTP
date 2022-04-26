@@ -10,26 +10,26 @@ module.exports = {
     },
 
     changeItem(data, changeableItem) {
-        const { id, value, price } = changeableItem;
+        const { id, amount, price } = changeableItem;
         const find = findItem(data, id);
-
-        if (value == -1 && find.amount == 1) {
+        
+        if (amount == -1 && find.amount == 1) {
             const index = data.items.indexOf(find);
             data.items.splice(index, 1);
-            data.totalCounts += value;
+            data.totalCounts += amount;
             data.totalPrice += price;
         } else {
-            find.amount += value;
+            find.amount += amount;
             find.totalPrice += price;
-            data.totalCounts += value;
+            data.totalCounts += amount;
             data.totalPrice += price;
         };
     },
 
-    deleteItem(data, changeableItem) {
+    deleteItem(data, changeableItem, removeAll) {
         const find = findItem(data, changeableItem.id);
 
-        if (!changeableItem.removeAllItems) {
+        if (!removeAll) {
             const index = data.items.indexOf(find);
             data.items.splice(index, 1);
 
@@ -41,4 +41,4 @@ module.exports = {
             data.totalCounts = 0;
         };
     }
-} 
+}
