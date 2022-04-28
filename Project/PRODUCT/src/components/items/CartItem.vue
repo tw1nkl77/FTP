@@ -19,7 +19,7 @@
         </div>
     </div>
     <div>
-        <span class="item-delete"></span>
+        <span class="item-delete" @click="deleteItem({ id: item.id })"></span>
     </div>
   </div>
 </template>
@@ -41,6 +41,7 @@ export default {
   methods: {
     ...mapActions({
       changeItem: 'Cart/changeItem',
+      deleteItem: 'Cart/deleteItem',
     }),
   },
 

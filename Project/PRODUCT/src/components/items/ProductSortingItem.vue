@@ -1,11 +1,11 @@
 <template>
-  <li class="product_sorting_btn" @click="getSort(item)">
+  <li class="product_sorting_btn" @click="setSort(item)">
     <span>{{ name }}</span>
   </li>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'ProductSortingItem',
@@ -16,8 +16,8 @@ export default {
   },
 
   methods: {
-    ...mapActions({
-      getSort: 'Catalog/getSort',
+    ...mapMutations({
+      setSort: 'Catalog/setSort',
     })
   },
 

@@ -1,3 +1,5 @@
+import { cart } from '@api';
+
 export default {
     namespaced: true,
     state: () => ({
@@ -41,15 +43,21 @@ export default {
             findItem.totalPrice += val.price;
         },
 
+        setDeleteItem(state, val) {
+            const findItem = state.items.find(item => item.id === val);
+            const index = state.items.indexOf(findItem);
+            state.items.splice(index, 1);
+        },
+
         setShippingMethod(state, method) {
             state.shippingMethod = method;
         },
     },
 
     actions: {
-        async getCart({ commit }, url) {
+        async getCart({ commit }) {
             try {
-                const data = await $api.send(url, 'GET');
+                const data = await cart.incrementCart();
                 commit('setCart', data);
             } catch (err) {
                 throw err;
@@ -63,7 +71,7 @@ export default {
             if (!findItem) {
                 try {
                     const newItem = { id, imgUrl, name, price, totalPrice, amount };
-                    const data = await $api.send(val.api, 'POST', newItem);
+                    const data = await cart.incrementCart('POST', newItem);
 
                     if (!data.error) {
                         commit('setNewItem', newItem);
@@ -79,14 +87,27 @@ export default {
             const findItem = state.items.find(item => item.id === id);
 
             try {
-                const data = await $api.send(val.api + `/${id}`, 'PUT', { amount, price });
+                const changeableItem = { id, amount, price };
+                const data = await cart.incrementCart('PUT', changeableItem)
 
                 if (!data.error) {
                     if (amount === -1 && findItem.amount === 1) {
                         await dispatch('deleteItem', id);
                     } else {
-                        commit('setChangeItem', { id, amount, price });
+                        commit('setChangeItem', changeableItem);
                     };
+                };
+            } catch (err) {
+                throw err;
+            };
+        },
+
+        async deleteItem({ commit }, val) {
+            try {
+                const data = cart.incrementCart('DELETE', val);
+
+                if (!data.error) {
+                    commit('setDeleteItem', val);
                 };
             } catch (err) {
                 throw err;

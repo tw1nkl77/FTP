@@ -1,3 +1,5 @@
+import { catalog } from '@api';
+
 export default {
     namespaced: true,
     state: () => ({
@@ -41,17 +43,13 @@ export default {
     },
 
     actions: {
-        async getCatalog({ commit }, url) {
+        async getCatalog({ commit }) {
             try {
-                const data = await $api.send(url, 'GET');
+                const data = await catalog.incrementCatalog();
                 commit('setCatalog', data);
             } catch (err) {
                 console.warn(err);
             };
-        },
-
-        getSort({ commit }, val) {
-            commit('setSort', val);
         },
     },
 };

@@ -17,8 +17,15 @@ const shippingMethods = "./src/db/shippingMethods.json";
 
 //GET REQUEST
 server.get('/catalog', async(req, res) => {
+    const id = req.query.id;
     try {
         const data = await readJSON(catalogURL);
+
+        if (id) {
+            const findItem = data.find(item => item.id == id);
+            return res.json(findItem);
+        };
+
         res.json(data);
     } catch (err) {
         console.log(`Error: + ${err}`);
@@ -92,13 +99,13 @@ server.post('/contact', async(req, res) => {
 });
 
 //PUT REQUEST
-server.put('/cart/:id', async(req, res) => {
-    const putItem = req.params;
+server.put('/cart', async(req, res) => {
+    const id = req.query.id;
     const { amount, price } = req.body;
 
     try {
         const data = await readJSON(cartURL);
-        cart.changeItem(data, { amount, price, id: putItem.id });
+        cart.changeItem(data, { amount, price, id });
         await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
@@ -108,13 +115,12 @@ server.put('/cart/:id', async(req, res) => {
 })
 
 //DELETE REQUEST
-server.delete('/cart/:id', async(req, res) => {
-    const putItem = req.params;
-    const { removeAll } = req.body;
+server.delete('/cart', async(req, res) => {
+    const id = req.query.id;
 
     try {
         const data = await readJSON(cartURL);
-        cart.deleteItem(data, { id: putItem.id }, removeAll);
+        cart.deleteItem(data, id);
         await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {

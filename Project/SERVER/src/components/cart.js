@@ -13,7 +13,7 @@ module.exports = {
         const { id, amount, price } = changeableItem;
         const find = findItem(data, id);
         console.log(amount, price)
-        
+
         if (amount == -1 && find.amount == 1) {
             const index = data.items.indexOf(find);
             data.items.splice(index, 1);
@@ -27,19 +27,12 @@ module.exports = {
         };
     },
 
-    deleteItem(data, changeableItem, removeAll) {
-        const find = findItem(data, changeableItem.id);
+    deleteItem(data, changeableItem) {
+        const find = findItem(data, changeableItem);
+        const index = data.items.indexOf(find);
+        data.items.splice(index, 1);
 
-        if (!removeAll) {
-            const index = data.items.indexOf(find);
-            data.items.splice(index, 1);
-
-            data.totalPrice = data.totalPrice - find.totalPrice;
-            data.totalCounts = data.totalCounts - find.amount;
-        } else {
-            data.items = [];
-            data.totalPrice = 0;
-            data.totalCounts = 0;
-        };
+        data.totalPrice = data.totalPrice - find.totalPrice;
+        data.totalCounts = data.totalCounts - find.amount;
     }
 }
