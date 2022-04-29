@@ -16,23 +16,37 @@ const contactURL = './src/db/contact.json';
 const shippingMethods = "./src/db/shippingMethods.json";
 
 //GET REQUEST
-server.get('/catalog', async(req, res) => {
-    const id = req.query.id;
+server.get('/catalog', async (req, res) => {
+    const { id, page } = req.query;
+
     try {
         const data = await readJSON(catalogURL);
 
         if (id) {
-            const findItem = data.find(item => item.id == id);
-            return res.json(findItem);
+            const findItem = data.find(item => item.id === id);
+            res.json(findItem);
+            return;
+        };
+
+        if (page) {
+            const pageLimit = 8;
+            const pageCount = Math.ceil(data.length / pageLimit);
+            res.json({
+                "page": page,
+                "pageCount": pageCount,
+                "products": data.slice(page * pageLimit - pageLimit, page * pageLimit)
+            });
+            return;
         };
 
         res.json(data);
+
     } catch (err) {
         console.log(`Error: + ${err}`);
     };
 });
 
-server.get('/description', async(req, res) => {
+server.get('/description', async (req, res) => {
     try {
         const data = await readJSON(descriptionURL);
         res.json(data);
@@ -41,7 +55,7 @@ server.get('/description', async(req, res) => {
     };
 });
 
-server.get('/cart', async(req, res) => {
+server.get('/cart', async (req, res) => {
     try {
         const data = await readJSON(cartURL);
         res.json(data);
@@ -50,7 +64,7 @@ server.get('/cart', async(req, res) => {
     };
 });
 
-server.get('/menu', async(req, res) => {
+server.get('/menu', async (req, res) => {
     try {
         const data = await readJSON(menuURL);
         res.json(data);
@@ -59,7 +73,7 @@ server.get('/menu', async(req, res) => {
     };
 });
 
-server.get('/shipping', async(req, res) => {
+server.get('/shipping', async (req, res) => {
     try {
         const data = await readJSON(shippingMethods);
         console.log(data)
@@ -70,7 +84,7 @@ server.get('/shipping', async(req, res) => {
 });
 
 //POST REQUEST
-server.post('/cart', async(req, res) => {
+server.post('/cart', async (req, res) => {
     const newItem = req.body;
 
     try {
@@ -84,7 +98,7 @@ server.post('/cart', async(req, res) => {
     }
 });
 
-server.post('/contact', async(req, res) => {
+server.post('/contact', async (req, res) => {
     const form = req.body;
 
     try {
@@ -99,7 +113,7 @@ server.post('/contact', async(req, res) => {
 });
 
 //PUT REQUEST
-server.put('/cart', async(req, res) => {
+server.put('/cart', async (req, res) => {
     const id = req.query.id;
     const { amount, price } = req.body;
 
@@ -115,12 +129,16 @@ server.put('/cart', async(req, res) => {
 })
 
 //DELETE REQUEST
-server.delete('/cart', async(req, res) => {
-    const id = req.query.id;
+server.delete('/cart', async (req, res) => {
+    const { clearCart, id } = req.query;
 
     try {
         const data = await readJSON(cartURL);
-        cart.deleteItem(data, id);
+        if (clearCart) {
+            cart.clearCart(data);
+        } else {
+            cart.deleteItem(data, id);
+        };
         await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {

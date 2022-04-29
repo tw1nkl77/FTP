@@ -4,22 +4,29 @@
       v-for="item of filteredCatalog"
       :key="item.key"
       :item="item"
-      :api="api"
     />
   </div>
-  <div class="product_grid" v-else>
-    <CatalogItem
-      v-for="item of sortedCatalog"
-      :key="item.key"
-      :item="item"
-      :api="api"
-    />
+  <div v-else>
+    <div class="product_grid">
+      <CatalogItem
+        v-for="item of sortedCatalog"
+        :key="item.key"
+        :item="item"
+      />
+    </div>
+    <div class="product_pagination">
+      <ul>
+        <li class="active mr-3" v-for="(index) in pagesCount" :key="index">
+          <button @click="changePage(index)" class="newsletter_button trans_200"><span>{{ index }}</span></button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import CatalogItem from './items/CatalogItem.vue';
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'Catalog',
@@ -30,19 +37,14 @@ export default {
     },
   },
 
-  data() {
-    return {
-      api: {
-        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-        url: '/api/catalog',
-      },
-    };
-  },
-
   methods: {
     ...mapActions({
       getCatalog: 'Catalog/getCatalog',
     }),
+
+    async changePage(index) {
+      await this.getCatalog({ page: index });
+    },
   },
 
   computed: {
@@ -50,10 +52,15 @@ export default {
       filteredCatalog: 'Catalog/filteredCatalog',
       sortedCatalog: 'Catalog/sortedCatalog',
     }),
+
+    ...mapState({
+      pagesCount: state => state.Catalog.pagesCount,
+      page: state => state.Catalog.page,
+    }),
   },
 
   async created() {
-    await this.getCatalog(this.api.url);
+    await this.getCatalog({ page: 1 });
   },
 };
 </script>

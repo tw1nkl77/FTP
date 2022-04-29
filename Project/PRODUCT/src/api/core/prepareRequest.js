@@ -15,11 +15,6 @@ export default payload => {
             break;
         };
 
-        case 'DELETE': {
-            basicParametres.params = params;
-            break;
-        };
-
         default: {
             basicParametres.params = params;
             break;

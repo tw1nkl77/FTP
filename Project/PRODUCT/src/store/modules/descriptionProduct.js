@@ -19,11 +19,12 @@ export default {
 
     actions: {
         async getProduct({ commit }, val) {
+            const { id } = val;
             try {
-                const data = await catalog.incrementCatalog({ id: val.id })
+                const data = await catalog.incrementCatalog({ id })
                 commit('setProduct', data);
             } catch (err) {
-                console.warn(err);
+               throw err;
             };
         },
     },

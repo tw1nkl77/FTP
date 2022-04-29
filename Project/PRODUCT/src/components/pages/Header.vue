@@ -10,7 +10,7 @@
                   <MenuNavigation />
               </nav>
               <div class="header_extra ml-auto">
-                <Cart ref="cart" />
+                <Cart />
                 <div class="search">
                   <div class="search_icon" @click="showSearchPanel = !showSearchPanel">
                     <img src="../../assets/img/search.svg" />

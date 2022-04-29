@@ -2,7 +2,7 @@
   <div class="product">
     <div class="product_image">
       <img :src="imgUrl" />
-      <div class="btn-add" @click="getNewItem({api: '/api/cart', item})">Add this product</div>
+      <div class="btn-add" @click="getNewItem({ item })">Add this product</div>
     </div>
     <div class="product_extra" :class="category.class" v-if="item.category">
       <a href="categories.html">{{ category.text }}</a>
@@ -21,19 +21,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'CatalogItem',
   props: {
     item: {
       type: Object,
-    },
-    api: {
-      type: Object,
-    },
-    hasCategory: {
-      type: Boolean,
     },
   },
 
@@ -54,6 +48,10 @@ export default {
   },
 
   computed: {
+    ...mapState({
+      productApi: state => state.Catalog.productApi,
+    }),
+
     category() {
       const { category } = this.item;
       return category ? {
@@ -63,7 +61,7 @@ export default {
     },
 
     imgUrl() {
-      return this.api.productApi + this.item.imgUrl;
+      return this.productApi + this.item.imgUrl;
     },
   },
 };

@@ -182,6 +182,15 @@ section {
     color: lightgray !important;
 }
 
+.product_pagination ul li button {
+    background: none;
+    border: 1px solid #333;
+    padding: 5px 30px !important;
+    width: auto !important;
+    height: auto !important;
+    font-weight: 600;
+}
+
 .details_text {
     margin-top: 32px !important;
 }

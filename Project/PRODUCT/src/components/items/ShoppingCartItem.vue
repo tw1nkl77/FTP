@@ -36,15 +36,12 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: "ShoppingCartItems",
   props: {
     item: {
-      type: Object,
-    },
-    api: {
       type: Object,
     },
   },
@@ -56,12 +53,13 @@ export default {
   },
 
   computed: {
+    ...mapState({
+      productApi: state => state.Catalog.productApi,
+    }),
+
     imgUrl() {
-      return this.api.productApi + this.item.imgUrl;
+      return this.productApi + this.item.imgUrl;
     },
   },
 };
 </script>
-
-<style>
-</style>

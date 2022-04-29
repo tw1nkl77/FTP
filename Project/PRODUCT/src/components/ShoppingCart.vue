@@ -6,7 +6,6 @@
           v-for="item of items"
           :key="item.id"
           :item="item"
-          :api="api"
         />
       </div>
       <p class="no-bascket" v-else><b>There are no products. Select products to purchase from catalog.</b></p>
@@ -21,14 +20,6 @@ import { mapActions, mapState } from 'vuex';
 export default {
   name: "ShoppingCart",
   components: { ShoppingCartItem },
-  data() {
-    return {
-      api: {
-        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-        url: '/api/cart',
-      },
-    };
-  },
 
   methods: {
     ...mapActions({
@@ -43,7 +34,7 @@ export default {
   },
 
   async created() {
-    await this.getCart(this.api.url);
+    await this.getCart();
   },
 };
 </script>

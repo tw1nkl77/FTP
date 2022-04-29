@@ -34,5 +34,11 @@ module.exports = {
 
         data.totalPrice = data.totalPrice - find.totalPrice;
         data.totalCounts = data.totalCounts - find.amount;
-    }
-}
+    },
+
+    clearCart(data) {
+        data.items = [];
+        data.totalCounts = 0;
+        data.totalPrice = 0;
+    },
+};

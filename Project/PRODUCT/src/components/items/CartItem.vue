@@ -1,7 +1,7 @@
 <template>
   <div class="cart">
     <div class="cart__item">
-        <img class="cart__item__img" :src="ImgUrl">
+        <img class="cart__item__img" :src="imgUrl">
         <div class="cart__item__info">
             <span>Name: <b>{{ item.name }}</b></span>
             <div class="price__block">
@@ -9,9 +9,9 @@
                 <div class="qty-flex">
                     <span>Qty:</span>
                     <div class="qty">
-                        <button class="item-minus" @click="changeItem({api: api.url, changes: { id: item.id, amount: -1, price: -item.price }})">-</button>
+                        <button class="item-minus" @click="changeItem({ id: item.id, amount: -1, price: -item.price })">-</button>
                         <span class="amount">{{ item.amount }}</span>
-                        <button class="item-plus" @click="changeItem({api: api.url, changes: { id: item.id, amount: 1, price: item.price }})">+</button>
+                        <button class="item-plus" @click="changeItem({ id: item.id, amount: 1, price: item.price })">+</button>
                     </div>
                 </div>
                 <span>Total: <b>${{ item.totalPrice }}</b></span>
@@ -25,15 +25,12 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'CartItem',
   props: {
     item: {
-      type: Object,
-    },
-    api: {
       type: Object,
     },
   },
@@ -46,8 +43,12 @@ export default {
   },
 
   computed: {
-    ImgUrl() {
-      return this.api.productApi + this.item.imgUrl;
+    ...mapState({
+      productApi: state => state.Catalog.productApi,
+    }),
+
+    imgUrl() {
+      return this.productApi + this.item.imgUrl;
     },
   },
 };

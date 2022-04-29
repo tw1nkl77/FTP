@@ -43,11 +43,10 @@
               </div>
             </div>
           </div>
-          <div class="button cart_button"><button @click="getNewItem({ api: '/api/cart', item: this.product })">Add to cart</button></div>
+          <div class="button cart_button"><button @click="getNewItem({ item: this.product })">Add to cart</button></div>
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -58,14 +57,6 @@ import { mapActions, mapMutations, mapState } from 'vuex';
 export default {
   name: 'DescriptionProduct',
   comsponents: { Social },
-  data() {
-    return {
-      api: {
-        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-        url: '/api/catalog',
-      },
-    };
-  },
 
   methods: {
     ...mapActions({
@@ -81,15 +72,16 @@ export default {
   computed: {
     ...mapState({
       product: state => state.DescriptionProduct.product,
+      productApi: state => state.Catalog.productApi,
     }),
 
     imgUrl() {
-      return this.api.productApi + this.product.imgUrl;
+      return this.productApi + this.product.imgUrl;
     },
   },
 
   async created() {
-    await this.getProduct({api: this.api.url, id: (+this.$route.params.id)});
+    await this.getProduct({ id: (+this.$route.params.id) });
   },
 };
 </script>

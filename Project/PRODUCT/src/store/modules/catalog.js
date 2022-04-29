@@ -8,6 +8,9 @@ export default {
             name: 'DEFAULT',
             value: 'id',
         }],
+        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
+        page: 1,
+        pagesCount: 1,
     }),
 
     getters: {
@@ -16,7 +19,7 @@ export default {
         },
 
         descriptionProduct(state, id) {
-            return state.items.find(item => item.id == id);
+            return state.items.find(item => item.id === id);
         },
 
         sortedCatalog(state) {
@@ -34,7 +37,9 @@ export default {
 
     mutations: {
         setCatalog(state, data) {
-            state.items = data;
+            state.items = data.products;
+            state.page = data.page;
+            state.pagesCount = data.pageCount;
         },
 
         setSort(state, val) {
@@ -43,9 +48,9 @@ export default {
     },
 
     actions: {
-        async getCatalog({ commit }) {
+        async getCatalog({ commit }, val = {}) {
             try {
-                const data = await catalog.incrementCatalog();
+                const data = await catalog.incrementCatalog(val);
                 commit('setCatalog', data);
             } catch (err) {
                 console.warn(err);

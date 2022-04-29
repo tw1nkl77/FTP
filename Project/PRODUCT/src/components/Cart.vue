@@ -14,7 +14,6 @@
           v-for="item of items"
           :key="item.id"
           :item="item"
-          :api="api"
         />
         <hr />
         <div class="action">
@@ -24,17 +23,13 @@
             </span>
           </div>
           <div class="clear-all">
-            <span id="remove" @click="deleteItem(true)"
-              ><b>Remove all products</b></span
-            >
+            <span id="remove" @click="getClearCart({ clearCart: true })"><b>Remove all products</b></span>
           </div>
         </div>
       </div>
       <div v-else>
         <p class="no-bascket">
-          <b
-            >There are no products. Select products to purchase from catalog.</b
-          >
+          <b>There are no products. Select products to purchase from catalog.</b>
         </p>
       </div>
     </div>
@@ -52,16 +47,13 @@ export default {
   data() {
     return {
       openCart: false,
-      api: {
-        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-        url: '/api/cart',
-      },
     };
   },
 
   methods: {
     ...mapActions({
       getCart: 'Cart/getCart',
+      getClearCart: 'Cart/getClearCart',
     }),
   },
 
@@ -77,7 +69,7 @@ export default {
   },
 
   async created() {
-    await this.getCart(this.api.url);
+    await this.getCart();
   },
 };
 </script>

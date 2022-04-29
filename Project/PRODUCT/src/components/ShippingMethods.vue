@@ -13,29 +13,27 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 import ShippingMethodsItem from "./items/ShippingMethodsItem.vue";
 
 export default {
   name: 'ShippingMethods',
   components: { ShippingMethodsItem },
-  data() {
-    return {
-      url: '/api/shipping',
-      items: [
-        {
-          method: 'Personal pickup',
-          price: 0,
-        },
-        {
-          method: 'Standart delivery',
-          price: 1.99,
-        },
-        {
-          method: 'New day delivery',
-          price: 4.99,
-        },
-      ],
-    };
+  
+  methods: {
+    ...mapActions({
+      getMethods: 'ShippingMethods/getMethods',
+    }),
   },
+
+  computed: {
+    ...mapState({
+      items: state => state.ShippingMethods.items,
+    }),
+  },
+
+  async created() {
+    await this.getMethods();
+  }
 };
 </script>

@@ -4,10 +4,7 @@ export default {
     namespaced: true,
     state: () => ({
         items: [],
-        shippingMethod: {
-            name: 'Personal pickup',
-            price: 0,
-        },
+        shippingMethod: {},
     }),
 
     getters: {
@@ -52,6 +49,10 @@ export default {
         setShippingMethod(state, method) {
             state.shippingMethod = method;
         },
+
+        setClearCart(state) {
+            state.items = [];
+        },
     },
 
     actions: {
@@ -83,7 +84,7 @@ export default {
         },
 
         async changeItem({ state, commit, dispatch }, val) {
-            const { id, amount, price } = val.changes;
+            const { id, amount, price } = val;
             const findItem = state.items.find(item => item.id === id);
 
             try {
@@ -109,6 +110,15 @@ export default {
                 if (!data.error) {
                     commit('setDeleteItem', val);
                 };
+            } catch (err) {
+                throw err;
+            };
+        },
+
+        async getClearCart({ commit }, val) {
+            try {
+                await cart.incrementCart('DELETE', val);
+                commit('setClearCart');
             } catch (err) {
                 throw err;
             };

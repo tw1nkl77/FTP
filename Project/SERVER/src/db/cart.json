@@ -1,14 +1,14 @@
 {
- "totalCounts": 6,
- "totalPrice": 510,
+ "totalCounts": 10,
+ "totalPrice": 480,
  "items": [
   {
-   "id": 5,
-   "imgUrl": "/product_5.jpg",
-   "name": "HEADPHONES",
-   "price": 510,
-   "totalPrice": 3060,
-   "amount": 6
+   "id": 1,
+   "imgUrl": "/product_1.jpg",
+   "name": "IPHONE 13 PRO MAX",
+   "price": 480,
+   "totalPrice": 4800,
+   "amount": 10
   }
  ]
 }
