@@ -7,13 +7,6 @@
         <div class="row">
           <div class="col">
             <Catalog :discountProducts="false" />
-            <div class="product_pagination">
-              <ul>
-                <li class="active mr-3"><a href="#">1.</a></li>
-                <li class="mr-3"><a href="#">2.</a></li>
-                <li><a href="#">3.</a></li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>

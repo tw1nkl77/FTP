@@ -16,6 +16,16 @@ const routes = [{
         component: Categories
     },
     {
+        path: '/catalog/:id',
+        name: 'Description',
+        component: Description
+    },
+    {
+        path: '/categories/phone',
+        name: 'Phones',
+        component: {}
+    },
+    {
         path: '/contact',
         name: 'Contact',
         component: Contact
@@ -24,11 +34,6 @@ const routes = [{
         path: '/checkOut',
         name: 'Сheck out',
         component: {}
-    },
-    {
-        path: '/product/:id',
-        name: 'Product',
-        component: Description
     },
     {
         path: '/cart',

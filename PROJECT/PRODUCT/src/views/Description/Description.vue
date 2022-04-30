@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomePageBanner :name="`description product ${$route.params.id}`" />
+    <HomePageBanner :name="`description product ${itemName}`" />
     <div class="product_details">
       <div class="container">
 
@@ -32,11 +32,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import HomePageBanner from "../../components/pages/UI/HomePageBanner.vue";
 import DescriptionProduct from "../../components/DescriptionProduct.vue";
 
 export default {
   name: "Description",
   components: { HomePageBanner, DescriptionProduct },
+
+  computed: {
+    ...mapState({
+      itemName: state => state.DescriptionProduct.product.name,
+    }),
+  },
 };
 </script>

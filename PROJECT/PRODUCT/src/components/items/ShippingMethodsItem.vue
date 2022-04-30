@@ -1,6 +1,6 @@
 <template>
-  <label class="delivery_option clearfix" @click="getSelectMethod(item)">{{ item.method }}
-    <input type="radio" checked="checked" name="radio" v-if="item.id == 1" >
+  <label class="delivery_option clearfix" @click="setShippingMethod(item)">{{ item.method }}
+    <input type="radio" checked="checked" name="radio" v-if="item.standart" >
     <input type="radio" name="radio" v-else>
     <span class="checkmark"></span>
     <span class="delivery_price">${{ item.price }}</span>
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'ShippingMethodsItem',
@@ -19,9 +19,15 @@ export default {
   },
 
   methods: {
-    ...mapActions({
-      getSelectMethod: 'Cart/getSelectMethod',
+    ...mapMutations({
+      setShippingMethod: 'Cart/setShippingMethod',
     }),
+  },
+
+  created() {
+    if (this.item.standart) {
+      this.setShippingMethod(this.item);
+    };
   },
 };
 </script>

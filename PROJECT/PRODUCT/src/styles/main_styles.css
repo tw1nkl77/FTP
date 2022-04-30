@@ -182,6 +182,15 @@ section {
     color: lightgray !important;
 }
 
+.product_pagination ul li button {
+    background: none;
+    border: 1px solid #333;
+    padding: 5px 30px !important;
+    width: auto !important;
+    height: auto !important;
+    font-weight: 600;
+}
+
 .details_text {
     margin-top: 32px !important;
 }
@@ -1648,7 +1657,7 @@ button:focus {
     flex-wrap: wrap !important;
     height: auto !important;
     position: relative !important;
-    justify-content: center !important;
+    justify-content: space-between !important;
 }
 
 .cart {
@@ -1777,8 +1786,8 @@ button:focus {
 .product {
     width: 250px;
     transition: 0.3s;
-    margin-left: 15px;
-    margin-right: 15px;
+    /* margin-left: 15px;
+    margin-right: 15px; */
 }
 
 .product_image {

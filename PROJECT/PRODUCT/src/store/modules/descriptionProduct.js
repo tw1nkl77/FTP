@@ -1,3 +1,5 @@
+import { catalog } from '@api';
+
 export default {
     namespaced: true,
     state: () => ({
@@ -17,16 +19,13 @@ export default {
 
     actions: {
         async getProduct({ commit }, val) {
+            const { id } = val;
             try {
-                const data = await $api.send(val.api, 'GET');
-                commit('setProduct', data.find(item => item.id == val.id));
+                const data = await catalog.increment({ id })
+                commit('setProduct', data);
             } catch (err) {
-                console.warn(err);
+               throw err;
             };
-        },
-
-        getIncrement({ commit }, val) {
-            commit('setIncrement', val);    
         },
     },
 };

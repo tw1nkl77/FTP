@@ -12,7 +12,7 @@
     <div class="col-lg-6">
       <div class="details_content">
         <div class="details_name">{{ product.name }}</div>
-        <div class="details_discount" v-if="product.prevPrice">${{ findItem.prevPrice }}</div>
+        <div class="details_discount" v-if="product.prevPrice">${{ product.prevPrice }}</div>
         <div class="details_price">${{ product.price }}</div>
 
         <!-- In Stock -->
@@ -35,58 +35,53 @@
               :value="product.amount"
             />
             <div class="quantity_buttons">
-              <div id="quantity_inc_button" class="quantity_inc quantity_control" @click="getIncrement(1)">
+              <div id="quantity_inc_button" class="quantity_inc quantity_control" @click="setIncrement(1)">
                 <i class="fa fa-chevron-up" aria-hidden="true"></i>
               </div>
-              <div id="quantity_dec_button" class="quantity_dec quantity_control" :class="product.amount == 1 ? 'unavailable' : ''" @click="getIncrement(-1)">
+              <div id="quantity_dec_button" class="quantity_dec quantity_control" :class="product.amount == 1 ? 'unavailable' : ''" @click="setIncrement(-1)">
                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
               </div>
             </div>
           </div>
-          <div class="button cart_button"><button @click="getNewItem({ api: '/api/cart', item: this.product })">Add to cart</button></div>
+          <div class="button cart_button"><button @click="getNewItem({ item: this.product })">Add to cart</button></div>
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
 import Social from './pages/UI/Social.vue';
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'DescriptionProduct',
   comsponents: { Social },
-  data() {
-    return {
-      api: {
-        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-        url: '/api/catalog',
-      },
-    };
-  },
 
   methods: {
     ...mapActions({
       getProduct: 'DescriptionProduct/getProduct',
       getNewItem: 'Cart/getNewItem',
-      getIncrement: 'DescriptionProduct/getIncrement',
+    }),
+
+    ...mapMutations({
+      setIncrement: 'DescriptionProduct/setIncrement',
     }),
   },
 
   computed: {
     ...mapState({
       product: state => state.DescriptionProduct.product,
+      productApi: state => state.Catalog.productApi,
     }),
 
     imgUrl() {
-      return this.api.productApi + this.product.imgUrl;
+      return this.productApi + this.product.imgUrl;
     },
   },
 
   async created() {
-    await this.getProduct({api: this.api.url, id: this.$route.params.id});
+    await this.getProduct({ id: (+this.$route.params.id) });
   },
 };
 </script>

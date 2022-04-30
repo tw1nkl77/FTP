@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters} from 'vuex';
+import { mapActions, mapGetters, mapState} from 'vuex';
 
 export default {
   name: 'TotalCart',
@@ -45,8 +45,11 @@ export default {
   computed: {
     ...mapGetters({
       totalPrice: 'Cart/totalPrice',
-      shipping: 'Cart/shipping',
       cheque: 'Cart/cheque',
+    }),
+
+    ...mapState({
+      shipping: state => state.Cart.shippingMethod.price,
     }),
   },
 

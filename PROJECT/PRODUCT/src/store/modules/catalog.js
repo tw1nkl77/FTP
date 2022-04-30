@@ -1,12 +1,14 @@
+import { catalog } from '@api';
+
 export default {
     namespaced: true,
     state: () => ({
         items: [],
-        sortedItems: [],
         sort: [{
             name: 'DEFAULT',
             value: 'id',
         }],
+        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
     }),
 
     getters: {
@@ -15,12 +17,11 @@ export default {
         },
 
         descriptionProduct(state, id) {
-            return state.items.find(item => item.id == id);
+            return state.items.find(item => item.id === id);
         },
 
         sortedCatalog(state) {
             const selectedSort = state.sort.val;
-
             return state.items.sort((prev, next) => {
                 if (state.sort.name === 'name') {
                     if (prev[selectedSort] < next[selectedSort]) return -1;
@@ -43,17 +44,13 @@ export default {
     },
 
     actions: {
-        async getCatalog({ commit }, url) {
+        async getCatalog({ commit }) {
             try {
-                const data = await $api.send(url, 'GET');
+                const data = await catalog.getCatalog();
                 commit('setCatalog', data);
             } catch (err) {
                 console.warn(err);
             };
-        },
-
-        getSort({ commit }, val) {
-            commit('setSort', val);
         },
     },
 };

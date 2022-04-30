@@ -1,11 +1,26 @@
 <template>
-  <div class="product_grid">
+  <div class="product_grid" v-if="discountProducts">
     <CatalogItem
-      v-for="item of sortedCatalog"
+      v-for="item of filteredCatalog"
       :key="item.key"
       :item="item"
-      :api="api"
     />
+  </div>
+  <div v-else>
+    <div class="product_grid">
+      <CatalogItem
+        v-for="item of sortedCatalog"
+        :key="item.key"
+        :item="item"
+      />
+    </div>
+    <div class="product_pagination">
+      <ul>
+        <li class="active mr-3">
+          <button><span>1</span></button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -16,14 +31,10 @@ import { mapActions, mapGetters } from 'vuex';
 export default {
   name: 'Catalog',
   components: { CatalogItem },
-
-  data() {
-    return {
-      api: {
-        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-        url: '/api/catalog',
-      },
-    };
+  props: {
+    discountProducts: {
+      type: Boolean,
+    },
   },
 
   methods: {
@@ -34,29 +45,13 @@ export default {
 
   computed: {
     ...mapGetters({
-      items: 'Catalog/filteredCatalog',
+      filteredCatalog: 'Catalog/filteredCatalog',
       sortedCatalog: 'Catalog/sortedCatalog',
     }),
   },
 
   async created() {
-    await this.getCatalog(this.api.url);
+    await this.getCatalog();
   },
 };
 </script>
-
-<style>
-  .list-complete-item {
-    transition: all 1s;
-    display: inline-block;
-    margin-right: 10px;
-  }
-  .list-complete-enter, .list-complete-leave-to
-  /* .list-complete-leave-active до версии 2.1.8 */ {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  .list-complete-leave-active {
-    position: absolute;
-  }
-</style>

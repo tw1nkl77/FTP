@@ -3,7 +3,7 @@
     <div class="col">
       <div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-md-start">
         <div class="results">
-          Showing 1 results
+          Showing {{ sortedCatalog.length }} results
         </div>
         <div class="sorting_container ml-md-auto">
           <div class="sorting">
@@ -29,6 +29,7 @@
 
 <script>
 import ProductSortingItem from './items/ProductSortingItem';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'ProductSorting',
@@ -49,6 +50,12 @@ export default {
         },
       ],
     };
+  },
+
+  computed: {
+    ...mapGetters({
+      sortedCatalog: 'Catalog/sortedCatalog',
+    }),
   },
 };
 </script>
