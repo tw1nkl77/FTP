@@ -16,7 +16,7 @@ export default {
 
         totalPrice(state) {
             return state.items.reduce((acc, item) => {
-                return acc += (item.price * item.amount);
+                return acc += item.totalPrice;
             }, 0);
         },
 
@@ -30,14 +30,14 @@ export default {
             state.items = data.items;
         },
 
-        setAddItem(state, item) {
+        setNewItem(state, item) {
             state.items.push(item);
         },
 
-        setIncrementAmount(state, val) {
-            const { id, amount } = val;
-            const findItem = state.items.find(item => item.id === id);
-            findItem.amount += amount;
+        setChangeItem(state, val) {
+            const findItem = state.items.find(item => item.id === val.id);
+            findItem.amount += val.amount;
+            findItem.totalPrice += val.price;
         },
 
         setDeleteItem(state, val) {
@@ -58,24 +58,24 @@ export default {
     actions: {
         async getCart({ commit }) {
             try {
-                const data = await cart.getCart();
+                const data = await cart.increment();
                 commit('setCart', data);
             } catch (err) {
                 throw err;
             };
         },
 
-        async addItem({ state, commit }, val) {
-            const { id, name, price, imgUrl, amount = 1 } = val.item;
+        async getNewItem({ state, commit }, val) {
+            const { id, name, price, imgUrl, amount = 1, totalPrice = (price * amount) } = val.item;
             const findItem = state.items.find(item => item.id === id);
 
             if (!findItem) {
                 try {
-                    const newItem = { id, imgUrl, name, price, amount };
-                    const data = await cart.addItem(newItem);
+                    const newItem = { id, imgUrl, name, price, totalPrice, amount };
+                    const data = await cart.increment('POST', newItem);
 
                     if (!data.error) {
-                        commit('setAddItem', newItem);
+                        commit('setNewItem', newItem);
                     };
                 } catch (err) {
                     throw err;
@@ -83,19 +83,19 @@ export default {
             };
         },
 
-        async incrementAmount({ state, commit, dispatch }, val) {
-            const { id, amount } = val;
+        async changeItem({ state, commit, dispatch }, val) {
+            const { id, amount, price } = val;
             const findItem = state.items.find(item => item.id === id);
 
             try {
-                const changeableItem = { id, amount };
-                const data = await cart.incrementAmount(changeableItem)
+                const changeableItem = { id, amount, price };
+                const data = await cart.increment('PUT', changeableItem)
 
                 if (!data.error) {
                     if (amount === -1 && findItem.amount === 1) {
                         await dispatch('deleteItem', id);
                     } else {
-                        commit('setIncrementAmount', changeableItem);
+                        commit('setChangeItem', changeableItem);
                     };
                 };
             } catch (err) {
@@ -105,7 +105,8 @@ export default {
 
         async deleteItem({ commit }, val) {
             try {
-                const data = cart.deleteItem(val);
+                const data = cart.increment('DELETE', val);
+
                 if (!data.error) {
                     commit('setDeleteItem', val);
                 };
@@ -114,9 +115,9 @@ export default {
             };
         },
 
-        async clearCart({ commit }, val) {
+        async getClearCart({ commit }, val) {
             try {
-                await cart.deleteItem(val);
+                await cart.increment('DELETE', val);
                 commit('setClearCart');
             } catch (err) {
                 throw err;

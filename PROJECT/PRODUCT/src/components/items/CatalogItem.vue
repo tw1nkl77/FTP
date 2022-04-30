@@ -3,6 +3,12 @@
     <div class="product_image">
       <img :src="imgUrl" />
       <div class="btn-add" @click="getNewItem({ item })">Add this product</div>
+<<<<<<< HEAD:PROJECT/PRODUCT/src/components/items/CatalogItem.vue
+=======
+    </div>
+    <div class="product_extra" :class="category.class" v-if="item.category">
+      <a href="categories.html">{{ category.text }}</a>
+>>>>>>> 2b1d14553068f4033c6fbfebdf72db20f790364b:Project/PRODUCT/src/components/items/CatalogItem.vue
     </div>
     <div class="product_content">
       <div class="product_title">

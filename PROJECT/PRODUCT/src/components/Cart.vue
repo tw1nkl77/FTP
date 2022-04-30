@@ -53,7 +53,11 @@ export default {
   methods: {
     ...mapActions({
       getCart: 'Cart/getCart',
+<<<<<<< HEAD:PROJECT/PRODUCT/src/components/Cart.vue
       getClearCart: 'Cart/clearCart',
+=======
+      getClearCart: 'Cart/getClearCart',
+>>>>>>> 2b1d14553068f4033c6fbfebdf72db20f790364b:Project/PRODUCT/src/components/Cart.vue
     }),
   },
 

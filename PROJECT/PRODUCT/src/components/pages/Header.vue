@@ -10,7 +10,7 @@
                   <MenuNavigation />
               </nav>
               <div class="header_extra ml-auto">
-                <Cart v-if="cartAvailable" />
+                <Cart />
                 <div class="search">
                   <div class="search_icon" @click="showSearchPanel = !showSearchPanel">
                     <img src="../../assets/img/search.svg" />
@@ -40,12 +40,6 @@ export default {
     return {
       showSearchPanel: false,
     };
-  },
-
-  computed: {
-    cartAvailable() {
-      return this.$route.path !== '/Cart'; 
-    },
   },
 };
 </script>

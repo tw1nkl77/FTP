@@ -9,8 +9,8 @@ export default payload => {
         };
 
         case 'PUT': {
-            const { id, amount } = params;
-            basicParametres.data = { amount };
+            const { id, amount, price } = params;
+            basicParametres.data = { amount, price };
             basicParametres.params = { id };
             break;
         };
