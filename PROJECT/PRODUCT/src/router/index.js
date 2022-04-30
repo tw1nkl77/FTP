@@ -16,7 +16,6 @@ const routes = [{
         component: Categories
     },
     {
-<<<<<<< HEAD:PROJECT/PRODUCT/src/router/index.js
         path: '/catalog/:id',
         name: 'Description',
         component: Description
@@ -25,11 +24,6 @@ const routes = [{
         path: '/categories/phone',
         name: 'Phones',
         component: {}
-=======
-        path: '/categories/phone',
-        name: 'Phones',
-        component: Categories
->>>>>>> 2b1d14553068f4033c6fbfebdf72db20f790364b:Project/PRODUCT/src/router/index.js
     },
     {
         path: '/contact',

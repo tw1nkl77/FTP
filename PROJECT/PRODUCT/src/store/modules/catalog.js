@@ -9,11 +9,6 @@ export default {
             value: 'id',
         }],
         productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-<<<<<<< HEAD:PROJECT/PRODUCT/src/store/modules/catalog.js
-=======
-        page: 1,
-        pagesCount: 1,
->>>>>>> 2b1d14553068f4033c6fbfebdf72db20f790364b:Project/PRODUCT/src/store/modules/catalog.js
     }),
 
     getters: {
@@ -40,9 +35,7 @@ export default {
 
     mutations: {
         setCatalog(state, data) {
-            state.items = data.products;
-            state.page = data.page;
-            state.pagesCount = data.pageCount;
+            state.items = data;
         },
 
         setSort(state, val) {
@@ -51,15 +44,9 @@ export default {
     },
 
     actions: {
-<<<<<<< HEAD:PROJECT/PRODUCT/src/store/modules/catalog.js
         async getCatalog({ commit }) {
             try {
                 const data = await catalog.getCatalog();
-=======
-        async getCatalog({ commit }, val = {}) {
-            try {
-                const data = await catalog.increment(val);
->>>>>>> 2b1d14553068f4033c6fbfebdf72db20f790364b:Project/PRODUCT/src/store/modules/catalog.js
                 commit('setCatalog', data);
             } catch (err) {
                 console.warn(err);
