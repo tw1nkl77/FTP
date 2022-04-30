@@ -50,7 +50,7 @@ export default {
     actions: {
         async getCatalog({ commit }, val = {}) {
             try {
-                const data = await catalog.incrementCatalog(val);
+                const data = await catalog.increment(val);
                 commit('setCatalog', data);
             } catch (err) {
                 console.warn(err);

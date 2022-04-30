@@ -58,7 +58,7 @@ export default {
     actions: {
         async getCart({ commit }) {
             try {
-                const data = await cart.incrementCart();
+                const data = await cart.increment();
                 commit('setCart', data);
             } catch (err) {
                 throw err;
@@ -72,7 +72,7 @@ export default {
             if (!findItem) {
                 try {
                     const newItem = { id, imgUrl, name, price, totalPrice, amount };
-                    const data = await cart.incrementCart('POST', newItem);
+                    const data = await cart.increment('POST', newItem);
 
                     if (!data.error) {
                         commit('setNewItem', newItem);
@@ -89,7 +89,7 @@ export default {
 
             try {
                 const changeableItem = { id, amount, price };
-                const data = await cart.incrementCart('PUT', changeableItem)
+                const data = await cart.increment('PUT', changeableItem)
 
                 if (!data.error) {
                     if (amount === -1 && findItem.amount === 1) {
@@ -105,7 +105,7 @@ export default {
 
         async deleteItem({ commit }, val) {
             try {
-                const data = cart.incrementCart('DELETE', val);
+                const data = cart.increment('DELETE', val);
 
                 if (!data.error) {
                     commit('setDeleteItem', val);
@@ -117,7 +117,7 @@ export default {
 
         async getClearCart({ commit }, val) {
             try {
-                await cart.incrementCart('DELETE', val);
+                await cart.increment('DELETE', val);
                 commit('setClearCart');
             } catch (err) {
                 throw err;

@@ -15,7 +15,7 @@ export default {
     actions: {
         async getMethods({ commit }) {
             try {
-                const data = await shippingMethods.incrementMethods();
+                const data = await shippingMethods.increment();
                 commit('setMethods', data);
             } catch (err) {
                 throw err;

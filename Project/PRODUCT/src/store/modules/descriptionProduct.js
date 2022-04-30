@@ -21,7 +21,7 @@ export default {
         async getProduct({ commit }, val) {
             const { id } = val;
             try {
-                const data = await catalog.incrementCatalog({ id })
+                const data = await catalog.increment({ id })
                 commit('setProduct', data);
             } catch (err) {
                throw err;
