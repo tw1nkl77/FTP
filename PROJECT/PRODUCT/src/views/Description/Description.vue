@@ -1,49 +1,58 @@
 <template>
   <div>
-    <HomePageBanner :name="`description product ${itemName}`" />
+    <HomePageBanner :name="`description product ${product.name}`" />
     <div class="product_details">
       <div class="container">
+        <div class="row details_row">
 
-        <DescriptionProduct /> 
+          <Gallery 
+            :images="product.imgUrl"
+            :productApi="productApi"
+          />
 
-        <div class="row description_row">
-          <div class="col">
-            <div class="description_title_container">
-              <div class="description_title">Description</div>
-              <div class="reviews_title">
-                <a href="#">Reviews <span>(1)</span></a>
-              </div>
-            </div>
-            <div class="description_text">
-              <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo
-                tempus mollis sed et dui. In hac habitasse platea dictumst.
-                Suspendisse ultrices mauris diam. Nullam sed aliquet elit.
-                Mauris consequat nisi ut mauris efficitur lacinia.
-              </p>
-            </div>
-          </div>
+          <ProductContent 
+            :product="product" 
+          />
+
         </div>
+        
+        <Reviews 
+          :reviews="product.reviews"
+        />
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import Gallery from "./components/Gallery.vue";
+import ProductContent from "./components/ProductContent.vue";
+import Social from "../../components/pages/UI/Social.vue";
 import HomePageBanner from "../../components/pages/UI/HomePageBanner.vue";
-import DescriptionProduct from "../../components/DescriptionProduct.vue";
+import Reviews from './components/Reviews.vue';
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "Description",
-  components: { HomePageBanner, DescriptionProduct },
+  components: { HomePageBanner, Gallery, ProductContent, Social, Reviews },
+
+  methods: {
+    ...mapActions({
+      getProduct: "Catalog/getProduct",
+    }),
+  },
 
   computed: {
     ...mapState({
-      itemName: state => state.DescriptionProduct.product.name,
+      product: (state) => state.Catalog.selectedProduct,
+      productApi: (state) => state.Catalog.productApi,
     }),
+  },
+
+  async created() {
+    this.getProduct({ id: +this.$route.params.id });
+    console.log(this.product.reviews)
   },
 };
 </script>

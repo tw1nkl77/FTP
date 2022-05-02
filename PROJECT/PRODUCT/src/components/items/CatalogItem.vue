@@ -58,7 +58,7 @@ export default {
     },
 
     imgUrl() {
-      return this.productApi + this.item.imgUrl;
+      return this.productApi + this.item.imgUrl[0];
     },
   },
 };

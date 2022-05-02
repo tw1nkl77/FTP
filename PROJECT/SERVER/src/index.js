@@ -2,6 +2,7 @@ const express = require('express');
 const server = express();
 const cart = require('./components/cart');
 const contact = require('./components/contact');
+const catalog = require('./components/catalog');
 const readJSON = require('../plugins/readJSON');
 const writeJSON = require('../plugins/writeJSON');
 
@@ -23,7 +24,7 @@ server.get('/catalog', async (req, res) => {
         const data = await readJSON(catalogURL);
 
         if (id) {
-            const findItem = data.find(item => item.id === id);
+            const findItem = catalog.findItem(data, (+id))
             res.json(findItem);
             return;
         };

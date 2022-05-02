@@ -215,6 +215,14 @@ section {
     transition: all 200ms ease;
 }
 
+.color {
+    color: lightgray !important;
+}
+
+.description_title {
+    cursor: pointer !important;
+}
+
 .trans_300 {
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
@@ -230,6 +238,29 @@ section {
     -o-transition: all 400ms ease;
     transition: all 400ms ease;
 }
+
+.description_text {
+    display: flex;
+}
+
+.description_row {
+    min-height: 500px !important;
+}
+
+.reviews_img {
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+
+.reviews_info span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.reviews_info span:nth-child()
 
 .trans_500 {
     -webkit-transition: all 500ms ease;
