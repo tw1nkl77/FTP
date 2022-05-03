@@ -54,27 +54,23 @@
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex';
 export default {
-    name: 'ProductContent',
-    props: {
-        product: {
-            type: Object,
-            default: () => {},
-        },
+  name: 'ProductContent',
+  props: {
+    product: {
+      type: Object,
+      default: () => {},
     },
-    
-    methods: {
-        ...mapActions({
-            addItem: 'Cart/addItem',
-        }),
+  },
+  
+  methods: {
+    addItem(val) {
+      this.$emit('addItem', val);
+    },
 
-        ...mapMutations({
-            incrementAmount: 'Catalog/incrementAmount',
-        }),
+    incrementAmount(val) {
+      this.$emit('incrementAmount', val);
     },
+  },
 };
 </script>
-
-<style>
-</style>

@@ -8,8 +8,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
-
 export default {
   name: 'ShippingMethodsItem',
   props: {
@@ -20,9 +18,9 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
-      setShippingMethod: 'Cart/setShippingMethod',
-    }),
+    setShippingMethod(val) {
+      this.$emit('setShippingMethod', val);
+    }
   },
 
   created() {

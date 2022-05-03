@@ -22,7 +22,11 @@
             <Coupon />
           </div>
           
-          <TotalCart />
+          <TotalCart 
+            :totalPrice="totalPrice"
+            :total="total"
+            :shipping="shipping"
+          />
         </div>
       </div>
     </div>
@@ -35,10 +39,21 @@ import ShoppingCart from '@components/ShoppingCart.vue';
 import ShippingMethods from '@components/ShippingMethods.vue';
 import Coupon from './components/Coupon.vue';
 import TotalCart from './components/TotalCart.vue';
+import { mapGetters, mapState} from 'vuex';
 
 export default {
   name: 'FinallyCart',
   components: { ShoppingCart, ShippingMethods, Coupon, TotalCart, HomePageBanner },
+  computed: {
+    ...mapGetters({
+      totalPrice: 'Cart/totalPrice',
+      total: 'Cart/total',
+    }),
+
+    ...mapState({
+      shipping: state => state.Cart.shippingMethod.price,
+    }),
+  },
 };
 </script>
 

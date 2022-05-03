@@ -2,7 +2,7 @@
   <div class="product">
     <div class="product_image">
       <img :src="imgUrl" />
-      <div class="btn-add" @click="getNewItem({ item })">Add this product</div>
+      <div class="btn-add" @click="addItem({ item })">Add this product</div>
     </div>
     <div class="product_extra" :class="category.class" v-if="item.category">
       <router-link :to="`/categories/${category.text.toLowerCase()}`">{{ category.text }}</router-link>
@@ -21,8 +21,6 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
-
 export default {
   name: 'CatalogItem',
   props: {
@@ -30,29 +28,25 @@ export default {
       type: Object,
       default: () => {},
     },
-  },
 
-  data() {
-    return {
-      categories: {
-        1: "New",
-        2: "Sale",
-        3: "Hot",
-      },
-    };
+    productApi: {
+      type: String,
+      default: () => '',
+    },
+
+    categories: {
+      type: Object,
+      default: () => {},
+    },
   },
 
   methods: {
-    ...mapActions({
-      getNewItem: 'Cart/addItem',
-    }),
+    addItem(val) {
+      this.$emit('addItem', val);
+    },
   },
 
   computed: {
-    ...mapState({
-      productApi: state => state.Catalog.productApi,
-    }),
-
     category() {
       const { category } = this.item;
       return category ? {

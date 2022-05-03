@@ -6,7 +6,9 @@
     <div class="contact">
       <div class="container">
         <div class="row">
-            <GetInTouch />
+            <GetInTouch 
+              @sendMessage="sendMessage"
+            />
             <ContactInfo />
         </div>
         <GoogleMap />
@@ -20,9 +22,15 @@ import HomePageBanner from '@components/pages/UI/HomePageBanner.vue';
 import GetInTouch from './components/GetInTouch.vue';
 import ContactInfo from './components/ContactInfo.vue';
 import GoogleMap from './components/GoogleMap.vue';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Contact',
   components: { GetInTouch, ContactInfo, HomePageBanner, GoogleMap },
+  methods: {
+    ...mapActions({
+      sendMessage: 'Contact/sendMessage',
+    }),
+  },
 };
 </script>

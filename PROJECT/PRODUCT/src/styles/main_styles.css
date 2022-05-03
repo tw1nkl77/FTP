@@ -182,6 +182,7 @@ section {
 
 .unavailable {
     pointer-events: none;
+    color: lightgray !important;
 }
 
 .unavailable i {

@@ -1,20 +1,13 @@
 {
- "totalCounts": 7,
- "totalPrice": 3780,
+ "totalCounts": 2,
+ "totalPrice": 1440,
  "items": [
-  {
-   "id": 2,
-   "imgUrl": "/product_2.jpg",
-   "name": "COLUMNS",
-   "price": 510,
-   "amount": 6
-  },
   {
    "id": 3,
    "imgUrl": "/product_3.jpg",
    "name": "HARGING WIRE",
    "price": 720,
-   "amount": 1
+   "amount": 2
   }
  ]
 }

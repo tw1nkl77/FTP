@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 
 export default {
   name: 'GetInTouch',
@@ -72,12 +71,12 @@ export default {
   },
 
   methods: {
-    ...mapActions({
-      sendMessage: 'Contact/sendMessage',
-    }),
+    sendMessage(val) {
+      this.$emit('sendMessage', val);
+    },
 
-    async send(val) {
-      await this.sendMessage(val);
+    send(val) {
+      this.sendMessage(val);
       this.name = '';
       this.surname = '';
       this.subject = '';

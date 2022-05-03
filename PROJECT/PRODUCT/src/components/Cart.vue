@@ -18,6 +18,9 @@
           v-for="item of items"
           :key="item.id"
           :item="item"
+          :productApi="productApi"
+          @incrementAmount="incrementAmount"
+          @deleteItem="deleteItem"
         />
         <hr />
         <div class="action">
@@ -51,6 +54,7 @@ export default {
   data() {
     return {
       openCart: false,
+      interval: null,
     };
   },
 
@@ -58,12 +62,15 @@ export default {
     ...mapActions({
       getCart: 'Cart/getCart',
       getClearCart: 'Cart/clearCart',
+      incrementAmount: 'Cart/incrementAmount',
+      deleteItem: 'Cart/deleteItem',
     }),
   },
 
   computed: {
     ...mapState({
       items: state => state.Cart.items,
+      productApi: state => state.Catalog.productApi,
     }),
 
     ...mapGetters({

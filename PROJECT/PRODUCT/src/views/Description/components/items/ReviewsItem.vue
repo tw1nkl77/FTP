@@ -32,9 +32,9 @@ export default {
 <style scoped>
     .description_text {
         display: flex;
-        /* margin-bottom: 50px; */
         box-shadow: 0 0 1px gray;
         padding: 10px;
+        color: #1b1b1b
     }
 
     .description_text figure {

@@ -25,32 +25,23 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState} from 'vuex';
-
 export default {
   name: 'TotalCart',
-  methods: {
-    ...mapActions({
-      getCart: 'Cart/getCart',
-    }),
-  },
+  props: {
+    totalPrice: {
+      type: Number,
+      default: () => 0,
+    },
 
-  computed: {
-    ...mapGetters({
-      totalPrice: 'Cart/totalPrice',
-      total: 'Cart/total',
-    }),
+    total: {
+      type: Number,
+      default: () => 0,
+    },
 
-    ...mapState({
-      shipping: state => state.Cart.shippingMethod.price,
-    }),
-  },
-
-  async created() {
-    await this.getCart();
+    shipping: {
+      type: Number,
+      default: () => 0,
+    },
   },
 };
 </script>
-
-<style>
-</style>

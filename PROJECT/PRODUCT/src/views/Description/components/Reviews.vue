@@ -13,7 +13,6 @@
         :key="review.id"
         :review="review"
       />
-
     </div>
   </div>
 </template>

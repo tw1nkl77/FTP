@@ -16,6 +16,7 @@
                     v-for="item of sortOptions"
                     :key="item.val"
                     :item="item"
+                    @setSort="setSort"
                   />
                 </ul>
               </li>
@@ -29,7 +30,7 @@
 
 <script>
 import ProductSortingItem from './items/ProductSortingItem';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   name: 'ProductSorting',
@@ -40,16 +41,24 @@ export default {
       sortOptions: [
         { 
           name: "default",
-          val: 'id' },
+          val: 'id' 
+        },
         { 
           name: "price",
-          val: 'price' },
+          val: 'price' 
+        },
         { 
           name: "name",
           val: 'name' 
         },
       ],
     };
+  },
+
+  methods: {
+    ...mapMutations({
+      setSort: 'Catalog/setSort',
+    }),
   },
 
   computed: {

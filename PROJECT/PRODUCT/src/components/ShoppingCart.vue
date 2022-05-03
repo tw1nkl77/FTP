@@ -7,6 +7,9 @@
             v-for="item of items"
             :key="item.id"
             :item="item"
+            :productApi="productApi"
+            @incrementAmount="incrementAmount"
+            @deleteItem="deleteItem"
           />
         </div>
         <p class="no-bascket" v-else><b>There are no products. Select products to purchase from catalog.</b></p>
@@ -38,12 +41,15 @@ export default {
     ...mapActions({
       getCart: 'Cart/getCart',
       getClearCart: 'Cart/clearCart',
+      incrementAmount: 'Cart/incrementAmount',
+      deleteItem: 'Cart/deleteItem',
     }),
   },
 
   computed: {
     ...mapState({
       items: state => state.Cart.items,
+      productApi: state => state.Catalog.productApi,
     }),
   },
 
@@ -52,6 +58,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
-
 export default {
   name: 'ProductSortingItem',
   props: {
@@ -17,9 +15,9 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
-      setSort: 'Catalog/setSort',
-    })
+    setSort(sort) {
+      this.$emit('setSort', sort);
+    },
   },
 
   computed: {

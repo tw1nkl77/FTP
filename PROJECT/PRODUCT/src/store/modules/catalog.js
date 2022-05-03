@@ -8,6 +8,11 @@ export default {
             name: 'DEFAULT',
             value: 'id',
         }],
+        categories: {
+            1: "New",
+            2: "Sale",
+            3: "Hot",
+        },
         selectedProduct: {},
         productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/1/src/assets/img',
     }),

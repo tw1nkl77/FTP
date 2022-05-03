@@ -9,7 +9,9 @@
             :productApi="productApi"
           />
           <ProductContent 
-            :product="product" 
+            :product="product"
+            @addItem="addItem"
+            @incrementAmount="incrementAmount" 
           />
         </div>
         <Reviews 
@@ -26,7 +28,7 @@ import ProductContent from "./components/ProductContent.vue";
 import Social from "@components/pages/UI/Social.vue";
 import HomePageBanner from "@components/pages/UI/HomePageBanner.vue";
 import Reviews from './components/Reviews.vue';
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState, mapMutations } from "vuex";
 
 export default {
   name: "Description",
@@ -35,6 +37,11 @@ export default {
   methods: {
     ...mapActions({
       getProduct: "Catalog/getProduct",
+      addItem: 'Cart/addItem',
+    }),
+
+    ...mapMutations({
+      incrementAmount: 'Catalog/incrementAmount',
     }),
   },
 

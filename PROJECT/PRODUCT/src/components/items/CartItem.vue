@@ -9,9 +9,16 @@
                 <div class="qty-flex">
                     <span>Qty:</span>
                     <div class="qty">
-                        <button class="item-minus" @click="increment(false)">-</button>
+                        <button 
+                          class="item-minus"
+                          :class="item.amount == 1 ? 'unavailable' : ''" 
+                          @click="incrementAmount(false)"
+                        >-</button>
                         <span class="amount">{{ item.amount }}</span>
-                        <button class="item-plus" @click="increment(true)">+</button>
+                        <button 
+                          class="item-plus" 
+                          @click="incrementAmount(true)"
+                        >+</button>
                     </div>
                 </div>
                 <span>Total: <b>${{ item.price * item.amount }}</b></span>
@@ -19,14 +26,12 @@
         </div>
     </div>
     <div>
-        <span class="item-delete" @click="deleteItem({ id: item.id })"></span>
+      <span class="item-delete" @click="deleteItem({ id: item.id })"></span>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
-
 export default {
   name: 'CartItem',
   props: {
@@ -34,24 +39,24 @@ export default {
       type: Object,
       default: () => {},
     },
+    
+    productApi: {
+      type: String,
+      default: () => '',
+    },
   },
 
   methods: {
-    ...mapActions({
-      incrementAmount: 'Cart/incrementAmount',
-      deleteItem: 'Cart/deleteItem',
-    }),
+    incrementAmount(val) {
+      this.$emit('incrementAmount', { id: this.item.id, amount: val ? 1 : -1 });
+    },
 
-    increment(val) {
-      this.incrementAmount({ id: this.item.id, amount: val ? 1 : -1 });
+    deleteItem(val) {
+      this.$emit('deleteItem', val);
     },
   },
 
   computed: {
-    ...mapState({
-      productApi: state => state.Catalog.productApi,
-    }),
-
     imgUrl() {
       return this.productApi + this.item.imgUrl;
     },

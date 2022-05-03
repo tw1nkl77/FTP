@@ -7,13 +7,14 @@
         v-for="item of items"
         :key="item.name"
         :item="item"
+        @setShippingMethod="setShippingMethod"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState, mapMutations } from 'vuex';
 import ShippingMethodsItem from "./items/ShippingMethodsItem.vue";
 
 export default {
@@ -23,6 +24,10 @@ export default {
   methods: {
     ...mapActions({
       getMethods: 'ShippingMethods/getMethods',
+    }),
+
+    ...mapMutations({
+      setShippingMethod: 'Cart/setShippingMethod',
     }),
   },
 
