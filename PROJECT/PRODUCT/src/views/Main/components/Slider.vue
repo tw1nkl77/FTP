@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <!-- <div class="home">
     <div class="home_slider_container">
 
       <div class="owl-carousel owl-theme home_slider">
@@ -26,11 +26,31 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- <div class="carousel-item active" data-bs-interval="10000">
+      <h1 class="malo">Эллада дура</h1>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <h1>Эллада дура</h1>
+    </div>
+    <div class="carousel-item">
+      <h1>Эллада дура</h1>
+    </div> -->
+    <!-- <SliderItem 
+      v-for="item of sliderOptions"
+      :key="item.id"
+      :item="item"
+    /> -->
   </div>
+</div>
 </template>
 
 <script>
-import SliderItem from './items/SliderItem.vue';
+import SliderItem from '@components/pages/UI/items/SliderItem.vue';
 
 export default {
   name: 'Slider',
@@ -60,4 +80,19 @@ export default {
 </script>
 
 <style>
+ .carousel {
+   /* min-height: 500px; */
+   margin-top: 150px;
+   /* background-color: red */
+   width: 1430px;
+   margin: 0 auto;
+ }
+
+ .carousel-inner {
+   height: 800px;
+ }
+
+ .carousel-item {
+   height: 700px;
+ }
 </style>

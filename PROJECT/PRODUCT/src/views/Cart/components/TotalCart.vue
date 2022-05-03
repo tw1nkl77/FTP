@@ -5,15 +5,15 @@
         <div class="section_subtitle">Final info</div>
         <div class="cart_total_container">
             <ul>
-                <li class="d-flex flex-row align-items-center justify-content-start">
+                <li class="d-flex flex-row align-items-center justify-content-between">
                     <div class="cart_total_title">Subtotal</div>
                     <div class="cart_total_value ml-auto subtotal">${{ totalPrice }}</div>
                 </li>
-                <li class="d-flex flex-row align-items-center justify-content-start">
+                <li class="d-flex flex-row align-items-center justify-content-between">
                     <div class="cart_total_title">Shipping</div>
                     <div class="cart_total_value ml-auto shipping">${{ shipping }}</div>
                 </li>
-                <li class="d-flex flex-row align-items-center justify-content-start">
+                <li class="d-flex flex-row align-items-center justify-content-between">
                     <div class="cart_total_title">Total</div>
                     <div class="cart_total_value ml-auto main-total">${{ total }}</div>
                 </li>
@@ -29,13 +29,6 @@ import { mapActions, mapGetters, mapState} from 'vuex';
 
 export default {
   name: 'TotalCart',
-  data() {
-    return {
-      total: null,
-      url: '/api/cart',
-    };
-  },
-
   methods: {
     ...mapActions({
       getCart: 'Cart/getCart',
@@ -45,7 +38,7 @@ export default {
   computed: {
     ...mapGetters({
       totalPrice: 'Cart/totalPrice',
-      cheque: 'Cart/cheque',
+      total: 'Cart/total',
     }),
 
     ...mapState({
@@ -54,7 +47,7 @@ export default {
   },
 
   async created() {
-    await this.getCart(this.url);
+    await this.getCart();
   },
 };
 </script>

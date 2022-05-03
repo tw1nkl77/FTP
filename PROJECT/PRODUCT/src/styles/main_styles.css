@@ -201,10 +201,6 @@ section {
     margin-top: 32px !important;
 }
 
-.description_text {
-    margin-bottom: 50px;
-}
-
 .float_left {
     float: left;
 }
@@ -241,46 +237,9 @@ section {
     transition: all 400ms ease;
 }
 
-.description_text {
-    display: flex;
-}
-
-.reviews_info__about span {
-    display: block;
-}
-
-.reviews_info__about {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    width: 120px;
-
-}
-
 .description_row {
     min-height: 500px !important;
 }
-
-.reviews_img {
-    width: 100px;
-    height: 100px;
-    background-color: lightgray;
-    border-radius: 50%;
-    margin: 0 auto;
-}
-
-.description_text figure {
-    text-align: center;
-    margin: 0 auto;
-    margin-right: 50px;
-}
-
-.reviews_info span {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.reviews_info span:nth-child()
 
 .trans_500 {
     -webkit-transition: all 500ms ease;
@@ -460,6 +419,7 @@ section {
 .search_icon {
     width: 13px;
     height: 13px;
+    margin-top: -5px;
 }
 
 .search_icon svg {
@@ -563,7 +523,7 @@ section {
     right: 60px;
     z-index: 1;
     margin-right: -5px; 
-    margin-top: 5px;
+    /* margin-top: 5px; */
 }
 
 .cart__close {
@@ -916,6 +876,10 @@ section {
     padding: 30px;
 }
 
+.cart_buttons {
+    justify-content: space-between !important;
+}
+
 .avds-small-bg {
     background: url('../assets/img/avds_small.jpg');
 }
@@ -1248,7 +1212,7 @@ section {
 
 .main_nav {
     margin-left: 156px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .main_nav ul {
@@ -1558,7 +1522,7 @@ section {
 }
 
 .coupon_input {
-    width: 210px;
+    width: 270px;
 }
 
 
@@ -1648,6 +1612,7 @@ button:focus {
 .shopping_cart {
     display: inline-block;
     width: 200px;
+    margin-left: 100px;
 }
 
 .shopping_cart button {

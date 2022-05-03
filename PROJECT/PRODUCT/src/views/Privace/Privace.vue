@@ -104,6 +104,7 @@ export default {
 <style scoped>
   .privace {
     margin: 50px 0 25px 0;
+    color: #333
   }
 
   .privace_point {

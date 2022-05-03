@@ -15,3 +15,7 @@ export default {
   components: { Header, Footer }, 
 };
 </script>
+
+<style>
+@import '~bootstrap/dist/css/bootstrap.css';
+</style>

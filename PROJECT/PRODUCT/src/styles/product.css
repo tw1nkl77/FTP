@@ -1201,9 +1201,14 @@ section
 }
 .product
 {
-	/* width: calc((100% - 90px) / 4); */
-	margin-bottom: 59px;
+	width: calc((100% - 90px) / 4);
+	/* margin-bottom: 59px; */
 }
+
+.sorting_bar {
+	justify-content: space-between !important;
+}
+
 .product_image
 {
 	width: 100%;

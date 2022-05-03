@@ -1,5 +1,6 @@
 <template>
-  <div class="owl-item home_slider_item">
+  <!-- <div class="owl-item home_slider_item"> -->
+    <div class="carousel-item active" data-bs-interval="1000">
     <div class="home_slider_background"></div>
     <div class="home_slider_content_container">
       <div class="container">
