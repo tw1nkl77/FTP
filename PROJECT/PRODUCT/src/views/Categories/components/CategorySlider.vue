@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="home_content">
-                            <div class="home_title">Smart Phones<span>.</span></div>
+                            <div class="home_title">{{ categoryName }}<span>.</span></div>
                             <div class="home_text">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.
                                 </p>
@@ -21,3 +21,21 @@
     </div>
 </div>
 </template>
+
+<script>
+export default {
+    name: 'CategorySlider',
+    props: {
+        category: {
+            type: String,
+            default: () => 'Catalog',
+        },
+    },
+    
+    computed: {
+        categoryName() {
+            return this.category.toUpperCase();
+        }
+    }
+};
+</script>

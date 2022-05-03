@@ -9,6 +9,10 @@
       </div>
     </button>
     <div class="cart__content" v-show="openCart">
+      <div class="cart__close">
+        <button class="cart__close__btn" @click="openCart = !openCart">Close the cart</button>
+      </div>
+      <hr>
       <div v-if="items.length > 0">
         <cartItem
           v-for="item of items"
@@ -70,6 +74,14 @@ export default {
 
   async created() {
     await this.getCart();
+    this.interval = setInterval(() => {
+      this.getCart();
+    }, 10000);
+  },
+
+  beforeUnmount() {
+    window.clearInterval(this.interval);
+    this.interval = null;
   },
 };
 </script>

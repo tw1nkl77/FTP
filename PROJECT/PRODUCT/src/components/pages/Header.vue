@@ -28,10 +28,10 @@
 </template>
 
 <script>
-import MenuNavigation from '../MenuNavigation.vue';
-import Cart from '../Cart.vue';
-import SearchPanel from '../pages/UI/SearchPanel.vue';
-import Social from '../pages/UI/Social.vue';
+import MenuNavigation from '@components/MenuNavigation.vue';
+import Cart from '@components/Cart.vue';
+import SearchPanel from '@components/pages/UI/SearchPanel.vue';
+import Social from '@components/pages/UI/Social.vue';
 
 export default {
   name: 'Header',

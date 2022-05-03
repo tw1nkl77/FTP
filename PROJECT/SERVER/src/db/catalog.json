@@ -11,12 +11,11 @@
         "prevPrice": null,
         "category": 1,
         "id": 1,
+        "class": "phones",
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -24,8 +23,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -33,8 +30,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -42,8 +37,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -51,8 +44,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -73,12 +64,11 @@
         "prevPrice": 640,
         "category": 2,
         "id": 2,
+        "class": "accessories",
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -86,8 +76,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -95,8 +83,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -104,8 +90,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -113,8 +97,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -134,13 +116,12 @@
         "price": 720,
         "prevPrice": null,
         "category": 3,
+        "class": "accessories",
         "id": 3,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -148,8 +129,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -157,8 +136,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -166,8 +143,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -175,8 +150,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -196,13 +169,12 @@
         "price": 670,
         "prevPrice": null,
         "category": 1,
+        "class": "notebooks",
         "id": 4,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -210,8 +182,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -219,8 +189,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -228,8 +196,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -237,8 +203,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -258,13 +222,12 @@
         "price": 510,
         "prevPrice": 620,
         "category": 2,
+        "class": "accessories",
         "id": 5,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -272,8 +235,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -281,8 +242,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -290,8 +249,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -299,8 +256,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -320,13 +275,12 @@
         "price": 320,
         "prevPrice": null,
         "category": 3,
+        "class": "notebooks",
         "id": 6,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -334,8 +288,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -343,8 +295,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -352,8 +302,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -361,8 +309,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -382,13 +328,12 @@
         "price": 510,
         "prevPrice": null,
         "category": 1,
+        "class": "phones",
         "id": 7,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -396,8 +341,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -405,8 +348,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -414,8 +355,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -423,8 +362,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -444,13 +381,12 @@
         "price": 450,
         "prevPrice": 650,
         "category": 2,
+        "class": "accessories",
         "id": 8,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -458,8 +394,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -467,8 +401,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -476,8 +408,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -485,8 +415,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -506,13 +434,12 @@
         "price": 390,
         "prevPrice": null,
         "category": null,
+        "class": "accessories",
         "id": 9,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -520,8 +447,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -529,8 +454,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -538,8 +461,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -547,8 +468,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -568,13 +487,12 @@
         "price": 550,
         "prevPrice": null,
         "category": null,
+        "class": "accessories",
         "id": 10,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -582,8 +500,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -591,8 +507,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -600,8 +514,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -609,8 +521,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -630,14 +540,13 @@
         "price": 680,
         "prevPrice": null,
         "category": null,
+        "class": "other",
         "id": 11,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "id": 1,
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -646,8 +555,6 @@
             {
                 "id": 2,
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -656,8 +563,6 @@
             {
                 "id": 3,
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -666,8 +571,6 @@
             {
                 "id": 4,
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -676,8 +579,6 @@
             {
                 "id": 5,
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -697,13 +598,12 @@
         "price": 570,
         "prevPrice": null,
         "category": null,
+        "class": "other",
         "id": 12,
         "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
         "reviews": [
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -711,8 +611,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -720,8 +618,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -729,8 +625,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",
@@ -738,8 +632,6 @@
             },
             {
                 "name": "Name",
-                "surname": "Surname",
-                "age": "26 y.o.",
                 "evaluation": "4/5",
                 "positive": "tra-ta-ta",
                 "negative": "tra-ta-ta",

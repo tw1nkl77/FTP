@@ -1,19 +1,17 @@
 <template>
   <div class="row description_row">
     <div class="col">
+      <hr>
       <div class="description_title_container">
-        <div
-          class="description_title"
-          @click="description = false"
-          :class="!description ? '' : 'color'"
-        >
-          Reviews <span>(1)</span>
+        <div class="description_title">
+          Reviews <span>({{ reviews.length }})</span>
         </div>
       </div>
 
       <ReviewsItem 
-        v-for="item of reviews"
-        :key="item.id"
+        v-for="review of reviews"
+        :key="review.id"
+        :review="review"
       />
 
     </div>

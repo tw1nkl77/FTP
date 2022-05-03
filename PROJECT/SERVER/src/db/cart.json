@@ -1,30 +1,20 @@
 {
- "totalCounts": 11,
- "totalPrice": 5430,
+ "totalCounts": 7,
+ "totalPrice": 3780,
  "items": [
   {
-   "id": 1,
-   "imgUrl": [
-    "/product_1.jpg",
-    "/details_2.jpg",
-    "/details_3.jpg",
-    "/details_4.jpg"
-   ],
-   "name": "IPHONE 13 PRO MAX",
-   "price": 480,
+   "id": 2,
+   "imgUrl": "/product_2.jpg",
+   "name": "COLUMNS",
+   "price": 510,
    "amount": 6
   },
   {
-   "id": 7,
-   "imgUrl": [
-    "/product_7.jpg",
-    "/details_2.jpg",
-    "/details_3.jpg",
-    "/details_4.jpg"
-   ],
-   "name": "IPHONE XR",
-   "price": 510,
-   "amount": 5
+   "id": 3,
+   "imgUrl": "/product_3.jpg",
+   "name": "HARGING WIRE",
+   "price": 720,
+   "amount": 1
   }
  ]
 }

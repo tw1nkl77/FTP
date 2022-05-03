@@ -4,6 +4,7 @@ export default payload => {
 
     switch(method) {
         case 'POST': {
+            console.log(params)
             basicParametres.data = params;
             break;
         };

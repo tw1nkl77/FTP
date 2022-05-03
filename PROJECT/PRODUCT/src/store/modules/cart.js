@@ -20,8 +20,8 @@ export default {
             }, 0);
         },
 
-        cheque(state, getters) {
-            return getters.totalPrice + state.shippingMethod.price;
+        total(state, getters) {
+            return getters.totalPrice + (state.shippingMethod?.price || 0);
         },
     },
 
@@ -71,7 +71,8 @@ export default {
 
             if (!findItem) {
                 try {
-                    const newItem = { id, imgUrl, name, price, amount };
+                    const newItem = { id, imgUrl: imgUrl[0], name, price, amount };
+                    console.log(newItem)
                     const data = await cart.addItem(newItem);
 
                     if (!data.error) {

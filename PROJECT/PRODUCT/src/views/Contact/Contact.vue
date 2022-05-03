@@ -1,6 +1,8 @@
 <template>
   <div>
-    <HomePageBanner :name="'contact'"/>
+    <HomePageBanner 
+      :name="'contact'"
+    />
     <div class="contact">
       <div class="container">
         <div class="row">
@@ -14,8 +16,8 @@
 </template>
 
 <script>
-import HomePageBanner from '../../components/pages/UI/HomePageBanner.vue';
-import GetInTouch from '../../components/GetInTouch.vue';
+import HomePageBanner from '@components/pages/UI/HomePageBanner.vue';
+import GetInTouch from './components/GetInTouch.vue';
 import ContactInfo from './components/ContactInfo.vue';
 import GoogleMap from './components/GoogleMap.vue';
 
@@ -24,6 +26,3 @@ export default {
   components: { GetInTouch, ContactInfo, HomePageBanner, GoogleMap },
 };
 </script>
-
-<style>
-</style>

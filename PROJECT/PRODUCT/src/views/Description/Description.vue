@@ -4,22 +4,17 @@
     <div class="product_details">
       <div class="container">
         <div class="row details_row">
-
           <Gallery 
             :images="product.imgUrl"
             :productApi="productApi"
           />
-
           <ProductContent 
             :product="product" 
           />
-
         </div>
-        
         <Reviews 
           :reviews="product.reviews"
         />
-
       </div>
     </div>
   </div>
@@ -28,8 +23,8 @@
 <script>
 import Gallery from "./components/Gallery.vue";
 import ProductContent from "./components/ProductContent.vue";
-import Social from "../../components/pages/UI/Social.vue";
-import HomePageBanner from "../../components/pages/UI/HomePageBanner.vue";
+import Social from "@components/pages/UI/Social.vue";
+import HomePageBanner from "@components/pages/UI/HomePageBanner.vue";
 import Reviews from './components/Reviews.vue';
 import { mapActions, mapState } from "vuex";
 
@@ -52,7 +47,6 @@ export default {
 
   async created() {
     this.getProduct({ id: +this.$route.params.id });
-    console.log(this.product.reviews)
   },
 };
 </script>

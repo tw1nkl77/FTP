@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import Catalog from "../../components/Catalog.vue";
-import Slider from "../../components/pages/UI/Slider.vue";
-import IconBoxs from "../../components/pages/UI/IconBoxs.vue";
-import NewsLetter from "../../components/pages/UI/NewsLetter.vue";
+import Catalog from "@components/Catalog.vue";
+import Slider from "@components/pages/UI/Slider.vue";
+import IconBoxs from "@components/pages/UI/IconBoxs.vue";
+import NewsLetter from "@components/pages/UI/NewsLetter.vue";
 import DiscountProducts from "./components/DiscountProducts.vue";
 import AmazingProducts from "./components/AmazingProducts.vue";
 

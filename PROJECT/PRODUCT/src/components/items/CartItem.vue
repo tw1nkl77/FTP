@@ -32,6 +32,7 @@ export default {
   props: {
     item: {
       type: Object,
+      default: () => {},
     },
   },
 
@@ -52,7 +53,7 @@ export default {
     }),
 
     imgUrl() {
-      return this.productApi + this.item.imgUrl[0];
+      return this.productApi + this.item.imgUrl;
     },
   },
 };

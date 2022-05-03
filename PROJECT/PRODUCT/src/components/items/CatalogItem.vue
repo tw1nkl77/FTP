@@ -4,6 +4,9 @@
       <img :src="imgUrl" />
       <div class="btn-add" @click="getNewItem({ item })">Add this product</div>
     </div>
+    <div class="product_extra" :class="category.class" v-if="item.category">
+      <router-link :to="`/categories/${category.text.toLowerCase()}`">{{ category.text }}</router-link>
+    </div>
     <div class="product_content">
       <div class="product_title">
         <router-link :to="`/catalog/${item.id}`">{{ item.name }}</router-link>
@@ -25,6 +28,7 @@ export default {
   props: {
     item: {
       type: Object,
+      default: () => {},
     },
   },
 
