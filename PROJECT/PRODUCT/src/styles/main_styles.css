@@ -417,12 +417,6 @@ section {
     transform: translateY(-1px);
 }
 
-.search_icon {
-    width: 13px;
-    height: 13px;
-    margin-top: -5px;
-}
-
 .search_icon svg {
     -webkit-transition: all 200ms ease;
     -moz-transition: all 200ms ease;
@@ -745,14 +739,19 @@ section {
 5. Home
 *********************************/
 
-.home {
+.home-slider {
     width: 100%;
     height: 950px;
     background: #ffffff;
     z-index: 2;
 }
 
-.home_slider_container {
+.nav-active {
+    color: #1b1b1b;
+    border-bottom: 2px solid #1B1B1B;
+}
+
+.home-slider_container {
     width: 100%;
     height: 100%;
     /* padding-top: 130px;
@@ -761,7 +760,7 @@ section {
     padding-bottom: 30px; */
 }
 
-.home_slider_background {
+.home-slider_background {
     position: absolute;
     top: 0;
     left: 0;
@@ -770,28 +769,28 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background: url('../assets/img/home_slider_1.jpg');
+    /* background: url('https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/1/src/assets/img/home_slider_1.jpg'); */
 }
 
-.home_slider_content_container {
+.home-slider_content_container {
     position: absolute;
     left: 0;
     top: 32.3%;
     width: 100%;
 }
 
-.home_slider_content {
+.home-slider_content {
     max-width: 580px;
 }
 
-.home_slider_title {
+.home-slider_title {
     font-size: 60px;
     font-weight: 600;
     color: #ffffff;
     line-height: 1.2;
 }
 
-.home_slider_subtitle {
+.home-slider_subtitle {
     font-size: 14px;
     font-weight: 400;
     color: #ffffff;
@@ -1218,6 +1217,7 @@ section {
 
 .main_nav ul {
     display: flex;
+    margin-bottom: 0 !important;
 }
 
 .main_nav>ul>li {
@@ -1938,9 +1938,9 @@ button:focus {
     position: relative;
     font-size: 15px;
     display: none;
-    top: 201px;
+    top: 252px;
     left: 0px;
-    width: 250px;
+    width: 302px;
     animation: fade 0.5s linear forwards;
     border: 2px solid #333;
     height: 50px;
@@ -1974,17 +1974,33 @@ button:focus {
     color: green;
 }
 
+.product_pagination ul {
+    padding: 0 !important;
+}
+
 @media screen and (max-width: 546px) {
     .product_grid {
         justify-content: center;
     }
 }
 
+@media screen and (max-width: 1399px) {
+    .btn-add {
+        left: 0px;
+        top: 207px;
+        width: 256px;
+        font-size: 12px;
+    }
+    .btn-add:hover {
+        font-size: 13px;
+    }
+}
+
 @media screen and (max-width: 1199px) {
     .btn-add {
         left: 0px;
-        top: 200px;
-        width: 250px;
+        top: 162px;
+        width: 211px;
         font-size: 12px;
     }
     .btn-add:hover {
@@ -1995,8 +2011,8 @@ button:focus {
 @media screen and (max-width: 991px) {
     .btn-add {
         left: 0px;
-        top: 200px;
-        width: 250px;
+        top: 282px;
+        width: 333px;
         font-size: 14px;
     }
     .btn-add:hover {
@@ -2007,22 +2023,8 @@ button:focus {
 @media screen and (max-width: 767px) {
     .btn-add {
         left: 0px;
-        top: 200px;
-        width: 250px;
-        font-size: 12px;
-    }
-    .btn-add:hover {
-        font-size: 13px;
-    }
-}
-
-@media screen and (max-width: 546px) {
-    .btn-add {
-        left: 0px;
-        top: 200px;
-        max-height: 377px;
-        width: 100%;
-        max-width: 560px;
+        top: 192px;
+        width: 243px;
         font-size: 12px;
     }
     .btn-add:hover {

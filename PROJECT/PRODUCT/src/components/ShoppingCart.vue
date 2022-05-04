@@ -17,7 +17,7 @@
     </div>
     <div class="row row_cart_buttons">
       <div class="col">
-        <div class="cart_buttons d-flex flex-lg-row flex-column align-items-start justify-content-start">
+        <div class="cart_buttons d-flex flex-lg-row flex-column align-items-start justify-content-between">
           <div class="button continue_shopping_button"><router-link to="/categories">Continue shopping</router-link></div>
           <div class="cart_buttons_right ml-lg-auto flex">
             <div class="button clear_cart_button action"><button @click="getClearCart({ clearCart: true })">Clear cart</button></div>

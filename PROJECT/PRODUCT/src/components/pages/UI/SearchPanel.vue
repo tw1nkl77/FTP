@@ -1,5 +1,5 @@
 <template>
-  <div class="search_panel trans_300">
+  <div class="search_panel trans_300 active">
       <div class="container">
         <div class="row">
           <div class="col">

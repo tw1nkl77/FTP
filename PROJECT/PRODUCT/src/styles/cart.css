@@ -498,8 +498,9 @@ section
 .search_icon
 {
 	width: 13px;
-	height: 13px;
+	height: 25px !important;
 }
+
 .search_icon svg
 {
 	-webkit-transition: all 200ms ease;

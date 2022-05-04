@@ -16,7 +16,7 @@
 
         <ShoppingCart />
 
-        <div class="row row_extra">
+        <div class="row row_extra mt-5">
           <div class="col-lg-4">
             <ShippingMethods />
             <Coupon />

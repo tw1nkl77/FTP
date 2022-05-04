@@ -1,5 +1,5 @@
 <template>
-  <div class="row description_row">
+  <div class="row description_row mb-5">
     <div class="col">
       <hr>
       <div class="description_title_container">

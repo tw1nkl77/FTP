@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col">
-      <div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-md-start">
+      <div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-between">
         <div class="results">
           Showing {{ sortedCatalog.length }} results
         </div>

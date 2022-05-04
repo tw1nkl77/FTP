@@ -2,9 +2,6 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import './assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css'
-import './assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css'
-import './assets/plugins/OwlCarousel2-2.2.1/animate.css'
 import './styles/cart_responsive.css'
 import './styles/cart.css'
 import './styles/categories_responsive.css'
@@ -18,7 +15,7 @@ import './styles/product_responsive.css'
 import './styles/product.css'
 import './styles/responsive.css'
 import './styles/f-a/css/font-awesome.min.css'
-// import './assets/plugins/bootstrap4/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 
 createApp(App).use(store).use(router).mount('#app');

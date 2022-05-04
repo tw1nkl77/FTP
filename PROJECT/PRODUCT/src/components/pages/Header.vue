@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="isScrolled">
     <div class="header_container">
       <div class="container">
         <div class="row">
@@ -39,13 +39,36 @@ export default {
   data() {
     return {
       showSearchPanel: false,
+      scrolled: false,
     };
+  },
+
+  methods: {
+    handleScroll() {
+      if (window.scrollY > 100) {
+        this.scrolled = true;
+      } else {
+        this.scrolled = false;
+      };
+    }, 
   },
 
   computed: {
     cartAvailable() {
       return this.$route.path !== '/Cart'; 
     },
+
+    isScrolled() {
+      return this.scrolled ? 'scrolled' : '';
+    },
+  },
+
+  created() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   },
 };
 </script>
