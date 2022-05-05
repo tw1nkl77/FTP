@@ -13,7 +13,7 @@
                 <Cart v-if="cartAvailable" />
                 <div class="search">
                   <div class="search_icon" @click="showSearchPanel = !showSearchPanel">
-                    <img src="../../assets/img/search.svg" />
+                    <img :src="require('../../assets/img/search.svg')" />
                   </div>
                 </div>
               </div>

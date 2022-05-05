@@ -370,6 +370,10 @@ section {
     margin-top: 5px !important;
 }
 
+.header_social ul {
+    margin-bottom: 0 !important;
+}
+
 .header_container {
     width: 100%;
     z-index: 1;
@@ -739,11 +743,47 @@ section {
 5. Home
 *********************************/
 
-.home-slider {
+/* .home-slider {
     width: 100%;
     height: 950px;
     background: #ffffff;
     z-index: 2;
+} */
+
+.slider1 {
+    background: no-repeat center top / cover;
+    background-image: linear-gradient(100deg, rgba(50,38,86,0.9) 0%, rgba(0,212,255,0.9948354341736695) 0%, rgba(2,0,36,0.5382528011204482) 0%),
+        url('../assets/img/slider1.jpg');
+}
+
+.slider2 {
+    background: no-repeat center top / cover;
+    background-image: linear-gradient(100deg, rgba(50,38,86,0.9) 0%, rgba(0,212,255,0.9948354341736695) 0%, rgba(2,0,36,0.5382528011204482) 0%),
+        url('../assets/img/slider2.jpeg');
+}
+
+.slider3 {
+    background: no-repeat center top / cover;
+    background-image: linear-gradient(100deg, rgba(50,38,86,0.9) 0%, rgba(0,212,255,0.9948354341736695) 0%, rgba(2,0,36,0.5382528011204482) 0%),
+        url('../assets/img/slider3.jpg');
+}
+
+.home-slider {
+    height: 100%;
+    transition: 3s;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product_details {
+    margin-top: 50px;
+}
+
+.home {
+    margin-bottom: 0 !important;
 }
 
 .nav-active {
@@ -779,8 +819,13 @@ section {
     width: 100%;
 }
 
-.home-slider_content {
-    max-width: 580px;
+.home-slider_subtitle {
+    width: 850px;
+    font-size: 15px !important;
+}
+
+.home-slider_content .button{
+    margin: 30px auto;
 }
 
 .home-slider_title {
@@ -858,6 +903,7 @@ section {
     width: 100%;
     background: #ffffff;
     z-index: 2;
+    margin-top: 50px;
 }
 
 .avds_container {
@@ -1227,7 +1273,7 @@ section {
 }
 
 .main_nav>ul>li {
-    margin-right: 40px;
+    margin-right: 85px !important;
 }
 
 .main_nav>ul>li:not(:last-child) {
@@ -1333,7 +1379,7 @@ section {
 }
 
 .footer {
-    position: fixed;
+    position: relative !important;
     left: 0;
     bottom: 0;
     width: 100%;

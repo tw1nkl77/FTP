@@ -1,7 +1,7 @@
 <template>
   <div class="shopping_cart">
     <button @click="openCart = !openCart">
-      <img src="../assets/img/basket.svg" />
+      <img :src="require('../assets/img/basket.svg')" />
       <div>
         Cart
         <span class="cart-counter">({{ totalCount }})</span>
