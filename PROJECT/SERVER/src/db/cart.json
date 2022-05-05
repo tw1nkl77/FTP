@@ -1,6 +1,6 @@
 {
- "totalCounts": 11,
- "totalPrice": 6610,
+ "totalCounts": 12,
+ "totalPrice": 7090,
  "items": [
   {
    "id": 3,
@@ -22,6 +22,13 @@
    "name": "IPHONE XR",
    "price": 510,
    "amount": 6
+  },
+  {
+   "id": 1,
+   "imgUrl": "/product_1.jpg",
+   "name": "IPHONE 13 PRO MAX",
+   "price": 480,
+   "amount": 1
   }
  ]
 }

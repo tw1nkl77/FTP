@@ -1,7 +1,7 @@
 <template>
  <v-carousel
     cycle
-    height="900"
+    height="100vh"
     show-arrows="hover"
   >
     <SliderItem 

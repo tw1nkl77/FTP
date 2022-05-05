@@ -75,6 +75,7 @@ a {
     border-bottom: none;
 }
 
+
 /* a:hover {
 
 } */
@@ -183,6 +184,10 @@ section {
 .unavailable {
     pointer-events: none;
     color: lightgray !important;
+}
+
+.sorting_bar {
+    padding: 0 !important;
 }
 
 .unavailable i {
@@ -360,6 +365,7 @@ section {
     left: 0;
     width: 100%;
     z-index: 100;
+    border-bottom: 1px solid #1b1b1b;
 }
 
 .home_title {
@@ -521,7 +527,7 @@ section {
     transform: translateY(-50%);
     right: 60px;
     z-index: 1;
-    margin-right: -5px; 
+    margin-right: -5px;
     /* margin-top: 5px; */
 }
 
@@ -743,6 +749,7 @@ section {
 5. Home
 *********************************/
 
+
 /* .home-slider {
     width: 100%;
     height: 950px;
@@ -752,20 +759,17 @@ section {
 
 .slider1 {
     background: no-repeat center top / cover;
-    background-image: linear-gradient(100deg, rgba(50,38,86,0.9) 0%, rgba(0,212,255,0.9948354341736695) 0%, rgba(2,0,36,0.5382528011204482) 0%),
-        url('../assets/img/slider1.jpg');
+    background-image: linear-gradient(100deg, rgba(50, 38, 86, 0.9) 0%, rgba(0, 212, 255, 0.9948354341736695) 0%, rgba(2, 0, 36, 0.5382528011204482) 0%), url('../assets/img/slider1.jpg');
 }
 
 .slider2 {
     background: no-repeat center top / cover;
-    background-image: linear-gradient(100deg, rgba(50,38,86,0.9) 0%, rgba(0,212,255,0.9948354341736695) 0%, rgba(2,0,36,0.5382528011204482) 0%),
-        url('../assets/img/slider2.jpeg');
+    background-image: linear-gradient(100deg, rgba(50, 38, 86, 0.9) 0%, rgba(0, 212, 255, 0.9948354341736695) 0%, rgba(2, 0, 36, 0.5382528011204482) 0%), url('../assets/img/slider2.jpeg');
 }
 
 .slider3 {
     background: no-repeat center top / cover;
-    background-image: linear-gradient(100deg, rgba(50,38,86,0.9) 0%, rgba(0,212,255,0.9948354341736695) 0%, rgba(2,0,36,0.5382528011204482) 0%),
-        url('../assets/img/slider3.jpg');
+    background-image: linear-gradient(100deg, rgba(50, 38, 86, 0.9) 0%, rgba(0, 212, 255, 0.9948354341736695) 0%, rgba(2, 0, 36, 0.5382528011204482) 0%), url('../assets/img/slider3.jpg');
 }
 
 .home-slider {
@@ -824,7 +828,7 @@ section {
     font-size: 15px !important;
 }
 
-.home-slider_content .button{
+.home-slider_content .button {
     margin: 30px auto;
 }
 
@@ -1875,6 +1879,10 @@ button:focus {
     background: #ffffff;
     padding-top: 99px;
     z-index: 2;
+}
+
+.pgt {
+    padding-top: 0 !important;
 }
 
 .product {

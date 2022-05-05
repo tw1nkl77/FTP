@@ -18,89 +18,72 @@
         />
       </v-col>
     </v-row>
-    <v-row>
-      <v-col>
-        <v-text-field
-          v-model="formData.company"
-          label="Company"
-          variant="filled"
-          :rules="[rules.cyrilic]"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-autocomplete
-          v-model="formData.contry"
-          label="Country*"
-          variant="filled"
-          :items="['Country1', 'Country2', 'Country3', 'Country4']"
-          :rules="[rules.cyrilic, rules.required]"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-text-field
-          v-model="formData.address"
-          label="Address*"
-          variant="filled"
-          :rules="[rules.required]"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-text-field
-          v-model="formData.zipCode"
-          label="Zip Code*"
-          variant="filled"
-          :rules="[rules.numbers]"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-autocomplete
-          v-model="formData.city"
-          label="City/Town*"
-          variant="filled"
-          :items="['City1', 'City2', 'City3', 'City4']"
-          :rules="[rules.required]"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-autocomplete
-          v-model="formData.province"
-          label="Province*"
-          variant="filled"
-          :items="['Province1', 'Province2', 'Province3', 'Province4']"
-          :rules="[rules.required]"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-text-field
-          v-model="formData.phone"
-          label="Phone number*"
-          variant="filled"
-          :rules="[rules.phone]"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-text-field
-          v-model="formData.email"
-          label="Email*"
-          variant="filled"
-          :rules="[rules.email]"
-        />
-      </v-col>
-    </v-row>
+    <v-text-field
+      v-model="formData.company"
+      label="Company"
+      variant="filled"
+      :rules="[rules.cyrilic]"
+    />
+    <v-autocomplete
+      v-model="formData.contry"
+      label="Country*"
+      variant="filled"
+      :items="['Country1', 'Country2', 'Country3', 'Country4']"
+      :rules="[rules.cyrilic, rules.required]"
+    />
+    <v-text-field
+      v-model="formData.address"
+      label="Address*"
+      variant="filled"
+      :rules="[rules.required]"
+    />
+    <v-text-field
+      v-model="formData.zipCode"
+      label="Zip Code*"
+      variant="filled"
+      :rules="[rules.numbers]"
+    />
+    <v-autocomplete
+      v-model="formData.city"
+      label="City/Town*"
+      variant="filled"
+      :items="['City1', 'City2', 'City3', 'City4']"
+      :rules="[rules.required]"
+    />
+    <v-autocomplete
+      v-model="formData.province"
+      label="Province*"
+      variant="filled"
+      :items="['Province1', 'Province2', 'Province3', 'Province4']"
+      :rules="[rules.required]"
+    />
+    <v-text-field
+      v-model="formData.phone"
+      label="Phone number*"
+      variant="filled"
+      :rules="[rules.phone]"
+    />
+    <v-text-field
+      v-model="formData.email"
+      label="Email*"
+      variant="filled"
+      :rules="[rules.email]"
+    />
+    <v-checkbox
+      v-model="formData.termsAndCondition"
+      :label="`Terms and Condition ${formData.termsAndCondition}`"
+      :value="formData.termsAndCondition"
+    />
+    <v-checkbox
+      v-model="formData.createAnAccount"
+      :label="`Create an account`"
+      :value="formData.createAnAccount"
+    />
+    <v-checkbox
+      v-model="formData.subscribe"
+      :label="`Subscribe for newsletter`"
+      :value="formData.subscribe"
+    />
   </v-form>
 </template>
 
