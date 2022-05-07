@@ -1,13 +1,13 @@
 {
- "totalCounts": 3,
- "totalPrice": 1350,
+ "totalCounts": 1,
+ "totalPrice": 720,
  "items": [
   {
-   "id": 8,
-   "imgUrl": "/product_8.jpg",
-   "name": "KEYBOARD",
-   "price": 450,
-   "amount": 3
+   "id": 3,
+   "imgUrl": "/product_3.jpg",
+   "name": "HARGING WIRE",
+   "price": 720,
+   "amount": 1
   }
  ]
 }

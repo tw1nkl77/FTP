@@ -42,9 +42,8 @@ export default {
 
         setDeleteItem(state, val) {
             const { id } = val;
-            const findItem = state.items.find(item => item.id === id);
-            const index = state.items.indexOf(findItem);
-            state.items.splice(index, 1);
+            const findItem = state.items.findIndex(item => item.id === id);
+            state.items.splice(findItem, 1);
         },
 
         setShippingMethod(state, method) {
