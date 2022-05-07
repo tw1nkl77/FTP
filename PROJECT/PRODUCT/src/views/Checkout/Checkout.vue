@@ -15,7 +15,7 @@
 <script>
 import HomePageBanner from "@components/pages/UI/HomePageBanner.vue";
 import CheckoutInfo from './components/CheckoutInfo.vue';
-import OrderInfo from './components/OrderInfo.vue';
+import OrderInfo from './components/OrderList.vue';
 
 export default {
   name: 'Checkout',

@@ -63,7 +63,7 @@ export default {
     }),
 
     prepareMessage(value) {
-      if (value.message) {
+        if (value.message) {
         this.sendMessage(value);
       };
 
@@ -87,9 +87,9 @@ export default {
 .chat {
   width: 70%;
   height: 500px;
-  border-top: 2px solid #37474f;
-  border-right: 2px solid #37474f;
-  border-bottom: 2px solid #37474f;
+  // border-top: 2px solid #37474f;
+  // border-right: 2px solid #37474f;
+  // border-bottom: 2px solid #37474f;
   background: url("../assets/fon.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -131,6 +131,7 @@ export default {
       height: 375px;
       overflow: scroll;
       padding: 10px;
+      border-bottom: 1px solid #37474f;
 
       .right-message {
         text-align: right;
@@ -154,14 +155,13 @@ export default {
 
     .chat-send {
       background-color: #fff;
-      height: 51px;
+      height: 55px;
       display: flex;
 
       .chat-send__input {
         width: 640px;
         outline: none;
         padding: 10px;
-        border: 1px solid #37474f;
         resize: none;
       }
 
@@ -170,8 +170,6 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        border-top: 1px solid #37474f;
-        border-bottom: 1px solid #37474f;
 
         .chat-send__submit__img {
           width: 35px;

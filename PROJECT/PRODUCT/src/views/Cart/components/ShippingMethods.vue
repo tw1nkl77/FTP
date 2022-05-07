@@ -3,12 +3,14 @@
     <div class="section_title">Shipping method</div>
     <div class="section_subtitle">Select the one you want</div>
     <div class="delivery_options">
-      <ShippingMethodsItem 
-        v-for="item of items"
-        :key="item.name"
-        :item="item"
-        @setShippingMethod="setShippingMethod"
-      />
+      <v-radio-group v-model="active">
+        <ShippingMethodsItem 
+          v-for="item of items"
+          :key="item.id"
+          :item="item"
+          @setShippingMethod="setShippingMethod"
+        />    
+      </v-radio-group>
     </div>
   </div>
 </template>
@@ -20,6 +22,11 @@ import ShippingMethodsItem from "./items/ShippingMethodsItem.vue";
 export default {
   name: 'ShippingMethods',
   components: { ShippingMethodsItem },
+  data() {
+    return {
+      active: 1,
+    };
+  },
   
   methods: {
     ...mapActions({

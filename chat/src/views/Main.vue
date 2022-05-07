@@ -4,18 +4,16 @@
       <Users />
       <Chat />
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
 import Users from "../components/Users.vue";
 import Chat from "../components/Chat.vue";
-import Footer from "../components/UI/Footer.vue";
 
 export default {
   name: "Main",
-  components: { Footer, Users, Chat },
+  components: { Users, Chat },
 };
 </script>
 

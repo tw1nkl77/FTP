@@ -40,7 +40,7 @@ export default {
   justify-content: start;
   padding-left: 10px;
   padding-right: 10px;
-  border-bottom: 1px solid #37474f;
+  // border-bottom: 1px solid #37474f;
   transition: 0.4s;
 
   &:hover {

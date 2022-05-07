@@ -39,11 +39,16 @@ export default createStore({
       }
     ],
     selectedChat: {},
+    searchChat: '',
   },
   getters: {
     hasChat(state) {
       return !!(Object.keys(state.selectedChat).length);
     },
+
+    searchedChat(state) {
+      return state.users.filter(item => item.name.toLowerCase().includes(state.searchChat.toLowerCase()));
+    }
   },
   mutations: {
     selectChat(state, value) {
@@ -55,7 +60,11 @@ export default createStore({
       const { userId, message } = value;
       const findUser = state.users.find(user => user.id === userId);
       findUser.messages.push({ message, own: true, data: Date.now });
-    }
+    },
+
+    searchChat(state, value) {
+      state.searchChat = value;
+    },
   },
   actions: {
   }

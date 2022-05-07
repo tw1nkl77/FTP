@@ -1,10 +1,10 @@
 <template>
-  <label class="delivery_option clearfix" @click="setShippingMethod(item)">{{ item.method }}
-    <input type="radio" checked="checked" name="radio" v-if="item.standart" >
-    <input type="radio" name="radio" v-else>
-    <span class="checkmark"></span>
-    <span class="delivery_price">${{ item.price }}</span>
-  </label>
+  <v-radio 
+    :label="item.method"
+    :value="item.id"
+    color="red darken-3"
+    @click="setShippingMethod(item)"
+  />
 </template>
 
 <script>

@@ -1028,24 +1028,29 @@ section
 	padding-bottom: 53px;
 	padding-right: 58px;
 }
-.order_list_container
-{
-	margin-top: 46px;
+
+.order_list_container {
+	margin-top: 45px;
 }
+
+.order_list {
+	padding: 0 !important;
+}
+
 .order_list_bar
 {
-	margin-bottom: 59px;
+	margin-bottom: 30px;
 }
 .order_list_title,
 .order_list_value
 {
-	font-size: 14px;
-	font-weight: 400;
+	font-size: 15px;
+	font-weight: 600;
 	color: #1b1b1b;
 }
 .order_list li:not(:last-child)
 {
-	margin-bottom: 53px;
+	margin-bottom: 30px;
 }
 .payment_options
 {

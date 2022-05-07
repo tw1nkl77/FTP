@@ -45,7 +45,7 @@ export default {
 
   computed: {
     cartAvailable() {
-      return this.$route.path !== '/Cart'; 
+      return this.$route.path !== '/Cart' && this.$route.path !== '/checkout'; 
     },
   },
 };
