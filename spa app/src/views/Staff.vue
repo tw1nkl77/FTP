@@ -6,6 +6,7 @@
       <v-row>
         <v-col>
           <v-text-field
+            v-model="appeal.name"
             class="staff-form__name"
             label="ФИО*"
             placeholder="Введите свое ФИО"
@@ -17,6 +18,7 @@
       <v-row>
         <v-col>
           <v-text-field
+            v-model="appeal.cab"
             class="staff-form__cab"
             label="Кабинет*"
             placeholder="Введите номер кабинета"
@@ -28,6 +30,7 @@
       <v-row>
         <v-col>
           <v-textarea
+            v-model="appeal.text"
             class="staff-form__text"
             label="Обращение*"
             placeholder="Введите текст обращения"
@@ -39,7 +42,7 @@
       <v-row>
         <v-col>
           <div class="staff-form__button">
-            <v-btn :disabled="!valid">Отправить</v-btn>
+            <v-btn :disabled="!valid" @click="sendAppeal(this.appeal)">Отправить</v-btn>
           </div>
         </v-col>
       </v-row>
@@ -48,6 +51,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   data() {
     return {
@@ -57,7 +62,18 @@ export default {
         max: (value) =>
           value.length <= 150 || "Обращение должно быть не более 150 символов.",
       },
+      appeal: {
+        name: '',
+        cab: '',
+        text: '',
+      },
     };
+  },
+
+  methods: {
+    ...mapActions({
+      sendAppeal: 'Staff/sendAppeal',
+    }),
   },
 };
 </script>

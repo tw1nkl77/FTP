@@ -29,19 +29,21 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-btn class="login-form__button" :disabled="!valid" @click="login">
-            <router-link :to="$router.push(`/${hasToken}`)">Войти</router-link>
+          <v-btn class="login-form__button" :disabled="!valid" @click="getToken(this.token)">
+            <router-link :to="$router.push(`/${hasToken ? hasToken : ''}`)">Войти</router-link>
           </v-btn>
         </v-col>
       </v-row>
     </v-form>
-    <div class="hasntUser" v-show="incorrectData">
+    <div class="hasntUser" v-if="incorrectData">
       <p>Введен неправильный логин или пароль. Проверьте корректность ввода.</p>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   data: () => ({
     valid: false,
@@ -55,41 +57,19 @@ export default {
       login: "",
       password: "",
     },
-    hasToken: "",
-    incorrectData: false,
   }),
 
   methods: {
-    login() {
-      const { login, password } = this.token;
-      localStorage.setItem("token", JSON.stringify({ login, password }));
-      const sessions = JSON.parse(localStorage.getItem("sessions"));
-      const session = sessions.find(
-        (session) => session.login === login && session.password === password
-      );
-
-      if (session) {
-        this.hasToken = session.rights;
-        localStorage.setItem("hasToken", JSON.stringify(true));
-      };
-
-      if (!this.hasToken) {
-        this.incorrectData = true;
-      };
-
-      console.log(localStorage)
-    },
+    ...mapActions({
+      getToken: 'getToken',
+    }),
   },
 
-  mounted() {
-    const sessions = [
-      {
-        login: "admin",
-        password: "admin12345",
-        rights: "staff",
-      },
-    ];
-    localStorage.setItem("sessions", JSON.stringify(sessions));
+  computed: {
+    ...mapGetters({
+      hasToken: 'hasToken',
+      incorrectData: 'incorrectData',
+    }),
   },
 };
 </script>
@@ -146,7 +126,6 @@ export default {
     margin-top: 30px;
     border: 3px solid red;
     border-radius: 10px;
-    transition: 0.3s;
 
     p {
       padding: 10px;

@@ -2,26 +2,28 @@
   <header>
     <div>
       <img :src="require('@/assets/logo-116.png')" />
-      <v-btn @click="clearSession" v-if="hasToken">
-        <router-link to="/">Выйти</router-link>
-      </v-btn>
+      <router-link to="/">
+        <v-btn @click="clearToken" v-if="hasToken">Выйти</v-btn>
+      </router-link>
     </div>
   </header>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
-  data() {
-    return {
-      hasToken: JSON.parse(localStorage?.hasToken || "''"),
-    }
-  },
+  name: "Header",
   methods: {
-    clearSession() {
-      localStorage.removeItem("token");
-      localStorage.setItem("hasToken", JSON.stringify(false));
-      console.log(localStorage)
-    },
+    ...mapActions({
+      clearToken: 'clearToken',
+    }),
+  },
+
+  computed: {
+    ...mapGetters({
+      hasToken: "hasToken",
+    }),
   },
 };
 </script>
@@ -32,18 +34,16 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   height: 70px;
-  font-family: "Courier New";
 
   div {
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
 
-    button {
-      color: white;
+    a {
       text-transform: uppercase;
-      padding: 10px;
-      border: 2px solid white;
+      text-decoration: none;
+      color: #1b1b1b;
     }
   }
 }
