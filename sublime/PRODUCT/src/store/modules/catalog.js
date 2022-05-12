@@ -18,10 +18,6 @@ export default {
     }),
 
     getters: {
-        filteredCatalog(state) {
-            return state.items.filter(el => !!el.category);
-        },
-
         sortedCatalog(state) {
             const selectedSort = state.sort.val;
             return state.items.sort((prev, next) => {
@@ -52,15 +48,14 @@ export default {
         setSort(state, val) {
             state.sort = val;
         },
-
-
     },
 
     actions: {
-        async getCatalog({ commit }) {
+        async getCatalog({ commit }, params = {}) {
             try {
-                const data = await catalog.getCatalog();
+                const { data, totalItems } = await catalog.getCatalog(params);
                 commit('setCatalog', data);
+                commit('Pagination/setPages', totalItems, { root: true });
             } catch (err) {
                 console.warn(err);
             };

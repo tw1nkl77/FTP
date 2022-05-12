@@ -1,14 +1,17 @@
 <template>
   <div>
     <CategorySlider 
-      :category="$route.params.category"
+      :category="this.$route.params.category"
     />
     <div class="products">
       <div class="container">
         <ProductSorting />
         <div class="row">
           <div class="col">
-            <Catalog :discountProducts="false" />
+            <Catalog 
+              :query="query"
+              :hasPagination="true"
+            />
           </div>
         </div>
       </div>
@@ -27,7 +30,16 @@ import NewsLetter from "@components/pages/UI/NewsLetter.vue";
 
 export default {
   name: 'Categories',
-  components: { CategorySlider, ProductSorting, Catalog, IconBoxs, NewsLetter },  
+  components: { CategorySlider, ProductSorting, Catalog, IconBoxs, NewsLetter },
+  data() {
+    return {
+      query: {
+        page: this.$store.state.Pagination.currentPage,
+        shows: this.$store.state.Pagination.shows,
+        filter: 'category'
+      },
+    };
+  },
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
-  <div class="product_grid" v-if="discountProducts">
+  <div class="product_grid">
     <CatalogItem
-      v-for="item of filteredCatalog"
+      v-for="item of items"
       :key="item.key"
       :item="item"
       :productApi="productApi"
@@ -9,61 +9,63 @@
       @addItem="addItem"
     />
   </div>
-  <div v-else>
-    <div class="product_grid">
-      <CatalogItem
-        v-for="item of sortedCatalog"
-        :key="item.key"
-        :item="item"
-        :productApi="productApi"
-        :categories="categories"
-        @addItem="addItem"
-      />
-    </div>
-    <div class="product_pagination">
-      <ul>
-        <li class="active mr-3">
-          <button><span>1</span></button>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <Pagination 
+    v-if="hasPagination"
+    @incrementPage="incrementPage"
+  />
 </template>
 
 <script>
-import CatalogItem from './items/CatalogItem.vue';
-import { mapActions, mapGetters, mapState } from 'vuex';
+import CatalogItem from "./items/CatalogItem.vue";
+import Pagination from "./Pagination.vue";
+import { mapActions, mapGetters, mapState, mapMutations } from "vuex";
 
 export default {
-  name: 'Catalog',
-  components: { CatalogItem },
+  name: "Catalog",
+  components: { CatalogItem, Pagination },
   props: {
-    discountProducts: {
+    query: {
+      type: Object,
+      default: () => {},
+    },
+
+    hasPagination: {
       type: Boolean,
+      default: () => null,
     },
   },
 
   methods: {
     ...mapActions({
-      getCatalog: 'Catalog/getCatalog',
-      addItem: 'Cart/addItem',
+      getCatalog: "Catalog/getCatalog",
+      addItem: "Cart/addItem",
     }),
+
+    ...mapMutations({
+      changePage: 'Pagination/changePage',
+    }),
+
+    async incrementPage(value) {
+      this.changePage(value);
+      await this.getCatalog({...this.query, page: value});
+    },
   },
 
   computed: {
-    ...mapGetters({
-      filteredCatalog: 'Catalog/filteredCatalog',
-      sortedCatalog: 'Catalog/sortedCatalog',
-    }),
-
     ...mapState({
-      productApi: state => state.Catalog.productApi,
-      categories: state => state.Catalog.categories,
+      items: (state) => state.Catalog.items,
+      productApi: (state) => state.Catalog.productApi,
+      categories: (state) => state.Catalog.categories,
+      pages: state => state.Pagination.pages,
+    }),
+    
+    ...mapGetters({
+      sortedCatalog: "Catalog/sortedCatalog",
     }),
   },
 
   async created() {
-    await this.getCatalog();
+    await this.getCatalog(this.query);
   },
 };
 </script>

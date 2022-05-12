@@ -4,6 +4,7 @@ import Cart from './modules/cart';
 import Menu from './modules/menu';
 import ShippingMethods from './modules/shippingMethods';
 import Contact from './modules/contact';
+import Pagination from './modules/pagination';
 
 export default createStore({
     modules: { 
@@ -12,5 +13,6 @@ export default createStore({
         Menu, 
         ShippingMethods,
         Contact,
+        Pagination,
     },
 });

@@ -4,7 +4,7 @@
     <DiscountProducts />
     <div class="products pgt">
       <div class="container">
-        <Catalog :discountProducts="true" />
+        <Catalog :query="query" />
       </div>
     </div>
     <AmazingProducts />
@@ -24,5 +24,12 @@ import AmazingProducts from "./components/UI/AmazingProducts.vue";
 export default {
   name: 'Main',
   components: { Catalog, Slider, IconBoxs, NewsLetter, DiscountProducts, AmazingProducts },
+  data() {
+    return {
+      query: {
+        filter: 'category',
+      },
+    };
+  },
 };
 </script>

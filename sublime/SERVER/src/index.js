@@ -18,18 +18,31 @@ const shippingMethods = "./src/db/shippingMethods.json";
 
 //GET REQUEST
 server.get('/catalog', async (req, res) => {
-    const { id } = req.query;
+    const { id, filter, page, shows } = req.query;
 
-    try {
-        const data = await readJSON(catalogURL);
+    try {   
+        let data = await readJSON(catalogURL);
+        const totalItems = data.length;
 
         if (id) {
-            const findItem = catalog.findItem(data, (+id))
-            res.json(findItem);
-            return;
+            data = catalog.findItem(data, (+id))
         };
 
-        res.json(data);
+        // totalItems = data.length;
+
+        if (filter) {
+            data = catalog.filter(data, filter);
+
+            if (shows) {
+                const firstElement = (+page - 1) * (+shows);
+                const lastElement = firstElement + (+shows);
+                console.log(firstElement, lastElement)
+                data = data.slice(firstElement, lastElement);
+            };
+            
+            // totalItems = data.length;
+        };
+        res.json({ data, totalItems });
     } catch (err) {
         console.log(`Error: + ${err}`);
     };
