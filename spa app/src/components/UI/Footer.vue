@@ -25,7 +25,6 @@ export default {
       "mdi-instagram",
       "mdi-vk",
     ],
-    // icons: [1, 2, 3, 4, 5]
   }),
 };
 </script>
@@ -33,7 +32,6 @@ export default {
 <style lang="scss">
 .footer {
   background: url("http://orgcomnet.ru/wp-content/themes/scalia/images/footer-bg.png");
-  // height: 200px;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

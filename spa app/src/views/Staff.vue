@@ -42,7 +42,7 @@
       <v-row>
         <v-col>
           <div class="staff-form__button">
-            <v-btn :disabled="!valid" @click="sendAppeal(this.appeal)">Отправить</v-btn>
+            <v-btn :disabled="!valid" @click="sendAppeal(sendAppeal)">Отправить</v-btn>
           </div>
         </v-col>
       </v-row>
@@ -63,6 +63,7 @@ export default {
           value.length <= 150 || "Обращение должно быть не более 150 символов.",
       },
       appeal: {
+        id: Date.now(),
         name: '',
         cab: '',
         text: '',
@@ -72,8 +73,19 @@ export default {
 
   methods: {
     ...mapActions({
-      sendAppeal: 'Staff/sendAppeal',
+      getAppeal: 'Appeals/getAppeal',
     }),
+
+    sendAppeal() {
+      const { id, name, cab, text } = this.appeal;
+      this.getAppeal({ id, name, cab, text });
+      this.appeal= {
+        id: Date.now(),
+        name: '',
+        cab: '',
+        text: '', 
+      };
+    },
   },
 };
 </script>

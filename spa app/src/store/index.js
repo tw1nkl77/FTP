@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
-import Staff from './modules/staff';
+import Appeals from './modules/appeals';
+import TranslatedAppeals from './modules/translatedAppeals';
 
 export default createStore({
   state: {
@@ -57,5 +58,5 @@ export default createStore({
       commit("setClearToken");
     },
   },
-  modules: { Staff },
+  modules: { Appeals, TranslatedAppeals },
 });

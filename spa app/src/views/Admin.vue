@@ -3,15 +3,19 @@
     <h1>Список обращений в техническую поддержку</h1>
     <hr />
     <div class="filter">
-      <span class="filter_head">Фильтрация:</span>
-      <v-autocomplete
-        class="filter_input"
-        label="Выберите тип фильтрации..."
-        :items="['Country1', 'Country2', 'Country3', 'Country4']"
-        variant="outlined"
-      />
+      <h2>Сортировка</h2>
+      <div class="filter-complete">
+        <v-autocomplete
+          v-model="selectedSort"
+          :items="sort"
+          dense
+          filled
+          label="Выберите сортировку..."
+        />
+        <v-btn @click="clearFilter">Очистить сортировку</v-btn>
+      </div>
     </div>
-    <div class="admin">
+    <div class="admin" v-if="items.length">
       <v-table density="compact">
         <thead>
           <tr>
@@ -23,27 +27,74 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(appeal, idx) of appeals" :key="idx">
+          <tr v-for="(appeal, idx) of items" :key="idx">
             <td class="text-center">{{ idx + 1 }}</td>
             <td class="text-center">{{ appeal.name }}</td>
             <td class="text text-center">{{ appeal.text }}</td>
-            <td class="text-center"><v-btn>Отделы...</v-btn></td>
-            <td class="text-center"><v-btn>Отправить</v-btn></td>
+            <td class="text-center">
+            <Modal 
+              @department="this.department = $event"
+              v-if="!department"
+            />
+              <span v-else>{{ department }}</span>
+            </td>
+            <td class="text-center"><v-btn @click="redirectAppeal(appeal)">Отправить</v-btn></td>
           </tr>
         </tbody>
       </v-table>
     </div>
+    <div v-else><p>Пока что список обращений пуст.</p></div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
+import Modal from "./components/Modal.vue";
 
 export default {
   name: "Admin",
+  components: { Modal },
+  data() {
+    return {
+      selectedSort: null,
+      sort: ['По ФИО', 'По обращению'],
+      department: "",
+    };
+  },
+
+  methods: {
+    ...mapActions({
+      appeals: "Appeals/appeals",
+      getTranslatedAppeals: "TranslatedAppeals/getAppeals",
+    }),
+
+    ...mapMutations({
+      selectSort: "Appeals/selectSort",
+      updateAppeals: "Appeals/updateAppeals",
+    }),
+
+    clearFilter() {
+      this.selectedSort = null;
+      this.selectSort(this.selectedSort);
+    },
+
+    redirectAppeal(appeal) {
+      const translatedAppeal = {...appeal, department: this.department};
+      this.getTranslatedAppeals(translatedAppeal);
+      this.updateAppeals(appeal);
+    },
+  },
+
+  watch: {
+    selectedSort(value) {
+      this.selectSort(value);
+    },
+  },
+
   computed: {
     ...mapGetters({
-      appeals: "Staff/getAppeal",
+      items: "Appeals/appeals",
+      filters: "Appeals/getFilter",
     }),
   },
 };
@@ -58,24 +109,26 @@ export default {
   }
 
   .filter {
-    display: flex;
-    
-    &_head {
-      font-weight: 600;
-      font-size: 20px;
-      margin-right: 20px;
+    margin: 20px auto;
+
+    h2 {
+      margin-bottom: 5px;
     }
 
-    &_input {
-      width: 150px;
+    &-complete {
+      display: flex;
+      justify-content: center;
+
+      button {
+        margin-left: 10px;
+        height: 56px;
+      }
     }
   }
 
   .admin {
-    margin: 20px auto;
     border: 2px solid #1b1b1b;
     border-radius: 10px;
-    // text-align: justify;
     box-shadow: 0 0 9px gray;
 
     th {
