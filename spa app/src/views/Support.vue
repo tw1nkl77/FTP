@@ -3,16 +3,16 @@
     <h1>Список обращений в техническую поддержку</h1>
     <hr />
     <div class="filter">
-      <h2>Сортировка</h2>
+      <h2>Выбор отдела</h2>
       <div class="filter-complete">
         <v-autocomplete
           v-model="selectedSort"
-          :items="sort"
+          :items="department"
           dense
           filled
-          label="Выберите сортировку..."
+          label="Выберите отдел..."
         />
-        <v-btn @click="clearFilter">Очистить сортировку</v-btn>
+        <v-btn @click="clearFilter">Очистить отдел</v-btn>
       </div>
     </div>
     <div class="admin" v-if="items.length">
@@ -22,8 +22,6 @@
             <th class="text-center">№</th>
             <th class="text-center">ФИО</th>
             <th class="text-center">Обращение</th>
-            <th class="text-center">Выбор отдела</th>
-            <th class="text-center">Действия</th>
           </tr>
         </thead>
         <tbody>
@@ -31,12 +29,7 @@
             <td class="text-center">{{ idx + 1 }}</td>
             <td class="text-center">{{ appeal.name }}</td>
             <td class="text text-center">{{ appeal.text }}</td>
-            <td class="text-center">
-              <Modal @department="this.department = $event" />
-            </td>
-            <td class="text-center">
-              <v-btn @click="redirectAppeal(appeal)">Отправить</v-btn>
-            </td>
+            <td class="text-center"></td>
           </tr>
         </tbody>
       </v-table>
@@ -47,52 +40,40 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from "vuex";
-import Modal from "./components/Modal.vue";
 
 export default {
   name: "Admin",
-  components: { Modal },
   data() {
     return {
       selectedSort: null,
-      sort: ["По ФИО", "По обращению"],
-      department: "",
+      department: ["PK", "PO"],
     };
   },
 
   methods: {
     ...mapActions({
-      appeals: "Appeals/appeals",
       getTranslatedAppeals: "TranslatedAppeals/getAppeals",
     }),
 
     ...mapMutations({
-      selectSort: "Appeals/selectSort",
-      updateAppeals: "Appeals/updateAppeals",
+        selectDepartment: "TranslatedAppeals/selectDepartment",
     }),
 
     clearFilter() {
       this.selectedSort = null;
-      this.selectSort(this.selectedSort);
-    },
-
-    redirectAppeal(appeal) {
-      const translatedAppeal = { ...appeal, department: this.department };
-      this.getTranslatedAppeals(translatedAppeal);
-      this.updateAppeals(appeal);
+      this.selectDepartment(this.selectedSort);
     },
   },
 
   watch: {
     selectedSort(value) {
-      this.selectSort(value);
+      this.selectDepartment(value);
     },
   },
 
   computed: {
     ...mapGetters({
-      items: "Appeals/appeals",
-      filters: "Appeals/getFilter",
+      items: "TranslatedAppeals/getDepartment",
     }),
   },
 };

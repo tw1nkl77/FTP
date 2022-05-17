@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Login from '../components/Login.vue';
 import Staff from '../views/Staff.vue';
 import Admin from '../views/Admin.vue';
+import Support from '../views/Support.vue';
 
 const routes = [{
         path: '/',
@@ -18,6 +19,11 @@ const routes = [{
         name: 'admin',
         component: Admin,
     },
+    {
+        path: '/support',
+        name: 'support',
+        component: Support,
+    }
 ]
 
 const router = createRouter({

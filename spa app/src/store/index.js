@@ -15,6 +15,11 @@ export default createStore({
         password: "admin12345",
         rights: "admin",
       },
+      {
+        login: "support",
+        passowrd: "support12345",
+        rights: "support",
+      },
     ],
     token: JSON.parse(localStorage?.token || null),
     incorrectData: false,

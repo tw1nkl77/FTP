@@ -48,7 +48,7 @@ export default {
             const appeals = JSON.parse(localStorage.getItem("appeals"));
             state.appeals = appeals.filter(item => item.id != appeal.id);
             localStorage.setItem("appeals", JSON.stringify(state.appeals));
-        }
+        },
     },
 
     actions: {
