@@ -1,6 +1,6 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
-import typeToken from "../types";
-@Module({ namespaced: true })
+import typeToken from "../interfaces";
+@Module({ namespaced: true, stateFactory: true })
 
 export default class Login extends VuexModule {
     public sessions: Array<typeToken> = [

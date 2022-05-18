@@ -1,6 +1,6 @@
 <template>
   <v-form class="form" v-model="valid">
-    <slot> </slot>
+    <slot></slot>
   </v-form>
 </template>
 

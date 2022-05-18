@@ -3,7 +3,7 @@
     <div>
       <img :src="require('@/assets/logo-116.png')" />
       <router-link to="/">
-        <v-btn @click="clearToken" v-if="hasToken">Выйти</v-btn>
+        <v-btn @click="clearToken()" v-if="hasToken">Выйти</v-btn>
       </router-link>
     </div>
   </header>
@@ -16,9 +16,7 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "Header",
   methods: {
-    ...mapActions({
-      clearToken: "Login/clearToken",
-    }),
+    ...mapActions({ clearToken: "Login/clearToken" }),
   },
 
   computed: {
