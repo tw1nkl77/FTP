@@ -1,9 +1,8 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
 import typeToken from "../types";
-@Module({ namespaced: true, name: 'login' })
+@Module({ namespaced: true })
 
-export default class User extends VuexModule {
-    public name: string = ''
+export default class Login extends VuexModule {
     public sessions: Array<typeToken> = [
         {
             login: "staff",
@@ -22,23 +21,23 @@ export default class User extends VuexModule {
         },
     ];
     public token: typeToken | null = JSON.parse(localStorage?.token || null);
-    public incorrectData: boolean = false;
 
     get hasToken(): string | boolean {
         if (this.token) {
             const { login, password } = this.token;
             const session: typeToken | undefined = this.sessions.find(session => session.login === login && session.password === password);
             if (session) {
-                this.incorrectData = false;
                 return session.rights;
             };
-            this.incorrectData = true;
         };
         return false;
     };
 
-    get correctData(): boolean {
-        return !this.incorrectData;
+    get incorrectData(): boolean {
+        if (this.token && !this.hasToken) {
+            return true;
+        };
+        return false;
     };
 
     @Mutation
@@ -50,10 +49,10 @@ export default class User extends VuexModule {
         this.token = null;
     };
 
-    @Action
+    @Action({ rawError: true })
     public getToken(value: object): void {
         localStorage.setItem("token", JSON.stringify(value));
-        this.context.commit('setToken');
+        this.context.commit("setToken");
     };
 
     public clearToken(): void {
