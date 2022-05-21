@@ -1,7 +1,6 @@
 export const state = () => ({
     sessions: null,
     auth: null,
-    incorrectData: false,
 });
 
 export const getters = {
@@ -9,15 +8,15 @@ export const getters = {
         if (state.auth) {
             const { login, password } = state.auth;
             const token = state.sessions.find(session => session.login === login && session.password === password);
-
             if (token) {
-                state.incorrectData = false;
                 return token.rights;
             };
-
-            state.incorrectData = true;
         };
         return false;
+    },
+
+    incorrectData(state, getters) {
+        return !!(state.auth && !getters.token);
     },
 };
 
@@ -37,11 +36,18 @@ export const mutations = {
 
 export const actions = {
     getSessions({ commit }) {
-        const sessions = [{
-            login: "staff",
-            password: "staff12345",
-            rights: "staff",
-        }];
+        const sessions = [
+            {
+                login: "staff",
+                password: "staff12345",
+                rights: "staff",
+            },
+            {
+                login: "admin",
+                password: "admin12345",
+                rights: "admin",
+            },
+        ];
         commit("setSessions", sessions);
     },
 

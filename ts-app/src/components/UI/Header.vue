@@ -16,7 +16,9 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "Header",
   methods: {
-    ...mapActions({ clearToken: "Login/clearToken" }),
+    ...mapActions({ 
+      clearToken: "Login/clearToken" 
+    }),
   },
 
   computed: {

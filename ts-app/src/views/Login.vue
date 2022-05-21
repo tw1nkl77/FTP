@@ -1,14 +1,14 @@
 <template>
   <div class="login">
-    <h1 class="login-head">Авторизация</h1>
-    <hr />
     <auth-form class="login-form">
+    <template #header><h1 class="login-head">Авторизация</h1></template>
       <v-text-field
         v-model="token.login"
         class="login-form__login"
         label="Логин*"
         placeholder="Введите свой логин"
         variant="outlined"
+        required
       />
       <v-text-field
         v-model="token.password"
@@ -16,8 +16,13 @@
         label="Пароль*"
         placeholder="Введите свой пароль"
         variant="outlined"
+        required
+        type="password"
       />
-      <v-btn class="login-form__button" @click="getToken(token)">
+      <v-btn 
+        class="login-form__button" 
+        @click="getToken(token)"
+      >
         <router-link :to="$router.push(`/${hasToken ? hasToken : ''}`)">
           Войти
         </router-link>
@@ -40,6 +45,7 @@ export default defineComponent({
 
   data() {
     return {
+      valid: false,
       token: {
         login: "",
         password: "",
@@ -85,6 +91,7 @@ export default defineComponent({
     &__login {
       height: 60px;
       width: 300px;
+      margin-top: 20px;
     }
 
     &__password {

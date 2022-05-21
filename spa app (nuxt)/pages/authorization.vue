@@ -29,16 +29,18 @@
         </button>
       </form>
     </div>
+    <sending-success v-if="incorrectData" style="border: 2px solid red">Введены неправильные данные! Проверьте корректность ввода.</sending-success>
   </Container>
 </template>
 
 <script>
 import Container from "@/components/Container.vue";
+import SendingSuccess from "../components/sendingSuccess.vue";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Auth",
-  components: { Container },
+  components: { Container, SendingSuccess },
   data: () => ({
     token: {
       login: "",
@@ -65,6 +67,7 @@ export default {
   computed: {
     ...mapGetters({
       hasToken: "authorization/token",
+      incorrectData: "authorization/incorrectData",
     }),
   },
 

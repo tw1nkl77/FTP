@@ -1,5 +1,7 @@
 <template>
-  <v-form class="form" v-model="valid">
+  <v-form class="form">
+    <slot name="header"></slot>
+    <hr />
     <slot></slot>
   </v-form>
 </template>
@@ -9,11 +11,11 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "App",
-
-  data() {
-    return {
-      valid: false,
-    };
+  props: {
+    valid: {
+      type: Boolean, 
+      default: () => null,
+    },
   },
 });
 </script>
