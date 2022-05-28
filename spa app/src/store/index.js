@@ -17,7 +17,7 @@ export default createStore({
       },
       {
         login: "support",
-        passowrd: "support12345",
+        password: "support12345",
         rights: "support",
       },
     ],
